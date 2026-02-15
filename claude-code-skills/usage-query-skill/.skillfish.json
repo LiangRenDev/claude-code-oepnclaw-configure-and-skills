@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "usage-query-skill",
+  "owner": "sherkevin",
+  "repo": "cc-helper",
+  "path": "zai-coding-plugins/plugins/glm-plan-usage/skills/usage-query-skill",
+  "branch": "master",
+  "sha": "ca79ef555aa305248830d0450ea71497a24945b3",
+  "source": "manual"
+}
