@@ -1,0 +1,705 @@
+[
+  {
+    "source": "Hacker News",
+    "title": "Show HN: SQL-tap – Real-time SQL traffic viewer for PostgreSQL and MySQL",
+    "url": "https://github.com/mickamy/sql-tap",
+    "heat": "29 points",
+    "time": "1 hour ago",
+    "content": "GitHub - mickamy/sql-tap: Watch SQL traffic in real-time with a TUI Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert mickamy / sql-tap Public Notifications You must be signed in to change notification settings Fork 1 Star 50 Watch SQL traffic in real-time with a TUI License MIT license 50 stars 1 fork Branches Tags Activity Star Notifications You must be signed in to change notification settings mickamy/sql-tap main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 54 Commits 54 Commits .github/ workflows .github/ workflows broker broker clipboard clipboard cmd/ sql-tapd cmd/ sql-tapd docs docs dsn dsn example example explain explain gen/ tap/ v1 gen/ tap/ v1 highlight highlight proto/ tap/ v1 proto/ tap/ v1 proxy proxy query query server server tui tui .dockerignore .dockerignore .gitignore .gitignore .golangci.yaml .golangci.yaml .goreleaser.yaml .goreleaser.yaml Dockerfile Dockerfile LICENSE LICENSE Makefile Makefile README.md README.md buf.gen.yaml buf.gen.yaml buf.lock buf.lock buf.yaml buf.yaml go.mod go.mod go.sum go.sum main.go main.go View all files Repository files navigation sql-tap Real-time SQL traffic viewer — proxy daemon + TUI client. sql-tap sits between your application and your database (PostgreSQL or MySQL), capturing every query and displaying it in an interactive terminal UI. Inspect queries, view transactions, and run EXPLAIN — all without changing your application code. Installation Homebrew brew install --cask mickamy/tap/sql-tap Go go install github.com/mickamy/sql-tap@latest go install github.com/mickamy/sql-tap/cmd/sql-tapd@latest Build from source git clone https://github.com/mickamy/sql-tap.git cd sql-tap make install Docker PostgreSQL FROM postgres:18-alpine ARG SQL_TAP_VERSION=0.0.1 ARG TARGETARCH ADD https://github.com/mickamy/sql-tap/releases/download/v${SQL_TAP_VERSION}/sql-tap_${SQL_TAP_VERSION}_linux_${TARGETARCH}.tar.gz /tmp/sql-tap.tar.gz RUN tar -xzf /tmp/sql-tap.tar.gz -C /usr/local/bin sql-tapd && rm /tmp/sql-tap.tar.gz ENTRYPOINT [ \"sql-tapd\" , \"--driver=postgres\" , \"--listen=:5433\" , \"--upstream=localhost:5432\" , \"--grpc=:9091\" ] MySQL FROM mysql:8 ARG SQL_TAP_VERSION=0.0.1 ARG TARGETARCH ADD https://github.com/mickamy/sql-tap/releases/download/v${SQL_TAP_VERSION}/sql-tap_${SQL_TAP_VERSION}_linux_${TARGETARCH}.tar.gz /tmp/sql-tap.tar.gz RUN tar -xzf /tmp/sql-tap.tar.gz -C /usr/local/bin sql-tapd && rm /tmp/sql-tap.tar.gz ENTRYPOINT [ \"sql-tapd\" , \"--driver=mysql\" , \"--listen=:3307\" , \"--upstream=localhost:3306\" , \"--grpc=:9091\" ] Quick start 1. Start the proxy daemon # PostgreSQL: proxy listens on :5433, forwards to PostgreSQL on :5432 DATABASE_URL= \" postgres://user:pass@localhost:5432/db?sslmode=disable \" \\ s"
+  },
+  {
+    "source": "Hacker News",
+    "title": "NPMX – a fast, modern browser for the NPM registry",
+    "url": "https://npmx.dev",
+    "heat": "66 points",
+    "time": "4 hours ago",
+    "content": "npmx - Package Browser for the npm Registry Skip to main content Get involved Contribute Help us build a better npm experience. View on GitHub Join the community Chat, ask questions, and share ideas. Join Discord Stay updated Find out the latest on npmx. Follow on Bluesky"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Show HN: Data Engineering Book – An open source, community-driven guide",
+    "url": "https://github.com/datascale-ai/data_engineering_book/blob/main/README_en.md",
+    "heat": "127 points",
+    "time": "8 hours ago",
+    "content": "data_engineering_book/README_en.md at main · datascale-ai/data_engineering_book · GitHub Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert datascale-ai / data_engineering_book Public Notifications You must be signed in to change notification settings Fork 17 Star 215 You can’t perform that action at this time."
+  },
+  {
+    "source": "Hacker News",
+    "title": "Understanding the Go Compiler: The Linker",
+    "url": "https://internals-for-interns.com/posts/the-go-linker/",
+    "heat": "16 points",
+    "time": "3 hours ago",
+    "content": "The Linker | Internals for Interns 📚 Understanding the Go Compiler (8 of 8) ▼ 1. The Scanner 2. The Parser 3. The Type Checker 4. The Unified IR Format 5. The IR 6. The SSA Phase 7. From SSA to Machine Code 8. The Linker You are here In the previous post , we watched the compiler transform optimized SSA into machine code bytes and package them into object files. Each .o file contains the compiled code for one package—complete with machine instructions, symbol definitions, and relocations marking addresses that need fixing. But your program isn’t just one package. Even a simple “hello world” imports fmt , which imports io , os , reflect , and dozens of other packages. Each package is compiled separately into its own object file. None of these files can run on their own. This is where the linker comes in. The linker’s job is to take all these separate object files and combine them into a single executable that your operating system can run. Let me show you what the linker does and how it does it. What the Linker Does At a high level, the linker performs four main tasks: 1. Symbol Resolution : Your code calls fmt.Println , but that function is defined in a different object file. The linker finds all these cross-file references and connects them. 2. Relocation : Remember those placeholder addresses in the machine code? The linker patches them with actual addresses now that it knows where everything will live in memory. 3. Dead Code Elimination : If you import a package but only use one function, the linker removes all the unused functions. This keeps your binary small. 4. Layout and Executable Generation : The linker decides where in memory each piece of code and data will live, then writes out an executable in the format your OS expects (ELF on Linux, Mach-O on macOS, PE on Windows). Let’s walk through each of these steps, starting with how the linker figures out what symbols exist and where they live. Symbol Resolution Every object file contains symbols —names that identify functions, global variables, and other program elements. Some symbols are defined in a file (the actual code or data lives there), while others are just referenced (the code uses them, but they live somewhere else). Let me show you what I mean: // main.go package main import \"fmt\" func main () { fmt . Println ( \"Hello\" ) } When compiled, your main.o contains main.main —that’s your function, complete with machine code. But it also references fmt.Println , and that code isn’t here. It’s just a name pointing somewhere else. Note: In practice, fmt.Println gets inlined by the compiler, so there’s no actual cross-package reference in this case. But the concept holds for functions that don’t get inlined. Over in fmt.o , you’ll find the actual fmt.Println implementation. But that file references io.Writer , os.Stdout , and dozens more symbols from other packages. Each package defines some symbols and references others. The linker needs to match all these references with their definition"
+  },
+  {
+    "source": "Hacker News",
+    "title": "GPT-5.2 derives a new result in theoretical physics",
+    "url": "https://openai.com/index/new-result-theoretical-physics/",
+    "heat": "441 points",
+    "time": "11 hours ago"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Common Lisp Screenshots: today's CL applications in action",
+    "url": "http://www.lisp-screenshots.org",
+    "heat": "79 points",
+    "time": "7 hours ago",
+    "content": "Common Lisp Screenshots <body><a href=\"https://simple.photo/vindarel/c352e2c0177b24786fb40041657485dd/common-lisp-screenshots/\">Click here</a><hr></body>"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Building a TUI is easy now",
+    "url": "https://hatchet.run/blog/tuis-are-easy-now",
+    "heat": "186 points",
+    "time": "10 hours ago",
+    "content": "Hatchet · Building a TUI is easy now Hatchet is hiring! See open roles → Building a TUI is easy now Alexander Belanger Co-Founder · Hatchet When I first booted up Claude Code in May 2025, I thought: huh, this is cute. A terminal-based coding agent...they must be pandering to developers. Within the first 30 minutes, I was convinced: this was going to be huge. So huge that we at Hatchet discussed whether we should build a new product line around terminal-based coding agents. Ultimately, we decided against it, but that first experience with Claude Code stuck with me. It seems so simple and obvious in hindsight that a terminal-based agent would have a incredibly fast adoption curve among developers. Perhaps you have a similar feeling that the tool you're working on should have a TUI. Perhaps you've always wanted to build a TUI yourself. Or perhaps you just like saying too-ee. I say: go for it. It's much easier than I was expecting, using a few neat tricks with Claude Code. This is coming from a skeptic. We had previously attempted an aggressive, agent-first refactor of our frontend which was built in a week, bug-bashed for five, then abandoned. In comparison, this TUI was mostly driven by Claude Code, but was built and shipped in a few days. You can check it out a live demo here: 🔔 Live demo: https://tui.hatchet.run For all you budding TUI developers, I wanted to write out some of the decisions that made this significantly easier than similar projects of mine: a “happy path” to building a successful TUI application. Why build a TUI? I've always wanted a TUI for Hatchet. Something like k9s , but for tasks and workflow runs. I wasn't sure anyone else would find it useful, and we didn't even really announce it to our community, but within a few days we got some very positive, unsolicited feedback from our users. For example: Guys great work on the Hatchet CLI (especially the TUI!) It feels so [much more] performant than the UI. I love this comment, because it gets at the heart of why I love TUIs - they just feel easier to use, even though it uses the exact same API as the UI. They're also the opposite of how web applications have been trending the past few years: TUIs are text-first, information-dense, and most importantly, they live inline to your code, preventing constant tab switching. And since our users are primarily developing Hatchet tasks and durable workflows in their IDE, we wanted to provide an experience where workflows could be visualized and run from a terminal, instead of constantly switching between your code and your browser. The stack Let's get into the details. Every frontend application starts with a stack: A typical one these days might be React, react-query , Tailwind, ShadCN, and some additional Tanstack libraries. There's an equivalent of these libraries for TUI development — and they're all maintained by the same company! I'm referring to the Charm stack : if you're unfamiliar, the team at Charm has been building out a set of TU"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Adventures in Neural Rendering",
+    "url": "https://interplayoflight.wordpress.com/2026/02/10/adventures-in-neural-rendering/",
+    "heat": "20 points",
+    "time": "4 hours ago",
+    "content": "Adventures in Neural Rendering – Interplay of Light Skip to content In recent years, neural networks have started to find their way into many areas of rendering. While antialiasing and upscaling are probably the most well‑known uses, they’re far from the only ones—texture compression, material representation, and indirect lighting are all active areas of research and development. I recently started tinkering with neural networks, experimenting with small multilayer perceptrons (MLPs) as a way to encode data in the context of rendering. This post outlines the process and shares some of the initial results and observations from a graphics programmer’s perspective (without much previous experience in neural networks). Before we begin, a quick note that this is not really a tutorial about MLPs, neural networks (NNs), even in their simplest form are a fairly complex topic and there are many good resources out there to start learning about them, I recommend these 2 as an introduction: Machine Learning for Game Developers and Crash Course in Deep Learning . Instead, I will summarise a few aspects of them for reference. For a visual reference, this is what a simple MLP looks like: In this case the network is made up of 3 input nodes, 2 hidden layers of 3 nodes each and one output node (From now on I will use the 3-3-3-1 notation to describe an MLP). The intermediate layers are “hidden” in the sense that we don’t interact with them directly, we only provide the input data and observe the output data. Also, I used this particular number of nodes in this configuration but there is no limit to the number of nodes in each layer, other than memory and processing time. And the number of nodes in a layer matters, because each node processes all the nodes of the preceding layer (i.e. the graph is fully connected), for example focusing on Node 0 in the hidden layer 1: it will combine the 3 input nodes and produce its output (fed to the next layer) as follows The output value of node 0 is simply put a biased weighted sum of all the input nodes output. Before we feed that value to the next layer we have to pass it through an “activation” function. This performs an operation on that value, a popular one being removing all negative values, called ReLU: and a variation of it for a small alpha value (eg 0.01). This version still keeps some negative outputs and I have found leads to faster learning. There are many options when it comes to selecting an activation function for a neural network, each having a different impact on the learning rate and convergence, ReLU and LeakyReLU are a good first starts though and LeakyReLU is what I used for the experiments described in this post. Going back to the reference to storage requirements, to store the weights and biases for the above MLP, assuming a float data type for each, we would need for the first hidden layer 3 floats for the weights of the inputs and one float for the bias per node (3×3+3 floats), for the second the sam"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Font Rendering from First Principles",
+    "url": "https://mccloskeybr.com/articles/font_rendering.html",
+    "heat": "127 points",
+    "time": "10 hours ago",
+    "content": "mccloskeybr Font Rendering from First Principles February 1, 2026 Font rendering is a technology that often gets taken for granted -- it's hard to imagine interacting with computers without it. But how hard could it really be? Turns out, way harder than you might think: Text can be rendered at arbitrary sizes. How is font data encoded such that glyphs remain high quality regardless of the target resolution? Fonts are generally curved, pixels are not. How should we anti-alias glyphs to keep text visually appealing? How should we design a system that respects the different layout rules of different languages (e.g. English vs. Arabic)? Looking at FreeType (GPL-licensed, used in e.g. Chromium, GNU/Linux, etc.), they claim to be >200k LOC. I decided to roll my own. In this article, I provides a high level walkthrough of the TTF file spec and my implementation . But first, why not just use FreeType, or some other equivalent? What's the benefit of going through it yourself? Develop a deeper appreciation for the foundational tech that lets us use e.g. the internet. Without it, you wouldn't be reading this right now. Build an intuition for the amount of work required to render a web page / GUI. Why is font caching important? How might we lower render times? Having a good understanding of the fundamentals unlocks the ability to extend it further. E.g. adding programmatic borders via SDFs. It's fun, why not. We're fans of recreational programming here. The TTF file format Before we can start rendering strings, we first need to read the font data in. I focused on TTF (TrueType) file format for my implementation. The other generally used format, OTF (OpenType), can be considered a superset of TTF (also including PostScript fonts), so if you wanted to render OTF fonts, you'd have to make a TTF parser anyway. There are plenty of fonts expressed using TTF over OTF, certainly enough to cover my initial use case (latin alphanumeric glyphs), so I doubt I'm going to extend the implementation to OTF any time soon. At a high level, TTF files provide some mapping between character codepoints to glyph information. What is a codepoint? A character's \"codepoint\" refers to its unicode encoding format. You may be familiar with ASCII encoding, which is a 1-byte wide representation of each character in the latin alphabet (for example, the character 'A' maps to 65, 'z' maps to 122, etc.). A major limiting factor with ASCII is it doesn't provide nearly enough space to describe non-latin languages as well. Unicode is an internationally adopted solution to this problem. Unicode has various encoding formats, for example UTF-8 and UTF-32; their only difference is how they encode this codepoint (UTF-32 always represents codepoints using 4 bytes, UTF-8 uses a variable length). Conveniently, UTF-8 is backwards compatible with ASCII (thanks, Ken Thompson & Rob Pike). Since I'm only focusing on the latin alphabet for now, this means the codepoint for 'a' can be retrieved via (uint8_t) ("
+  },
+  {
+    "source": "Hacker News",
+    "title": "Gradient.horse",
+    "url": "https://gradient.horse",
+    "heat": "191 points",
+    "time": "7 hours ago",
+    "content": "gradient.horse ? + × gradient.horse Honestly I just wanted to play around with gradients. But gradients without anything on the horizon lack something, so I added horses. Since I can't draw horses, now you can draw them. And watch them parade across the screen alongside horses drawn by people you probably wouldn't like. Or maybe you would, how should I know?! Click/tap a horse to make it jump forward with joy. Double-click/tap a horse to let it fall off the face of the earth – you will not see this kind of horse ever again. Unless, of course, you click the Horse Amnesty button down below. We actually analyze each horse drawing using AGI (Artificial Goose Intelligence), and filter out drawings that appear un-horse-like. If you want to see them anyhow, activate the SHOW NON-HORSES option. SHOW NON-HORSES ⚠️ May include off-topic or inappropriate content Horse Amnesty Made by Michail Rybakov . Support gradient.horse! Music: Linear Loop × Support gradient.horse gradient.horse is a small indie art project powered by love. If you enjoy watching horses on their eternal gradient run, here are two ways to support: Buy me a coffee buymeacoffee.com/rybakov.com Get a horse mug You can also support gradient.horse by ordering a mug with your own horses on it from Zazzle! Get your horse mug × Support gradient.horse gradient.horse is a small indie art project fueled by love for a more playful and whimsical web. If you enjoy watching horses on their eternal gradient run, here are two ways to support: Buy me a coffee buymeacoffee.com/rybakov.com Get a horse mug Get a cute mug with your horses on it! Please note that when you restart your browser, it may forget which horses you created. So order now, or just draw more horses later! Loading your horses... You haven't drawn any horses yet! Draw some horses first, then come back to put them on a mug. Print your favorite horse or feature all your horses in a parade? Single Horse Horse Parade Select which horses to put on your mug (up to 11): Preview Design Loading mug preview... Order on Zazzle! 🐎 × Draw a horse facing right 🐎 → Body Hind Legs Front Legs 11 Size ↶ Undo Clear Let your horse run! 🐎"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Show HN: I spent 3 years reverse-engineering a 40 yo stock market sim from 1986",
+    "url": "https://www.wallstreetraider.com/story.html",
+    "heat": "108 points",
+    "time": "7 hours ago",
+    "content": "The Story of Wall Street Raider - A 40-Year Odyssey from Harvard Law to Steam Home The Story Testimonials Wishlist on Steam The Origin Story The Story of Wall Street Raider A 40-Year Odyssey from Harvard Law to Steam Wall Street Raider: from DOS to a modern Bloomberg-style interface Prologue: The Dragon That Couldn't Be Slain A Denver company that developed legal software tried. They failed. A game studio that made software for Disney tried. They spent over a year and hundreds of thousands of dollars. They had a team of programmers in Armenia, overseen by an American PhD in mathematics. They failed. Commodore Computers tried. After three months of staring at the source code, they gave up and mailed it back. Steam looked at it once, during the Greenlight era. \"Too niche,\" they said. \"Nobody will buy it. And if they do, they'll return it.\" For nearly four decades, Wall Street Raider existed as a kind of impossible object—a game so complex that its own creator barely understood parts of it, written in a programming language so primitive that professional developers couldn't decode it. The code was, in the creator's own words, \"indecipherable to anyone but me.\" And then, in January 2024, a 29-year-old software developer from Ohio named Ben Ward sent an email. Michael Jenkins, 80 years old and understandably cautious after decades of failed attempts by others, was honest with him: I appreciate the enthusiasm, but I've been through this before. Others have tried—talented people with big budgets—and none of them could crack it. I'll send you the source code, but I want to be upfront: I'm not expecting miracles. A year later, that same 29-year-old would announce on Reddit: \"I am the chosen one, and the game is being remade. No ifs, ands, or buts about it.\" He was joking about the \"chosen one\" part. Sort of. This is the story of how Wall Street Raider—the most comprehensive financial simulator ever made—was born, nearly died, and was resurrected. It's a story about obsession, about code that takes on a life of its own, about a game that accidentally changed the careers of hundreds of people. And it's about the 50-year age gap between two developers who, despite meeting in person for the first time only via video call, would trust each other with four decades of work. The Notebooks Harvard Law School, 1967 Michael Jenkins was supposed to be studying. Instead, he was filling notebooks with ideas for a board game. Not just any board game. Jenkins wanted to build something like Monopoly, but instead of hotels and railroads, you'd buy and sell corporations. You'd issue stock. You'd execute mergers. You'd structure leveraged buyouts. The game would simulate the entire machinery of American capitalism, from hostile takeovers to tax accounting. There was just one problem: it was impossible. \"Nobody's going to have the patience to do this,\" Jenkins realized as he stared at his prototype—a board covered in tiny paper stock certificates, a calculator for working out"
+  },
+  {
+    "source": "Hacker News",
+    "title": "The EU moves to kill infinite scrolling",
+    "url": "https://www.politico.eu/article/tiktok-meta-facebook-instagram-brussels-kill-infinite-scrolling/",
+    "heat": "466 points",
+    "time": "9 hours ago",
+    "content": "The EU moves to kill infinite scrolling – POLITICO Skip to main content Advertisement BRUSSELS — Doom scrolling is doomed, if the EU gets its way. The European Commission is for the first time tackling the addictiveness of social media in a fight against TikTok that may set new design standards for the world’s most popular apps. Brussels has told the company to change several key features, including disabling infinite scrolling, setting strict screen time breaks and changing its recommender systems. The demand follows the Commission's declaration that TikTok’s design is addictive to users — especially children. Advertisement Advertisement The fact that the Commission said TikTok should change the basic design of its service is “ground-breaking for the business model fueled by surveillance and advertising,\" said Katarzyna Szymielewicz, president of the Panoptykon Foundation, a Polish civil society group. That doesn’t bode well for other platforms, particularly Meta’s Facebook and Instagram. The two social media giants are also under investigation over the addictiveness of their design. The findings laid out a week ago mark the first time the Commission has set out its stance on the design of a social media platform under its Digital Services Act, the EU’s flagship online-content law that Brussels says is essential for protecting users. TikTok can now defend its practices and review all the evidence the Commission considered — and has said it would fight these findings. If it fails to satisfy the Commission, the app could face fines up to 6 percent of annual global revenue. It’s the first time any regulator has attempted to set a legal standard for the addictiveness of platform design, a senior Commission official said in a briefing to reporters. “The findings mark a turning point [because] the Commission is treating addictive design on social media as an enforceable risk” under the Digital Services Act, said Lena-Maria Böswald, senior policy researcher at think tank Interface. Advertisement Advertisement Jan Penfrat, senior policy adviser at civil rights group EDRi, said it would be \"very, very strange for the Commission to not then use this as a template and go after other companies as well.” Defining risks The Digital Services Act requires platforms like TikTok to assess and mitigate risks to their users. But these risks are vaguely defined in the law, so until now it had been unclear exactly where the regulator would draw the line. Two years after the TikTok probe was launched , the Commission has opted to strike at the heart of platform design, claiming it poses a risk to the mental health of users, particularly children. The Commission's other concerns with TikTok were settled amicably between the two sides. Jaap Arriens/NurPhoto via Getty Images At a briefing with reporters, EU tech chief Henna Virkkunen said the findings signal that the Commission's work is entering a new stage of maturity when it comes to systemic risks. Facebook and Insta"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Backblaze Drive Stats for 2025",
+    "url": "https://www.backblaze.com/blog/backblaze-drive-stats-for-2025/",
+    "heat": "22 points",
+    "time": "1 hour ago",
+    "content": "Backblaze Drive Stats for 2025 This year marks 13 years of collecting Drive Stats data. Thirteen is an unlucky number (to some), but we count our lucky stars (or perhaps our lucky stats?) that we’ve had 13 years of this experiment . The traditional 13-year anniversary gift is lace—intricate, impressive, and vulnerable to a snag if you don’t plan ahead to protect the pattern. Systems, like lace, don’t survive by pretending there are no points of vulnerability. When it comes to our infrastructure, we want to build with the snags in mind to create something durable, and the Drive Stats series is always seeking to publish and provide data so that you, too, can go the distance with your drives. This year-end Drive Stats report looks at Q4 2025, the full year, and the lifetime view with that in mind. I think you’ll find the same things we do: over time, the patterns matter more than any single strand (or drive, to run this lace metaphor into the ground once and for all). Let’s look at the stats. Drive Stats is here for you Drive Stats is not a situationship. We’re a conversation and a relationship—to the data. Join the Drive Stats team for our regularly scheduled webinar to walk through the 2025 annualized failure rates, break down the data for interesting trends, and get the latest from the Backblaze drive fleet happenings. Drive Stats: The digest version Q4 2025 hard drive failure rates As of the end of 2025, Backblaze was monitoring 341,664 drives used to store data. For our evaluation, we removed from consideration 4,013 boot drives and 459 hard drives, as they did not meet the criteria to be included. We’ll discuss the criteria we used in the next section of this report. Removing these drives leaves us with 337,192 hard drives to analyze. The table below shows the annualized failure rates for Q4 2025 for this collection of drives. Backblaze Hard Drive Failure Rates for Q4 2025 Reporting period October 1, 2025–December 31, 2025 inclusive Drive models with drive count > 100 as of December 31, 2025 and drive days > 10,000 in Q4 2025. Note and observations New drives! Seagate ST16000NM000J 16TB, with 112 drives WDC WUH722626ALE6L4 26TB with 1,201 drives. Our first 26TB drive! The honor roll: HGST HMS5C4040BLE640 4TB: 1 failure Seagate ST8000NM000A 8TB: 0 failure Seagate ST12000NM000J 12TB: 1 failure Seagate ST16000NM000J 16TB: 1 failure Seagate ST16000NM002J 16TB: 0 failure WDC WUH722626ALE6L4 26TB: 1 failure. Shoutout to the new kid—starting off strong! Red flags: HGST HUH728080ALE600 8TB: 10.29% Seagate ST10000NM0086 10TB: 5.23% Toshiba MG08ACA16TEY 16TB: 4.14% We talked about two of these drives last quarter , and what we said about the Seagate still holds true—we’re seeing end of life activity with this drive. But, let’s dig in on the 8TB HGST and 16TB Toshiba and see what’s going on. HGST HUH728080ALE600 8TB There’s always some digging to be done when we see a double digit failure rate, especially on a drive that, in the past year, hasn’t had ter"
+  },
+  {
+    "source": "Hacker News",
+    "title": "gRPC: From service definition to wire format",
+    "url": "https://kreya.app/blog/grpc-deep-dive/",
+    "heat": "111 points",
+    "time": "12 hours ago",
+    "content": "gRPC deep dive: from service definition to wire format | Kreya Skip to main content In our previous posts ( part 1 and part 2 ), we demystified Protocol Buffers and learned how data is encoded into compact binary. But Protobuf is just the payload. To send this data between microservices, we need a transport protocol. Enter gRPC . While many developers use gRPC daily, few look under the hood to see how it actually works. In this post, we’ll go beyond the basics and explore the full gRPC protocol stack: from the high-level service architecture and streaming models down to the low-level HTTP/2 framing and byte-level wire format. The contract-first philosophy ​ At the heart of gRPC lies the contract-first approach. Unlike REST, where API documentation (like OpenAPI) is often an afterthought, gRPC enforces the structure upfront using Protocol Buffers ( .proto files). This contract defines not just the data structures (Messages), but the service capabilities (RPCs): package fruit . v1 ; service FruitService { // Unary: simple request -> response rpc GetFruit ( GetFruitRequest ) returns ( Fruit ) ; // Server streaming: one request -> many responses rpc ListFruits ( ListFruitsRequest ) returns ( stream Fruit ) ; // Client streaming: many requests -> one response rpc Upload ( stream Fruit ) returns ( UploadSummary ) ; // Bidirectional streaming: many requests <-> many responses rpc Chat ( stream ChatMessage ) returns ( stream ChatMessage ) ; } This definition is the source of truth. From this single file, the protobuf compiler ( protoc ) generates client stubs and server boilerplate in almost any language (Go, Java, C#, Python, etc.), ensuring that the client and server always agree on the API shape. Streaming models ​ One of the biggest differentiators of gRPC is its native support for streaming. This isn't just \"chunked transfer encoding\", it's first-class API semantics. Unary : Looks like a standard function call or REST request. The client sends one message, the server sends one back. Server streaming : Perfect for subscriptions or large datasets. The client sends a query, and the server returns multiple results over time. Client streaming : Useful for sending a stream of data (like telemetry from an IoT device) where the server processes messages as they arrive. Bidirectional streaming : True real-time communication. Both sides can send messages independently. This is often used for chat apps or multiplayer games. Metadata ​ In addition to the actual data, gRPC allows sending metadata. Metadata is a list of key-value pairs (like HTTP headers) that provide information about the call. Keys are strings, and values are typically strings, but can also be binary data. The key names are case-insensitive and must not start with grpc- (reserved for gRPC internals). The keys of binary values must end with -bin . Metadata is essential for cross-cutting concerns that shouldn't be part of the business logic payload: Authentication : Usage of Bearer tokens (e.g., "
+  },
+  {
+    "source": "Hacker News",
+    "title": "Monosketch",
+    "url": "https://monosketch.io/",
+    "heat": "749 points",
+    "time": "18 hours ago",
+    "content": "MonoSketch - Unleash your ideas with ASCII MonoSketch [*] Unleash your ideas with ASCII MonoSketch is a powerful ASCII sketching and diagramming app that lets you effortlessly transform your ideas into visually stunning designs. Start sketching +10-15V 0,047R ●─────────○───────○─░░░░░─○─○─────────○────○─────╮ + │ │ │ │ │ │ │ │ ─═════─ │ │ │ │ │ │ │ ─═════─ ──┼── │ │╭┴╮ │ │ │ ─═════─ ─┼─ │ ││ │ 2k2 │ │ │ - │ 470│ + │ ││ │ │ │ │ │ uF│ ╰──╮ │╰┬╯ ╭┴╮ │ │ └─────────○ │ │ │ 1k │ │ │ ▽ LED │ 6│ 7│ │8 │ │ │ ┬ ───┴─── ╭──┴────┴─┴─╮ ╰┬╯ │ │ ─═══─ │ │1 │ │ / BC │ ─ │ ├───────○──┤/ 547 │ GND │ │ │ │ ▶ │ │ │ ╭┴╮ │ │ ╭─────────┤ │ 220R│ │ ○───┤├┘ IRF9Z34 │ │ │ │ │ │ │├─▶ │ │ MC34063 │ ╰┬╯ │ │├─┐ BYV29 -12V6 │ │ │ │ │ ○──┤◀─○────○───X OUT - │ + │ │2 ╰────╯ │ │ │ 6000 micro ────┴──── │ ├──○ C│ │ ─── 470 Farad, 40V ─ ─ ┬ ─ ─ │ │ GND C│ │ ███ uF Capacitor │ │ │3 C│ │ │\\ │ │ ├────────┤├╮ │ │ GND │ ╰─────┬───┬─╯ │ GND │ │ 5│ 4│ │ │ │ │ ╰────────────○──────────────○ │ │ │ ╰───────────────●─────/\\/\\/─────────○─────░░░░──╯ 2k │ 1k0 ╭┴╮ │ │5k6 3k3 │ │in Serie ╰┬╯ │ GND ╭──────────────╮ │ Have a good │ │ day!!! │ ╭─┼──────────────╯ /\\_/\\ ╰─╯ ( o.o ) > ^ < MonoSketch is Open source I'm passionate about creating ASCII graphs, versatile visual aids for demonstrations and code integration. After an unsuccessful search for a good solution, I was inspired to embark on this project. Explore the source code Start simple with building blocks Rectangle Line Text box ┌────────────┐ ┌────────────┐ │ │ ─────────────── │ │ │ │ │ Text │ │ │ │ │ └────────────┘ └────────────┘ ...and apply formats Rectangle Line Text box ╭────────────╮ ╔ ═ ═ ═ ═ ═ ═ │ │ ■━━━━━━━━━━━━━▶ ████████████║ │ │ ║Text████████ │ │ ████████████║ ╰────────────╯ ╚ ═ ═ ═ ═ ═ ═ the result ┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ Network Interface │ │┌───────────────────┐ ┌───────────────────┐ │ Cluster │ │ Client ││ ││ Communication │ │ Communication │ └───────────────────┘ └──────□────────────┘│ └ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─│─ ─ ─ ─ ─ ─ ─ ┌──────────────┘ ┌ ─ ─ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ Relational Engine│ │ │┌────────────────▼──┐ ┌───────────────────┐ │ Command Parser □────▶ Query Optimizer ││ ││ │ │ │ └───────────────────┘ └─────────□─────────┘│ │┌───────────────────┐ │ │ Query Executor ◀──────────────┘ │ ││ │ └───────────────────┘ │ └ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ Start sketching More examples See examples Client - Server communication Client Server ■ ■ │ Establish TCP Connection │ ┌ ─ ─ ─ ─ ─ ─ ─│─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─ ─ ─ ─ ─ ─ SYN├───────────────────────────────────▶░SYN │ │ │ ░ACK ACK│◀───────────────────────────────────░ │ └ ─ ─ ─ ─ ─ ─ ─│─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─ ─ ─ ─ ─ ─ │ │ │ │ │ SSL/TLS Handshake │ ┌ ─ ─ ─ ─ ─ ─ ─│─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─ ─ ─ ─ ─ ─ ClientHello░───────────────────────────────────▶░ │ │ ░ ░Server Hello Certificate░◀───────────────────────────────────░Certificate │ │ verification░ ░ ░ ░ │ │ Cli"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "产检正常生出畸形儿医院被罚2.5万",
+    "url": "https://s.weibo.com/weibo?q=%E4%BA%A7%E6%A3%80%E6%AD%A3%E5%B8%B8%E7%94%9F%E5%87%BA%E7%95%B8%E5%BD%A2%E5%84%BF%E5%8C%BB%E9%99%A2%E8%A2%AB%E7%BD%9A2.5%E4%B8%87&Refer=top",
+    "heat": "1066839",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "红包",
+    "url": "https://s.weibo.com/weibo?q=%E7%BA%A2%E5%8C%85&Refer=top",
+    "heat": "757685",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "看电影的快乐正全面升级",
+    "url": "https://s.weibo.com/weibo?q=%E7%9C%8B%E7%94%B5%E5%BD%B1%E7%9A%84%E5%BF%AB%E4%B9%90%E6%AD%A3%E5%85%A8%E9%9D%A2%E5%8D%87%E7%BA%A7&Refer=top",
+    "heat": "616186",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "张萌说浪姐收手机是因为黄圣依",
+    "url": "https://s.weibo.com/weibo?q=%E5%BC%A0%E8%90%8C%E8%AF%B4%E6%B5%AA%E5%A7%90%E6%94%B6%E6%89%8B%E6%9C%BA%E6%98%AF%E5%9B%A0%E4%B8%BA%E9%BB%84%E5%9C%A3%E4%BE%9D&Refer=top",
+    "heat": "529668",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "成都天府大道事故酒驾司机全责",
+    "url": "https://s.weibo.com/weibo?q=%E6%88%90%E9%83%BD%E5%A4%A9%E5%BA%9C%E5%A4%A7%E9%81%93%E4%BA%8B%E6%95%85%E9%85%92%E9%A9%BE%E5%8F%B8%E6%9C%BA%E5%85%A8%E8%B4%A3&Refer=top",
+    "heat": "312309",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "情人节",
+    "url": "https://s.weibo.com/weibo?q=%E6%83%85%E4%BA%BA%E8%8A%82&Refer=top",
+    "heat": "303566",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "许昌职业技术学院毕业包分配为谣言",
+    "url": "https://s.weibo.com/weibo?q=%E8%AE%B8%E6%98%8C%E8%81%8C%E4%B8%9A%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2%E6%AF%95%E4%B8%9A%E5%8C%85%E5%88%86%E9%85%8D%E4%B8%BA%E8%B0%A3%E8%A8%80&Refer=top",
+    "heat": "254379",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "百果园回应一根甘蔗卖87元",
+    "url": "https://s.weibo.com/weibo?q=%E7%99%BE%E6%9E%9C%E5%9B%AD%E5%9B%9E%E5%BA%94%E4%B8%80%E6%A0%B9%E7%94%98%E8%94%97%E5%8D%9687%E5%85%83&Refer=top",
+    "heat": "229039",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "黄大宪一直盯着看林孝埈",
+    "url": "https://s.weibo.com/weibo?q=%E9%BB%84%E5%A4%A7%E5%AE%AA%E4%B8%80%E7%9B%B4%E7%9B%AF%E7%9D%80%E7%9C%8B%E6%9E%97%E5%AD%9D%E5%9F%88&Refer=top",
+    "heat": "166971",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "羽生结弦的含金量还在上升",
+    "url": "https://s.weibo.com/weibo?q=%E7%BE%BD%E7%94%9F%E7%BB%93%E5%BC%A6%E7%9A%84%E5%90%AB%E9%87%91%E9%87%8F%E8%BF%98%E5%9C%A8%E4%B8%8A%E5%8D%87&Refer=top",
+    "heat": "147771",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "游客已在胖东来买到搬不动了",
+    "url": "https://s.weibo.com/weibo?q=%E6%B8%B8%E5%AE%A2%E5%B7%B2%E5%9C%A8%E8%83%96%E4%B8%9C%E6%9D%A5%E4%B9%B0%E5%88%B0%E6%90%AC%E4%B8%8D%E5%8A%A8%E4%BA%86&Refer=top",
+    "heat": "128880",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "成何体统圆房镜头要钓我几天",
+    "url": "https://s.weibo.com/weibo?q=%E6%88%90%E4%BD%95%E4%BD%93%E7%BB%9F%E5%9C%86%E6%88%BF%E9%95%9C%E5%A4%B4%E8%A6%81%E9%92%93%E6%88%91%E5%87%A0%E5%A4%A9&Refer=top",
+    "heat": "128830",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "岳云鹏蔡文静亲密戏",
+    "url": "https://s.weibo.com/weibo?q=%E5%B2%B3%E4%BA%91%E9%B9%8F%E8%94%A1%E6%96%87%E9%9D%99%E4%BA%B2%E5%AF%86%E6%88%8F&Refer=top",
+    "heat": "128688",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "中国男子巴厘岛溺亡同伴连滚带爬求救",
+    "url": "https://s.weibo.com/weibo?q=%E4%B8%AD%E5%9B%BD%E7%94%B7%E5%AD%90%E5%B7%B4%E5%8E%98%E5%B2%9B%E6%BA%BA%E4%BA%A1%E5%90%8C%E4%BC%B4%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E6%B1%82%E6%95%91&Refer=top",
+    "heat": "128393",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "中戏 主动投案",
+    "url": "https://s.weibo.com/weibo?q=%E4%B8%AD%E6%88%8F%20%E4%B8%BB%E5%8A%A8%E6%8A%95%E6%A1%88&Refer=top",
+    "heat": "128205",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "SynkraAI/aios-core - Synkra AIOS: AI-Orchestrated System for Full Stack Development - Core Framework v4.0",
+    "url": "https://github.com/SynkraAI/aios-core",
+    "heat": "469 stars",
+    "time": "Today",
+    "content": "GitHub - SynkraAI/aios-core: Synkra AIOS: AI-Orchestrated System for Full Stack Development - Core Framework v4.0 Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert SynkraAI / aios-core Public Uh oh! There was an error while loading. Please reload this page . Notifications You must be signed in to change notification settings Fork 219 Star 469 Synkra AIOS: AI-Orchestrated System for Full Stack Development - Core Framework v4.0 github.com/allfluence/aios-core License View license 469 stars 219 forks Branches Tags Activity Star Notifications You must be signed in to change notification settings SynkraAI/aios-core main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 734 Commits 734 Commits .aios-core .aios-core .aios .aios .antigravity/ rules/ agents .antigravity/ rules/ agents .claude .claude .cursor/ rules/ agents .cursor/ rules/ agents .docker/ llm-routing .docker/ llm-routing .github .github .husky .husky .synapse .synapse bin bin docs docs packages packages pro @ 4b3da90 pro @ 4b3da90 scripts scripts squads squads tests tests .coderabbit.yaml .coderabbit.yaml .env.example .env.example .gitattributes .gitattributes .gitignore .gitignore .gitmodules .gitmodules .prettierrc .prettierrc .releaserc.json .releaserc.json .tsbuildinfo .tsbuildinfo CHANGELOG.md CHANGELOG.md CODE_OF_CONDUCT.md CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTING.md LICENSE LICENSE README.md README.md eslint.config.js eslint.config.js jest.config.js jest.config.js package-lock.json package-lock.json package.json package.json tsconfig.json tsconfig.json View all files Repository files navigation Synkra AIOS: Framework Universal de Agentes IA 🚀 Framework de Desenvolvimento Auto-Modificável Alimentado por IA. Fundado em Desenvolvimento Ágil Dirigido por Agentes, oferecendo capacidades revolucionárias para desenvolvimento dirigido por IA e muito mais. Transforme qualquer domínio com expertise especializada de IA: desenvolvimento de software, entretenimento, escrita criativa, estratégia de negócios, bem-estar pessoal e muito mais. Visão Geral Premissa Arquitetural: CLI First O Synkra AIOS segue uma hierarquia clara de prioridades: CLI First → Observability Second → UI Third Camada Prioridade Foco Exemplos CLI Máxima Onde a inteligência vive. Toda execução, decisões e automação acontecem aqui. Agentes ( @dev , @qa ), workflows, comandos Observability Secundária Observar e monitorar o que acontece no CLI em tempo real. Dashboard SSE, logs, métricas, timeline UI Terciária Gestão pontual e visualizações quando necessário. Kanban, settings, story management Princípios derivados: A CLI é a fonte da verdade - dashboards apenas observam Funcionalidades novas devem funcionar 100% via CLI antes de t"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "ChromeDevTools/chrome-devtools-mcp - Chrome DevTools for coding agents",
+    "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+    "heat": "24,788 stars",
+    "time": "Today",
+    "content": "GitHub - ChromeDevTools/chrome-devtools-mcp: Chrome DevTools for coding agents Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert ChromeDevTools / chrome-devtools-mcp Public Notifications You must be signed in to change notification settings Fork 1.5k Star 24.8k Chrome DevTools for coding agents npmjs.org/package/chrome-devtools-mcp License Apache-2.0 license 24.8k stars 1.5k forks Branches Tags Activity Star Notifications You must be signed in to change notification settings ChromeDevTools/chrome-devtools-mcp main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 527 Commits 527 Commits .agent/ rules .agent/ rules .claude-plugin .claude-plugin .github .github docs docs scripts scripts skills/ chrome-devtools skills/ chrome-devtools src src tests tests .gitignore .gitignore .mcp.json .mcp.json .nvmrc .nvmrc .prettierignore .prettierignore .prettierrc.cjs .prettierrc.cjs .release-please-manifest.json .release-please-manifest.json CHANGELOG.md CHANGELOG.md CONTRIBUTING.md CONTRIBUTING.md LICENSE LICENSE README.md README.md SECURITY.md SECURITY.md eslint.config.mjs eslint.config.mjs gemini-extension.json gemini-extension.json package-lock.json package-lock.json package.json package.json puppeteer.config.cjs puppeteer.config.cjs release-please-config.json release-please-config.json rollup.config.mjs rollup.config.mjs server.json server.json tsconfig.json tsconfig.json View all files Repository files navigation Chrome DevTools MCP chrome-devtools-mcp lets your coding agent (such as Gemini, Claude, Cursor or Copilot) control and inspect a live Chrome browser. It acts as a Model-Context-Protocol (MCP) server, giving your AI coding assistant access to the full power of Chrome DevTools for reliable automation, in-depth debugging, and performance analysis. Tool reference | Changelog | Contributing | Troubleshooting | Design Principles Key features Get performance insights : Uses Chrome DevTools to record traces and extract actionable performance insights. Advanced browser debugging : Analyze network requests, take screenshots and check browser console messages (with source-mapped stack traces). Reliable automation . Uses puppeteer to automate actions in Chrome and automatically wait for action results. Disclaimers chrome-devtools-mcp exposes content of the browser instance to the MCP clients allowing them to inspect, debug, and modify any data in the browser or DevTools. Avoid sharing sensitive or personal information that you don't want to share with MCP clients. Performance tools may send trace URLs to the Google CrUX API to fetch real-user experience data. This helps provide a holistic performance picture by presenting field data alongside lab data. This data is "
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "danielmiessler/Personal_AI_Infrastructure - Agentic AI Infrastructure for magnifying HUMAN capabilities.",
+    "url": "https://github.com/danielmiessler/Personal_AI_Infrastructure",
+    "heat": "8,170 stars",
+    "time": "Today",
+    "content": "GitHub - danielmiessler/Personal_AI_Infrastructure: Agentic AI Infrastructure for magnifying HUMAN capabilities. Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert danielmiessler / Personal_AI_Infrastructure Public Uh oh! There was an error while loading. Please reload this page . Notifications You must be signed in to change notification settings Fork 1.1k Star 8.2k Agentic AI Infrastructure for magnifying HUMAN capabilities. License MIT license 8.2k stars 1.1k forks Branches Tags Activity Star Notifications You must be signed in to change notification settings danielmiessler/Personal_AI_Infrastructure main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 515 Commits 515 Commits .claude .claude .github .github Bundles Bundles Packs Packs Plans Plans Releases Releases Tools Tools images images .env.example .env.example .gitattributes .gitattributes .gitignore .gitignore .pai-protected.json .pai-protected.json INSTALL.md INSTALL.md LICENSE LICENSE PLATFORM.md PLATFORM.md README.md README.md SECURITY.md SECURITY.md View all files Repository files navigation Personal AI Infrastructure Overview: Purpose · What is PAI? · New to AI? · Principles · Primitives Get Started: Installation · Releases · Packs · Bundles Resources: FAQ · Roadmap · Community · Contributing Watch the full PAI walkthrough | Read: The Real Internet of Things Important PAI v2.5.0 Released — Think Deeper, Execute Faster: Two-Pass Capability Selection, Thinking Tools with Justify-Exclusion, and Parallel-by-Default Execution. Release notes → | GitHub Release → AI should magnify everyone—not just the top 1%. The Purpose of This Project PAI exists to solve what I believe is the P0 problem in the world: Only a tiny fraction of humanity's creative potential is activated on Earth. Most people don't believe they have valuable contributions to make. They think there are \"special\" people—and they aren't one of them. They've never asked who they are, what they're about, and have never articulated or written it down. This makes them catastrophically vulnerable to AI displacement. Without activation, there is no high-agency. So our goal with PAI is to activate people. PAI's mission is twofold: Activate as many people as possible — Help people identify, articulate, and pursue their own purpose in life through AI-augmented self-discovery Make the best AI available in the world accessible to everyone — Ensure this quality of AI infrastructure isn't reserved for just the rich or technical elite. That's why this is an open-source project instead of private. New to This? Start Here You've probably used ChatGPT or Claude. Type a question, get an answer. Simple. You can think of AI systems as three levels : Chatb"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "patchy631/ai-engineering-hub - In-depth tutorials on LLMs, RAGs and real-world AI agent applications.",
+    "url": "https://github.com/patchy631/ai-engineering-hub",
+    "heat": "29,400 stars",
+    "time": "Today",
+    "content": "GitHub - patchy631/ai-engineering-hub: In-depth tutorials on LLMs, RAGs and real-world AI agent applications. Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert patchy631 / ai-engineering-hub Public Notifications You must be signed in to change notification settings Fork 4.8k Star 29.4k In-depth tutorials on LLMs, RAGs and real-world AI agent applications. join.dailydoseofds.com License MIT license 29.4k stars 4.8k forks Branches Tags Activity Star Notifications You must be signed in to change notification settings patchy631/ai-engineering-hub main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 497 Commits 497 Commits Build-reasoning-model Build-reasoning-model Colivara-deepseek-website-RAG Colivara-deepseek-website-RAG DeepSeek-finetuning DeepSeek-finetuning LaTeX-OCR-with-Llama LaTeX-OCR-with-Llama Multi-Agent-deep-researcher-mcp-windows-linux Multi-Agent-deep-researcher-mcp-windows-linux Website-to-API-with-FireCrawl Website-to-API-with-FireCrawl Youtube-trend-analysis Youtube-trend-analysis acp-code acp-code agent-with-mcp-memory agent-with-mcp-memory agent2agent-demo agent2agent-demo agentic_rag agentic_rag agentic_rag_deepseek agentic_rag_deepseek ai-avatar-demo ai-avatar-demo ai-engineering-roadmap ai-engineering-roadmap ai-podcast-generation ai-podcast-generation ai-podcast-generator ai-podcast-generator ai_news_generator ai_news_generator amazon-product-analysis-server amazon-product-analysis-server assets assets audio-analysis-toolkit audio-analysis-toolkit autogen-stock-analyst autogen-stock-analyst book-writer-flow book-writer-flow brand-monitoring brand-monitoring chat-with-audios chat-with-audios chat-with-code chat-with-code code-model-comparison code-model-comparison colbert-rag colbert-rag content_planner_flow content_planner_flow context-engineering-pipeline context-engineering-pipeline context-engineering-workflow context-engineering-workflow corrective-rag corrective-rag cursor_linkup_mcp cursor_linkup_mcp database-memory-agent database-memory-agent deepseek-multimodal-RAG deepseek-multimodal-RAG deepseek-thinking-ui deepseek-thinking-ui deploy-agentic-rag deploy-agentic-rag document-chat-rag document-chat-rag documentation-writer-flow documentation-writer-flow eval-and-observability eval-and-observability eyelevel-mcp-rag eyelevel-mcp-rag fastest-rag-milvus-groq fastest-rag-milvus-groq fastest-rag-stack fastest-rag-stack financial-analyst-deepseek financial-analyst-deepseek firecrawl-agent firecrawl-agent flight-booking-crew flight-booking-crew gemma3-ocr gemma3-ocr github-rag github-rag gpt-oss-thinking-ui gpt-oss-thinking-ui gpt-oss-vs-qwen3 gpt-oss-vs-qwen3 graphiti-mcp graphiti-mcp groundX-doc-pipeline groundX-doc-pipeline guide"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "TelegramMessenger/MTProxy - ",
+    "url": "https://github.com/TelegramMessenger/MTProxy",
+    "heat": "5,909 stars",
+    "time": "Today",
+    "content": "GitHub - TelegramMessenger/MTProxy Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert TelegramMessenger / MTProxy Public Notifications You must be signed in to change notification settings Fork 998 Star 5.9k 5.9k stars 998 forks Branches Tags Activity Star Notifications You must be signed in to change notification settings TelegramMessenger/MTProxy master Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 50 Commits 50 Commits common common crypto crypto engine engine jobs jobs mtproto mtproto net net vv vv .gitignore .gitignore GPLv2 GPLv2 LGPLv2 LGPLv2 Makefile Makefile README.md README.md View all files Repository files navigation MTProxy Simple MT-Proto proxy Building Install dependencies, you would need common set of tools for building from source, and development packages for openssl and zlib . On Debian/Ubuntu: apt install git curl build-essential libssl-dev zlib1g-dev On CentOS/RHEL: yum install openssl-devel zlib-devel yum groupinstall \" Development Tools \" Clone the repo: git clone https://github.com/TelegramMessenger/MTProxy cd MTProxy To build, simply run make , the binary will be in objs/bin/mtproto-proxy : make && cd objs/bin If the build has failed, you should run make clean before building it again. Running Obtain a secret, used to connect to telegram servers. curl -s https://core.telegram.org/getProxySecret -o proxy-secret Obtain current telegram configuration. It can change (occasionally), so we encourage you to update it once per day. curl -s https://core.telegram.org/getProxyConfig -o proxy-multi.conf Generate a secret to be used by users to connect to your proxy. head -c 16 /dev/urandom | xxd -ps Run mtproto-proxy : ./mtproto-proxy -u nobody -p 8888 -H 443 -S < secret > --aes-pwd proxy-secret proxy-multi.conf -M 1 ... where: nobody is the username. mtproto-proxy calls setuid() to drop privileges. 443 is the port, used by clients to connect to the proxy. 8888 is the local port. You can use it to get statistics from mtproto-proxy . Like wget localhost:8888/stats . You can only get this stat via loopback. <secret> is the secret generated at step 3. Also you can set multiple secrets: -S <secret1> -S <secret2> . proxy-secret and proxy-multi.conf are obtained at steps 1 and 2. 1 is the number of workers. You can increase the number of workers, if you have a powerful server. Also feel free to check out other options using mtproto-proxy --help . Generate the link with following schema: tg://proxy?server=SERVER_NAME&port=PORT&secret=SECRET (or let the official bot generate it for you). Register your proxy with @MTProxybot on Telegram. Set received tag with arguments: -P <proxy tag> Enjoy. Random padding Due to some ISPs detecting MTProxy by pack"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "google-deepmind/superhuman - ",
+    "url": "https://github.com/google-deepmind/superhuman",
+    "heat": "413 stars",
+    "time": "Today",
+    "content": "GitHub - google-deepmind/superhuman Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert google-deepmind / superhuman Public Notifications You must be signed in to change notification settings Fork 30 Star 413 License Apache-2.0 license 413 stars 30 forks Branches Tags Activity Star Notifications You must be signed in to change notification settings google-deepmind/superhuman main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 19 Commits 19 Commits aletheia aletheia imobench imobench .gitignore .gitignore CONTRIBUTING.md CONTRIBUTING.md LICENSE LICENSE README.md README.md View all files Repository files navigation Superhuman Reasoning This repository hosts projects and datasets created by Google DeepMind's Superhuman Reasoning team, led by Thang Luong. Projects AlphaGeometry Nature paper . See https://github.com/google-deepmind/alphageometry . AlphaGeometry2 2024 IMO-silver achievement . See https://github.com/google-deepmind/alphageometry2 . IMO Bench A suite of advanced benchmarks designed to evaluate robust mathematical reasoning in AI. Following our 2025 IMO-gold achievement , this release includes: IMO-AnswerBench : 400 challenging short-answer problems. IMO-ProofBench : 60 proof-based problems vetted by experts. IMO-GradingBench : A dataset of 1000 human gradings to advance automatic evaluation. Aletheia A math research agent, powered by Gemini Deep Think, that can iteratively generate, verify, and revise solutions. See paper . This release includes prompts and outputs from Aletheia on research level math problems. License and disclaimer Copyright 2025 Google LLC All software is licensed under the Apache License, Version 2.0 (Apache 2.0); you may not use this file except in compliance with the Apache 2.0 license. You may obtain a copy of the Apache 2.0 license at: https://www.apache.org/licenses/LICENSE-2.0 All other materials are licensed under the Creative Commons Attribution 4.0 International License (CC-BY). You may obtain a copy of the CC-BY license at: https://creativecommons.org/licenses/by/4.0/legalcode Unless required by applicable law or agreed to in writing, all software and materials distributed here under the Apache 2.0 or CC-BY licenses are distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the licenses for the specific language governing permissions and limitations under those licenses. This is not an official Google product. About No description, website, or topics provided. Resources Readme License Apache-2.0 license Contributing Contributing Uh oh! There was an error while loading. Please reload this page . Activity Custom properties Stars 413 stars Watchers 15 watching For"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "cheahjs/free-llm-api-resources - A list of free LLM inference resources accessible via API.",
+    "url": "https://github.com/cheahjs/free-llm-api-resources",
+    "heat": "10,763 stars",
+    "time": "Today",
+    "content": "GitHub - cheahjs/free-llm-api-resources: A list of free LLM inference resources accessible via API. Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert cheahjs / free-llm-api-resources Public Notifications You must be signed in to change notification settings Fork 1k Star 10.8k A list of free LLM inference resources accessible via API. 10.8k stars 1k forks Branches Tags Activity Star Notifications You must be signed in to change notification settings cheahjs/free-llm-api-resources main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 395 Commits 395 Commits .github .github src src .gitignore .gitignore README.md README.md View all files Repository files navigation Free LLM API resources This lists various services that provide free access or credits towards API-based LLM usage. Note Please don't abuse these services, else we might lose them. Warning This list explicitly excludes any services that are not legitimate (eg reverse engineers an existing chatbot) Free Providers OpenRouter Google AI Studio NVIDIA NIM Mistral (La Plateforme) Mistral (Codestral) HuggingFace Inference Providers Vercel AI Gateway Cerebras Groq Cohere GitHub Models Cloudflare Workers AI Google Cloud Vertex AI Providers with trial credits Fireworks Baseten Nebius Novita AI21 Upstage NLP Cloud Alibaba Cloud (International) Model Studio Modal Inference.net Hyperbolic SambaNova Cloud Scaleway Generative APIs Free Providers OpenRouter Limits: 20 requests/minute 50 requests/day Up to 1000 requests/day with $10 lifetime topup Models share a common quota. Gemma 3 12B Instruct Gemma 3 27B Instruct Gemma 3 4B Instruct Hermes 3 Llama 3.1 405B Llama 3.1 405B Instruct Llama 3.2 3B Instruct Llama 3.3 70B Instruct Mistral Small 3.1 24B Instruct Qwen 2.5 VL 7B Instruct allenai/molmo-2-8b:free arcee-ai/trinity-large-preview:free arcee-ai/trinity-mini:free cognitivecomputations/dolphin-mistral-24b-venice-edition:free deepseek/deepseek-r1-0528:free google/gemma-3n-e2b-it:free google/gemma-3n-e4b-it:free liquid/lfm-2.5-1.2b-instruct:free liquid/lfm-2.5-1.2b-thinking:free moonshotai/kimi-k2:free nvidia/nemotron-3-nano-30b-a3b:free nvidia/nemotron-nano-12b-v2-vl:free nvidia/nemotron-nano-9b-v2:free openai/gpt-oss-120b:free openai/gpt-oss-20b:free qwen/qwen3-4b:free qwen/qwen3-coder:free qwen/qwen3-next-80b-a3b-instruct:free tngtech/deepseek-r1t-chimera:free tngtech/deepseek-r1t2-chimera:free tngtech/tng-r1t-chimera:free upstage/solar-pro-3:free z-ai/glm-4.5-air:free Google AI Studio Data is used for training when used outside of the UK/CH/EEA/EU. Model Name Model Limits Gemini 3 Flash 250,000 tokens/minute 20 requests/day 5 requests/minute Gemini 2.5 Flash 250,000 tokens/minute 20 requests/day 5 requests/m"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "HandsOnLLM/Hands-On-Large-Language-Models - Official code repo for the O'Reilly Book - \"Hands-On Large Language Models\"",
+    "url": "https://github.com/HandsOnLLM/Hands-On-Large-Language-Models",
+    "heat": "21,200 stars",
+    "time": "Today",
+    "content": "GitHub - HandsOnLLM/Hands-On-Large-Language-Models: Official code repo for the O'Reilly Book - \"Hands-On Large Language Models\" Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert HandsOnLLM / Hands-On-Large-Language-Models Public Notifications You must be signed in to change notification settings Fork 5k Star 21.2k Official code repo for the O'Reilly Book - \"Hands-On Large Language Models\" www.llm-book.com/ License Apache-2.0 license 21.2k stars 5k forks Branches Tags Activity Star Notifications You must be signed in to change notification settings HandsOnLLM/Hands-On-Large-Language-Models main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 50 Commits 50 Commits .setup .setup bonus bonus chapter01 chapter01 chapter02 chapter02 chapter03 chapter03 chapter04 chapter04 chapter05 chapter05 chapter06 chapter06 chapter07 chapter07 chapter08 chapter08 chapter09 chapter09 chapter10 chapter10 chapter11 chapter11 chapter12 chapter12 images images LICENSE LICENSE README.md README.md environment.yml environment.yml requirements.txt requirements.txt requirements_min.txt requirements_min.txt View all files Repository files navigation Hands-On Large Language Models Welcome! In this repository you will find the code for all examples throughout the book Hands-On Large Language Models written by Jay Alammar and Maarten Grootendorst which we playfully dubbed: \"The Illustrated LLM Book\" Through the visually educational nature of this book and with almost 300 custom made figures , learn the practical tools and concepts you need to use Large Language Models today! The book is available on: Amazon Shroff Publishers (India) O'Reilly Kindle Barnes and Noble Goodreads Table of Contents We advise to run all examples through Google Colab for the easiest setup. Google Colab allows you to use a T4 GPU with 16GB of VRAM for free. All examples were mainly built and tested using Google Colab, so it should be the most stable platform. However, any other cloud provider should work. Chapter Notebook Chapter 1: Introduction to Language Models Chapter 2: Tokens and Embeddings Chapter 3: Looking Inside Transformer LLMs Chapter 4: Text Classification Chapter 5: Text Clustering and Topic Modeling Chapter 6: Prompt Engineering Chapter 7: Advanced Text Generation Techniques and Tools Chapter 8: Semantic Search and Retrieval-Augmented Generation Chapter 9: Multimodal Large Language Models Chapter 10: Creating Text Embedding Models Chapter 11: Fine-tuning Representation Models for Classification Chapter 12: Fine-tuning Generation Models Tip You can check the setup folder for a quick-start guide to install all packages locally and you can check the conda folder for a complete guide on how to setup "
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "THUDM/slime - slime is an LLM post-training framework for RL Scaling.",
+    "url": "https://github.com/THUDM/slime",
+    "heat": "4,112 stars",
+    "time": "Today",
+    "content": "GitHub - THUDM/slime: slime is an LLM post-training framework for RL Scaling. Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert THUDM / slime Public Notifications You must be signed in to change notification settings Fork 529 Star 4.1k slime is an LLM post-training framework for RL Scaling. thudm.github.io/slime License Apache-2.0 license 4.1k stars 529 forks Branches Tags Activity Star Notifications You must be signed in to change notification settings THUDM/slime main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 1,262 Commits 1,262 Commits .github/ workflows .github/ workflows docker docker docs docs examples examples imgs imgs scripts scripts slime slime slime_plugins slime_plugins tests tests tools tools .gitignore .gitignore .pre-commit-config.yaml .pre-commit-config.yaml LICENSE LICENSE README.md README.md README_zh.md README_zh.md build_conda.sh build_conda.sh pyproject.toml pyproject.toml requirements.txt requirements.txt setup.py setup.py train.py train.py train_async.py train_async.py View all files Repository files navigation slime 中文版 slime is an LLM post-training framework for RL scaling, providing two core capabilities: High-Performance Training : Supports efficient training in various modes by connecting Megatron with SGLang; Flexible Data Generation : Enables arbitrary training data generation workflows through custom data generation interfaces and server-based engines. slime is the RL-framework behind GLM-4.7 , GLM-4.6 , GLM-4.5 and apart from models from Z.ai, we also supports the following models: Qwen3 series (Qwen3Next, Qwen3MoE, Qwen3), Qwen2.5 series; DeepSeek V3 series (DeepSeek V3, V3.1, DeepSeek R1); Llama 3. Blogs Our vision: slime: An SGLang-Native Post-Training Framework for RL Scaling . Our ideas on agentic training: Agent-Oriented Design: An Asynchronous and Decoupled Framework for Agentic RL v0.1.0 release note: v0.1.0: Redefining High-Performance RL Training Frameworks Table of Contents Architecture Overview Quick Start Projects Built with slime Arguments Walkthrough Developer Guide FAQ & Acknowledgements Architecture Overview Module Descriptions : training (Megatron) : Responsible for the main training process, reads data from the Data Buffer, and synchronizes parameters to the rollout module after training. rollout (SGLang + router) : Generates new data (including rewards/verifier outputs) and stores it in the Data Buffer. data buffer : A bridge module that manages prompt initialization, custom data, and rollout generation methods. Quick Start For a comprehensive quick start guide covering environment setup, data preparation, training startup, and key code analysis, please refer to: Quick Start Guide We also provide"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "DebugSwift/DebugSwift - A toolkit to make debugging iOS applications easier 🚀",
+    "url": "https://github.com/DebugSwift/DebugSwift",
+    "heat": "1,488 stars",
+    "time": "Today",
+    "content": "GitHub - DebugSwift/DebugSwift: A toolkit to make debugging iOS applications easier 🚀 Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert DebugSwift / DebugSwift Public Notifications You must be signed in to change notification settings Fork 129 Star 1.5k A toolkit to make debugging iOS applications easier 🚀 License MIT license 1.5k stars 129 forks Branches Tags Activity Star Notifications You must be signed in to change notification settings DebugSwift/DebugSwift main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 183 Commits 183 Commits .cursor/ rules .cursor/ rules .github/ workflows .github/ workflows DebugSwift DebugSwift Example Example Scripts Scripts .gitignore .gitignore .swiftformat .swiftformat .swiftlint.yml .swiftlint.yml Dangerfile.swift Dangerfile.swift DebugSwift.podspec DebugSwift.podspec Example.xctestplan Example.xctestplan GitVersion.yml GitVersion.yml LICENSE LICENSE Package.swift Package.swift README.md README.md View all files Repository files navigation DebugSwift DebugSwift is a comprehensive toolkit designed to streamline and elevate the debugging experience for Swift-based applications. Whether you are troubleshooting issues or optimizing performance, DebugSwift offers a powerful set of features to make your debugging process more efficient and effective. 📋 Table of Contents 🚀 Features 🛠 Installation & Setup 🔧 Troubleshooting 📝 Examples 🔧 Configuration Requirements iOS 14.0+ Swift 6.0+ Xcode 16.0+ Features 🌐 Network Inspector HTTP Monitoring: Capture all requests/responses with detailed logs and filtering WebSocket Inspector: Zero-config automatic monitoring of WebSocket connections and frames Request Limiting: Set thresholds to monitor and control API usage Smart Content: Automatic JSON formatting with syntax highlighting Encryption Support: Automatic decryption of encrypted API responses with AES-256/128 and custom decryptors ⚡ Performance Real-time Metrics: Monitor CPU, memory, and FPS in real-time Memory Leak Detection: Automatic detection of leaked ViewControllers and Views Thread Checker: Detect main thread violations with detailed stack traces Performance Widget: Overlay displaying live performance stats 📱 App Tools Crash Reports: Detailed crash analysis with screenshots and stack traces Console Logs: Real-time console output monitoring and filtering Device Info: App version, build, device details, and more APNS Tokens: Easy access and copying of push notification tokens Custom Actions: Add your own debugging actions and info 🎨 Interface Tools Grid Overlay: Visual alignment grid with customizable colors and opacity View Hierarchy: 3D interactive view hierarchy inspector Touch Indicators: Visual feedback for touch interac"
+  },
+  {
+    "source": "36Kr",
+    "title": "成都天府大道车辆碰撞事故完成责任认定，酒后驾车当事人全责",
+    "url": "https://36kr.com/newsflashes/3682715837017991",
+    "time": "20分钟前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "摩根士丹利邢自强：建议试点贴按揭100基点 缩小与租金回报率差距",
+    "url": "https://36kr.com/newsflashes/3682687101415043",
+    "time": "23分钟前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "去年国内风电新增吊装容量创历史新高，海外出口表现亮眼",
+    "url": "https://36kr.com/newsflashes/3682682376105609",
+    "time": "39分钟前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "春节假期期间 横琴口岸日均客流预计10万人次",
+    "url": "https://36kr.com/newsflashes/3682677679156873",
+    "time": "54分钟前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "京东回应“巴黎仓库遭遇盗窃”：绝大多数被盗物资被顺利追回",
+    "url": "https://36kr.com/newsflashes/3682676929703559",
+    "time": "1小时前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "今天全国铁路预计发送旅客1535万人次",
+    "url": "https://36kr.com/newsflashes/3682632124739202",
+    "time": "1小时前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "五部门：到2028年培育5个以上年营业收入超100亿元的茶产业集群",
+    "url": "https://36kr.com/newsflashes/3682624834973319",
+    "time": "1小时前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "四部门：因地制宜打造休闲农业、乡村旅游、民宿经济、电商直播等新产业、新业态金融服务模式",
+    "url": "https://36kr.com/newsflashes/3682606755508101",
+    "time": "2小时前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "四部门：强化重点领域金融资源投入，做好粮油生产金融服务",
+    "url": "https://36kr.com/newsflashes/3682606105472905",
+    "time": "2小时前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "减排超90%，国内首艘甲醇单一燃料江海直达船成功首航",
+    "url": "https://36kr.com/newsflashes/3682579722317446",
+    "time": "2小时前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "市场监管总局就《电梯安全技术规程（征求意见稿）》公开征求意见",
+    "url": "https://36kr.com/newsflashes/3682576379932293",
+    "time": "2小时前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "1月份国家铁路发送货物3.32亿吨",
+    "url": "https://36kr.com/newsflashes/3682528784526981",
+    "time": "3小时前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "财政部在全国范围开展数智化背景下会计相关典型案例征集工作",
+    "url": "https://36kr.com/newsflashes/3682527999979141",
+    "time": "3小时前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "蚂蚁阿福下载量冲上苹果应用总榜第一",
+    "url": "https://36kr.com/newsflashes/3682564983615360",
+    "time": "3小时前",
+    "heat": ""
+  },
+  {
+    "source": "36Kr",
+    "title": "上海未来产业基金拟参与投资9只子基金",
+    "url": "https://36kr.com/newsflashes/3682527543488388",
+    "time": "3小时前",
+    "heat": ""
+  },
+  {
+    "source": "V2EX",
+    "title": "今天还有在上班？",
+    "url": "https://www.v2ex.com/t/1192773",
+    "heat": "108 replies",
+    "time": "Hot",
+    "content": "今天还有在上班？ - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 职场话题 今天还有在上班？ shanghui · 5 小时 47 分钟前 · 2641 次点击 农历 2025 最后上半天班了 上班 农历 108 条回复 • 2026-02-14 14:12:20 +08:00 1 2 ❮ ❯ 1 wineejam 5 小时 44 分钟前 必须上班，坚守到最后一分钟 2 wnpllrzodiac 5 小时 42 分钟前 via Android 坚守阵地不松懈 3 ookkxw 5 小时 42 分钟前 已到公司，开始摸鱼 4 BatmanOfficial 5 小时 37 分钟前 已到公司，开始摸鱼 5 0U0 5 小时 37 分钟前 你们是劳模 6 Moyyyyyyyyyyye PRO 5 小时 36 分钟前 有的兄弟 7 nawieweliauk 5 小时 34 分钟前 已到公司，开始摸鱼 8 abccoder 5 小时 32 分钟前 已到公司，开始摸鱼，准备偷偷摸摸提前闪人 9 linglingling 5 小时 32 分钟前 via Android 居家办公（放羊）快一周了，前三天群里还有消息，现在基本没动静了。 10 PhilFreecess 5 小时 31 分钟前 已到公司，开始摸鱼 11 allinQQQ 5 小时 30 分钟前 有的兄弟 12 Solace202 5 小时 30 分钟前 有的 13 xxgw 5 小时 30 分钟前 有的，兄弟有的 14 buruliu 5 小时 28 分钟前 有的有的 15 tommyshelbyV2 5 小时 27 分钟前 超级上班王在此 16 makebuke 5 小时 27 分钟前 有的 17 shanghui OP 5 小时 27 分钟前 @ 0U0 哈哈，明天上班才是劳模，我们是坚守岗位 18 coldmonkeybit 5 小时 26 分钟前 已到公司，开始摸鱼 19 shanghui OP 5 小时 26 分钟前 @ abccoder 还得是大佬，不用打卡？我只能在工位偷偷玩金铲铲 20 lele140 5 小时 23 分钟前 已到公司，开始摸鱼 21 marukoli 5 小时 22 分钟前 bro 有的有的 22 Hedvika 5 小时 22 分钟前 已到公司，开始摸鱼 23 alex006 5 小时 22 分钟前 上 24 jiminjohn0402 5 小时 21 分钟前 已到公司，坚持到最后 25 ethsol 5 小时 20 分钟前 以后就定法定新年假期前一天为摸鱼节吧 26 liu7say 5 小时 20 分钟前 已到公司，开始摸鱼 27 niboy 5 小时 20 分钟前 8:40 到的，9:00 才来了第一个人，今天只摸鱼吃饭不干活 28 shanghui OP 5 小时 19 分钟前 @ ethsol 确实，今天基本都在摸鱼，办公室剩下的也没几个干活的 29 shanghui OP 5 小时 18 分钟前 @ niboy 必须的 30 c4fun 5 小时 18 分钟前 没请假，继续上班 31 chrischris 5 小时 15 分钟前 每年最后一周是最快乐的… 32 Charles0929 5 小时 15 分钟前 有的，兄弟，包有的 33 rebounce 5 小时 12 分钟前 1 V2EX 新春快乐呀 支付宝口令红包 34 fengye0509 5 小时 12 分钟前 上班啊，坚持到最后 35 FakerLeung 5 小时 10 分钟前 已到公司，开始摸鱼 36 yueliusu 5 小时 9 分钟前 有的，兄弟，已到工位 37 neuthself 5 小时 9 分钟前 @ rebounce 抢到红包了，谢谢兄弟 38 MrMarting 5 小时 8 分钟前 @ rebounce 抢到红包了，谢谢兄弟 39 k1eran 5 小时 7 分钟前 已到公司，开始摸鱼 40 suny618 5 小时 7 分钟前 已到公司，开始摸鱼 41 jzhm 5 小时 6 分钟前 已到公司，开始摸鱼。 今天公司几乎没啥人了 42 ysccccd 5 小时 6 分钟前 @ rebounce 抢到红包了，谢谢兄弟 43 elechi 5 小时 4 分钟前 坚持到最后 44 abccoder 5 小时 3 分钟前 @ shanghui 只有上班打卡 45 CP1919 5 小时 3 分钟前 已到公司，开始摸鱼 46 newboy780 5 小时 0 分钟前 已到公司，开始摸鱼 47 huhu2060203 5 小时 0 分钟前 有的，兄弟有的 48 zhanglong11 4 小时 56 分钟前 已到公司，开始摸鱼 49 Suaxi 4 小时 56 分钟前 昨晚 3 点多睡，今早依旧 9 点到公司，强🐂 50 cshwen 4 小时 56 分钟前 今天上班就算了，还在赶进度，☀️了🐶 51 kkk1234567 4 小时 56 分钟前 上班哦 52 xxss0903 4 小时 55 分钟前 已到公司，开始摸鱼 53 ShinKu 4 小时 54 分钟前 打卡 54 youzi118 4 小时 53 分钟前 有的兄弟，有的。 55 zhongpingyong 4 小时 51 分钟前 有的，兄弟有的 56 cctv180 4 小时 50 分钟前 已到公司，开始摸鱼 57 maidenAssassins 4 小时 49 分钟前 开始摸鱼 58 mr123villain 4 小时 48 分钟前 摸鱼中 59 stardew 4 小时 47 分钟前 已到公司，开始摸鱼 60 commoccoom 4 小时 46 分钟前 打卡成功 61 66beta 4 小时 44 分钟前 我，全球劳动模范，J8 红旗手 62 Laobai 4 小时 38 分钟前 还在摸鱼 63 zhouyu1991 4 小时 36 分钟前 已经摸鱼 1 小时 30 分钟 64 brave6 4 小时 35 分钟前 我，下午偷溜，只上上午，有没有一样的 65 jiangyue 4 小时 33 分钟前 太有了，man 66 Exxfire 4 小时 30 分钟前 已到公司，开始摸鱼 67 leecqan 4 小时 28 分钟前 上班打卡 68 cubecube 4 小时 28 分钟前 哈哈，摸鱼开始。。 69 Arrowing 4 小时 26 分钟前 我宣布，开摸！ 70 Patrick6 4 小时 25 分钟前 到底是谁还在上班 71 yawenimy122 4 小时 24 分钟前 滴！打卡成功 72 SWALLOWW 4 小时 22 分钟前 已到公司，开始摸鱼 73 rurio 4 小时 19 分钟前 via Android 实习生来蹭工资了😇 74 colincat 4 小时 18 分钟前 已到公司，开始摸鱼 75 10240 4 小时 17 分钟前 共和国卫士报道 76 CL7 4 小时 17 分钟前 人在办公室，远程到家中搞自己的事 77 yin"
+  },
+  {
+    "source": "V2EX",
+    "title": "如果京东快递不送货上门，你还会在京东自营买东西吗？",
+    "url": "https://www.v2ex.com/t/1192747",
+    "heat": "45 replies",
+    "time": "Hot",
+    "content": "如果京东快递不送货上门，你还会在京东自营买东西吗？ - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 京东 如果京东快递不送货上门，你还会在京东自营买东西吗？ 2 ponder09 · 17 小时 22 分钟前 · 1537 次点击 在京东自营给乡下老家买点了过年用的饮料，调料啥的。没有往常的隔日达，年底了货多，人忙我理解。第三日了，老妈等了一天快递，到 20 点了，打电话说放驿站了，让理解理解。我理解不了，如果做不到，我选的地址无货我都能接受。 还有我妈给我炫耀说她学会了多多买菜，晚上 10 点前下单，隔天早上 9 点就能送到村里。 京东 快递 驿站 45 条回复 • 2026-02-14 13:52:25 +08:00 1 truchz 17 小时 12 分钟前 不买。早就不买了。自从京东偷走我的账户余额，就没买过，并且成功说服身边 3 人以上不用京东。 京东开启抢劫模式。快看看你的余额少了吗！ https://v2ex.com/t/1101049 2 argentea 17 小时 8 分钟前 现在除非京东比拼多多便宜很多，不然我是不会在京东买的 3 ruchee 17 小时 8 分钟前 不会。用京东就是图它送货上门 4 docx 17 小时 6 分钟前 via iPhone 几年没续 PLUS 了，除了东西不够 59 要运费的时候有点难受，真没感觉到有多大区别…… 5 uCharles 16 小时 44 分钟前 应该会吧，毕竟他的售后挺不错的。 之前买的小米手持拖地机，售后直接说要是淘宝拼多多买的只能修，京东买的可以换 6 laminux29 16 小时 8 分钟前 京东自营最大的优点是可以加钱买更多年份的延保，比如 4 - 7 年。 目前手机、笔记本电脑等，很多昂贵的电子产品，默认只有 1 年质保。 7 wtks1 15 小时 57 分钟前 via Android 3 @ laminux29 但那是第三方保修，本质上和过保之后花钱找人修没区别 8 SingeeKing PRO 15 小时 56 分钟前 我这边都送货上门，但我还是首选京东；一方面是速度，上午下单下午到体验太好了，另一方面就是售后，出问题直接退/补偿，从没遇到过扯皮 9 niboy 15 小时 18 分钟前 很久没在京东卖东西了，前天京东超市特地给我打电话，给我送了满 5.01 减 5 的优惠券，特地告诉我最低可以 0.1 元买东西，本着薅羊毛的心理就去了，1 毛钱卖了 300X3 的抽纸。 我在上海，平时各种快递都送上门的，2.11 下午下的订单，今天看了一下还没发货，过年了，快递员也要休息几天，理解一下吧。我估计京东的快递员可能偷懒了，要么是外包的，我遇到过其他快递也有放在驿站的，平时我就直接让他们给我送上门。 我应该不会在 jd 卖了，平时主要都在拼多多买。 10 Cheons 15 小时 14 分钟前 via Android 京东不送货上门，退货。 11 TimG 15 小时 10 分钟前 via Android 主要是隔日到很方便。有次放假结束前一天半夜从老家到出租屋发现忘带笔记本电源，急得冒汗，总不能第二天坐在工位干瞪眼，灵机一动下单一个电源，开完晨会刚好就到了。 12 aker91 14 小时 49 分钟前 次日达+送货上门，缺一个都不续 plus 13 kleos 14 小时 22 分钟前 京东其实还是可以的，京东快递员每次都会暗示我让我放驿站，那就顺他心意了 14 v1 14 小时 16 分钟前 1 前天也不上门放驿站，我 plus 客服投诉了，当天晚上老老实实送上门。 这两天 jd 给我 12 个电话，分别是北京总部，特服，物流专员，站点站长 补偿我 1000 京豆，然后站点扣 20 分，快递小哥罚款 100 （我开口让总部别罚钱），我这边片区所有站点集体培训三天 15 v1 14 小时 13 分钟前 不让罚款，我是觉得过年了，不为难人，大家都辛苦。 我选择投诉，是因为我花钱了，我的这钱包括了上门费用，不是我白嫖的，以及开通 plus 的费用 站点扣 20 分绩效，我同意，因为这是工作规则，不能又让站点赚钱又不遵守规则 16 winebywind 13 小时 56 分钟前 之前过节给家里买东西就发现老家的京东快递不给上门，还冠冕堂皇地打个电话，说快递到驿站了，问想要放哪里，一看就不想送上门。 也懒得去为难快递员，不过不上门还要打电话确实很烦人，现在给家里买东西基本不怎么用京东了。 17 MajestySolor 13 小时 50 分钟前 一直用 jd 的唯一理由就是上门，不管送货还是退换货都是当天/次日上门，这算是不可替代的核心竞争力了🤣 18 WeaPoon 7 小时 15 分钟前 @ docx #4 PLUS 包邮没有门槛了已经。 19 ponder09 OP 5 小时 24 分钟前 @ uCharles 确实，他的售后不错，取旧换新服务很好 20 ponder09 OP 5 小时 23 分钟前 @ SingeeKing 京东自营就是图隔日达+送货上门，少一样他就没优势了。 21 ponder09 OP 5 小时 19 分钟前 @ niboy 但是服务本身就是送货上门，我的本质要求就是送货上门，超时我也不说什么，快递员直接一句说放驿站了，让我理解理解一下吧，道德绑架我就不行。放哪里是我的权益，我可以出于我的理解让快递员放驿站，而不是因为快递员太累了、太忙了，自己决定放驿站之后，再让我去理解理解。 22 ponder09 OP 5 小时 18 分钟前 @ kleos 我在城市分两种，一种上班不在家那自然而然让放驿站，一种周末在家我会让送货上门。 23 ponder09 OP 5 小时 17 分钟前 @ v1 #14 我也找 plus 客服投诉了，说今天 11 点之前给答复，看看怎么说吧 24 ponder09 OP 5 小时 16 分钟前 @ MajestySolor 隔日达+送货上门算是京东的左膀右臂，现在却开始自断臂膀了。 25 ponder09 OP 5 小时 15 分钟前 @ winebywind 这个最起码会征求你意见，你让送货上门应该也会送，我这个是直接不送。 26 klxyy 4 小时 29 分钟前 啥？我这京东除了大件，就没送货上门过啊，以前还会打电话问放哪，现在直接放菜鸟，电话都没了 27 wegbjwjm 4 小时 14 分钟前 via iPhone 已经弃用很久了 28 Moishine 3 小时 56 分钟前 via iPhone 买啊，稍微贵点的东西都是京东 29 madantech 3 小时 45 分钟前 京东的问题，难道不是二手货么 好几年没用京东了，莫名其妙去年又去用了一下，买了苹果的妙控键盘 结果封条（黏纸）是打开过的，而且，邹成那样，都不知道打开过多少次 估计是想找个不会退货的人，把二手货卖出去。。 30 madantech 3 小时 45 分钟前 @ madantech 而且是以原价，卖二手货 31 xzh654321 3 小时 32 分钟前 但凡投诉"
+  },
+  {
+    "source": "V2EX",
+    "title": "AI 编程后，我更累了",
+    "url": "https://www.v2ex.com/t/1192730",
+    "heat": "44 replies",
+    "time": "Hot",
+    "content": "AI 编程后，我更累了 - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 • 请不要在回答技术问题时复制粘贴 AI 生成的内容 V2EX › 程序员 AI 编程后，我更累了 8 SummerOrange · 20 小时 12 分钟前 · 3808 次点击 2022 年的时候，我和一个同事做过一个项目，要改 Raft ，要动 etcd ，还要调整 K8s 的核心逻辑。我们两个人做了差不多一整年，最后真正写进仓库的代码不到 800 行。 那一年很慢。很多时间都花在推一致性，讨论异常场景，设计升级路径，确认历史数据怎么兼容。有时候一整天只改十几行代码。数量不多，但基本都是想清楚了才落下去。 以前一个开发者一天写 300 行代码算效率不错，写到 400 、500 行已经很拼。写代码有节奏，也有成本。很多问题在真正敲出来之前，已经在脑子里来回过了几遍。 现在节奏完全不同。AI 十分钟就能生成上千行代码，模块划分清晰，层次完整，接口齐全，异常处理也都写好了。很多时候只要把需求说清楚，代码很快就生成好了。 一开始确实觉得轻松。 后来慢慢发现，真是越来越累了，因为这些代码还是要有人读，要有人确认它和现有系统是不是贴合，要有人判断抽象是不是合适。虽然生成的速度上去了，但是我理解的节奏还是原来的节奏。 以前也是要 review 代码的。打开一个改动，从头看到尾，逻辑能在脑子里慢慢铺开。读完之后，大概知道这段代码放进系统里是什么样子。 现在一天新增几千行代码已经很常见。很多时候是，一轮对话下来就是上千行实现。改动动辄上千行，结构完整，分层清楚，看起来没有明显问题，但还是得一段段读过去。接口是不是多了一层，抽象是不是提前了，边界有没有被放大，这些都要自己确认。 很多实现从写法上挑不出毛病，但系统本身是有历史的。某些字段可能永远不会扩展，某些逻辑过几个月就会被删除，一些接口只是阶段性存在。模型不会知道这些背景，它给出的实现往往是完整的。是否贴合当前的环境，需要自己去判断。 测试也没有轻松多少。单元测试我也让 AI 一起生成，但自测还是得自己做。接口要自己调，参数要自己换着测，异常路径要一条条走，数据要自己造。现在很多时候前后端是一整套一起生成，页面、接口、数据结构都在一起，看起来很顺，只要中间有一个地方不对，就得从头走流程，把请求发出去，看返回结果，对着日志查调用链。整个链路还是要自己过一遍。 有时候会发现，一天下来真正写代码的时间其实不多，大部分时间都在读代码，在确认生成出来的实现有没有和现有结构冲突，有没有引入新的复杂度。刚看完一段，又出来一段新的；刚决定保留一种写法，下一轮生成又给了另一种实现。很多选择都不算错，只是需要自己一个个拿出来想一遍。这样的来回在一天里会发生很多次，思路一直被打断，很难长时间停在同一个问题上。 现在项目推进的越来越快，人也越来越累。 那种不是熬夜的累，也不是体力透支的累，是脑子一直没有停下来的那种消耗。晚上关掉电脑，脑子里还在过白天的逻辑；第二天坐下来，又是一堆还没完全消化的结构等着处理。思路被切得很碎，很少有完整的一段时间能沉进去。 以前写代码累，是因为问题难。现在更多是密度高。每天都在读，在判断，在确认，在来回切换。 这种状态持续久了，真的是超级累。 代码 AI 项目 44 条回复 • 2026-02-14 14:13:35 +08:00 1 devzhaoyou 20 小时 8 分钟前 5 没错，以前是你是技术专家，精心种一块地，现在是种地不要技术了，种的地反而多了，几百亩地，还是得浇水施肥，变成了体力劳动，累😮‍💨 2 Nexora 20 小时 4 分钟前 不要读 AI 的代码，而是读 AI 的方案，不要用读代码的方式来保障质量，而是用测试结果结果来体现质量，不管 AI 代码写多的多花哨，测试不过就是不过。AI 生产的代码量可能会越来越多，用 AI 开发软件也会越来越复杂。 3 dismantle 19 小时 54 分钟前 via Android 确实，最近也有这种负担。要不不读，要读负担很重 4 andforce 19 小时 33 分钟前 The creator of Clawd: \"I ship code I don't read\" 5 cellsyx 19 小时 28 分钟前 via Android 2 古法编程还有思考-执行两个循环的过程，相当于做了负载均衡。现在 AI 极大缩减了执行的时间，就把负载全压到思考上了。 6 Unicorns96 19 小时 25 分钟前 1 @ Nexora 最近发现 ai 写的代码测试能过，但细看代码，常常藏着 repository.findAll().stream() .filter(item -> item.getId() == xx) .collect(Collectors.toSet());这种设计。用的 codex 5.3 最新模型+技术规范 skills 7 coolair 19 小时 16 分钟前 用了 AI ，就得所有过程抛给 AI ，人工 review 太累了，而且 AI 写的代码真的很啰嗦，到后面根本没有精力去 review 。 8 kneo 19 小时 3 分钟前 via Android 老板：你就说是不是比以前快了吧。 同事：代码我早就不看了。 9 starlion 18 小时 49 分钟前 AI 编程技术进步确实使人更累，编码更多人能做了，竞争更激烈 10 lisonfan 17 小时 6 分钟前 +1 我也是 11 canyue7897 16 小时 55 分钟前 via iPhone 你就说薪酬和年终奖有没有上去吧？ 12 wojiugaiming 16 小时 54 分钟前 via Android @ devzhaoyou 我觉得你说话好有道理 13 levelworm 16 小时 47 分钟前 系统编程是这样的吧，总共没有多少代码，但是要在大脑里完全走一遍。David Cutler 在采访的时候就说过，他每写点东西就要在大脑里把整个代码的流程跑几遍，确保没问题了再写。 14 paradoxs 16 小时 43 分钟前 AI 编程会越做越好的，你帖子里面说到的这些问题，会逐步解决。 15 qianlifeng 15 小时 52 分钟前 以后是面向测试编程了. 各种 case 各种结果定好,中间怎么实现管不了那么多了😂 16 MoeDisk 15 小时 51 分钟前 有强迫症，所以一直拿 ai 当 csdn 用（雾， chatgpt 刚出 plus 就买了，一直是根据需求出范例或者问 ai 建议那样， 可能是做嵌入式吧，有的时候为了快速看一些效果才会 vibe ，比如写个前端对接我的东西之类的。 很久很久前还在上学，我男票不会代码，用类似 dw 那种拖拽工具写 h5 ，然后给我让我帮他改我编辑器开后产生了很大的心理阴影，所以我心里比较抗拒别的东西生成的代码，虽然我并不反对甚至支持这项技术。 17 jusk9527 15 小时 37 分钟前 真的，现在非常累 18 middle2000 15 小时 19 分钟前 vi"
+  },
+  {
+    "source": "V2EX",
+    "title": "我乃当世第一诗人，在此题诗，看到此帖诸位三生有幸",
+    "url": "https://www.v2ex.com/t/1192723",
+    "heat": "42 replies",
+    "time": "Hot",
+    "content": "我乃当世第一诗人，在此题诗，看到此帖诸位三生有幸 - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 文学 我乃当世第一诗人，在此题诗，看到此帖诸位三生有幸 tianhehechu · 20 小时 48 分钟前 · 1445 次点击 天河说，要有诗。于是就有了诗。 话不多说，先吟七首，给各位大爷助助兴。 好姑娘狗娘养 妹妹 你和我上床 就是好姑娘 妹妹 你想把我的钱花光 就是狗娘养 ——2025 年 9 月 12 日 晚 在某地 玉女摇仙佩 相思负尽，锦瑟空弹，报我沉忧清泪。 楚馆寻情，秦楼买醉，一啖呢喃滋味。 此际休言悔。但轻磨鬓角，半遮鸳被。 窃声对、芳龄齿岁，直是良辰好景欢会。 何曾料痴心、如今付了，山红野翠。 应恨彩云易散，燕子迟归，梦远星河摇坠。 万古千秋，青梅难遂，毕竟东流春水。 且枕前依偎。从今似、浪客红尘无累。 怎教我、冬雷夏雪，徒劳十载，一夕沦碎。 天明未。萦愁黯黯人无寐。 ——2021 年 2 月 5 日 夜 在某地 大乐赋 暮春春几许、鸳鸯被里香凝絮。 休问芳名、枕前一夜，暂作萍鱼戏。 趁残花将谢、飘蓬未举，且共此、人间漫趣。 妹妹哥哥，缠绵语、有时动情弦一缕。 天地也，合欢是、去他方圆规矩。 银瓶破、水浆迸，乍失向来心意。 分飞去，各自天涯浪客，仿佛未遇。 ——2021 年 4 月 17 日 下午 在某地 冬夜梦觉 觉来不似梦中是，负尽深情只有诗。 诗里哀思眠后忘，梦中心事醒犹痴。 霓虹明暗分长夜，人世挣扎乞饱食。 操蛋人生不解释，北欧下次投胎时。 ——2023 年 1 月 8 日 凌晨 在某地 秋夜与有须游花海酒吧 人间无屌事，天上有清歌。 明日谁先死，今宵恐难得。 华年不作乐，垂老将如何。 玉女香成醉，吉他弦乱拨。 ——2025 年 11 月 8 日 夜 在某地 唐多令·秋夜与有须饮酒 暮色黯然收，年华东水流。换几回、日月春秋。 且趁今天人尚在，吹啤酒，涮肥牛。 街上好多妞，夜深瞎逛悠。倒不如、加个 QQ 。 每代青春无限有，何必恨、少年游。 ——2025 年 10 月 31 日 夜 在某地 我想和你一起要饭 妹妹 我想和你一起要饭 在地铁站 在路灯旁边 我们俩 一人一个碗 从天亮 蹲到黑天 有人路过 就说「可怜可怜」 给我个馒头 或者给我点钱 妹妹 你帮我放风 帮我留意城管 城管一来 我抱起碗 你抱着钱 我们一起跑很远很远 要是跑不掉 我们就一起拘留几天 一起吃免费三餐 等出来了 我们就换个地点 继续要饭 在公园 在商场门前 我们俩 一人一个碗 从天亮 蹲到黑天 ——2025 年 7 月 22 日 在某地 看到的大爷们，都发个评论，必会升职加薪、梦想成真。 根据反馈看是否续更。 大爷们，常来玩儿~ 诗 妹妹 人生 42 条回复 • 2026-02-14 14:18:59 +08:00 1 JoeJoeJoe PRO 20 小时 45 分钟前 很好, op 大才 师从当代诗仙女贾浅浅? 2 JoeJoeJoe PRO 20 小时 44 分钟前 抱歉, 不好意思, 只看了第一篇和最后一篇, 刚才看了下中间的内容, op 还是有点东西的. 3 tianhehechu OP 20 小时 42 分钟前 @ JoeJoeJoe 哈哈哈，贾浅浅颇得我部分真传 4 tianhehechu OP 20 小时 42 分钟前 @ JoeJoeJoe 过奖，过奖，都是天赋，没有技巧 5 cmdOptionKana 20 小时 39 分钟前 via Android 古诗我不懂，现代诗我的欣赏水平很高。第一篇比较一般，感觉还能改进。最后一篇非常优秀。 6 Hally 20 小时 39 分钟前 via iPhone 在下愿尊阁下为诗魔 7 tianhehechu OP 20 小时 37 分钟前 @ cmdOptionKana 受教，受教。确实如此。 8 cmdOptionKana 20 小时 36 分钟前 via Android 1 举个例子，第一篇稍稍改一下，感觉就好很多： 妹妹 你不和我上床 就是好姑娘 妹妹 你和我上床 也是好姑娘 妹妹 你想把我的钱花光 就是狗娘养 9 tianhehechu OP 20 小时 34 分钟前 @ Hally 好名号。未来的文学史上会这样介绍本诗人：天河，世称 ⌈诗魔⌋。 10 tianhehechu OP 20 小时 32 分钟前 @ cmdOptionKana 别有风味，哈哈。其致一也。 11 kaixinyidian 19 小时 52 分钟前 大菜 12 OneLiteCore 19 小时 39 分钟前 via iPhone 你写的好，你写的好啊！实在是好诗 13 tianhehechu OP 19 小时 12 分钟前 @ kaixinyidian 感谢捧场感谢捧场，的确是亘古未有之大才 14 tianhehechu OP 19 小时 12 分钟前 @ OneLiteCore 过奖，过奖 15 MiguelTapia 17 小时 41 分钟前 via Android 颇有越南女诗人胡春香的感觉 16 a1210968738 16 小时 5 分钟前 via Android 有点意思 17 TimG 15 小时 46 分钟前 via Android 时下有如豪车开进牙科诊所，一群口腔外科大夫抱着保险杠找坏牙的无力感 18 jacketma 15 小时 31 分钟前 好湿！ 19 tianhehechu OP 15 小时 16 分钟前 @ MiguelTapia 待我去了解了解 20 tianhehechu OP 15 小时 15 分钟前 @ a1210968738 嘿嘿 21 tianhehechu OP 15 小时 14 分钟前 @ TimG 兄台这句话，颇有诗意啊 22 tianhehechu OP 15 小时 14 分钟前 @ jacketma 过奖过奖 23 Bssn 14 小时 53 分钟前 说起来诗，想起来初三的时候“绞尽脑汁”(现在想想也不敢是将抄来的词藻任意堆砌罢了😂)也写了一篇，后来阴差阳错再也找不到了，每每想到都很后悔，实在想再读读😂 24 tianhehechu OP 14 小时 41 分钟前 via Android @ Bssn 那真是件遗憾的事。不过自己写过的诗，有些是能背过的。我写的很多诗，平日会在我脑子里反刍。以至于六年级写的到现在还记得。 25 1145148964 14 小时 39 分钟前 我乃当世诗词鉴赏第一人，在此鉴赏，看到此帖你三生有幸 26 HENQIGUAI 14 小时 33 分钟前 好湿好湿 27 tianhehechu OP 14 小时 23 分钟前 via Android @ MiguelTapia 查阅了她的作品，我帖子里这几首，题材上的确与之相像。 28 tianhehechu OP 14 小时 21 分钟前 via Android @ 1145148964 原来是当世诗词鉴赏第一人，早有耳闻，幸会幸会。多多指教，多多指教。 29 tianhehechu OP 14 小时 21 分钟前 vi"
+  },
+  {
+    "source": "V2EX",
+    "title": "我今天 6 点半下班，你们呢？",
+    "url": "https://www.v2ex.com/t/1192775",
+    "heat": "36 replies",
+    "time": "Hot",
+    "content": "我今天 6 点半下班，你们呢？ - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 职场话题 我今天 6 点半下班，你们呢？ tommyshelbyV2 · 5 小时 27 分钟前 · 1452 次点击 战斗到最后一分钟，大家今天都几点下班？ 都在忙啥 下班 忙 36 条回复 • 2026-02-14 14:19:13 +08:00 1 fine886 5 小时 25 分钟前 via Android 中午下班，赶晚上的车回家 2 shanghui 5 小时 23 分钟前 中午下班 3 shanghui 5 小时 22 分钟前 打金铲铲呢 4 tommyshelbyV2 OP 5 小时 21 分钟前 @ shanghui 吃完早餐，马上我也开始了，铲起来 5 280303 5 小时 20 分钟前 via iPhone 回家两天了 6 anmie 5 小时 19 分钟前 上什么班，吃软饭一年了 7 shanghui 5 小时 18 分钟前 @ tommyshelbyV2 铲几把就可以下班了 8 allinQQQ 5 小时 16 分钟前 中午下班，请了半天假 9 tommyshelbyV2 OP 5 小时 15 分钟前 @ shanghui 搞起 搞起 10 leoson 5 小时 15 分钟前 五点半下班 11 FakerLeung 5 小时 12 分钟前 六点下班 12 zhuangjia 5 小时 11 分钟前 六点下班 13 neuthself 5 小时 8 分钟前 中午 14 yueliusu 5 小时 6 分钟前 下午 6 点半下班 15 zxcjqyy 5 小时 6 分钟前 中午，我们公司不请假的今天免费放半天假 16 tommyshelbyV2 OP 5 小时 3 分钟前 @ zxcjqyy 这个好啊 17 ahaxzh 4 小时 47 分钟前 卧槽，你们太晚了吧。我们 5 点 30 分。 18 66beta 4 小时 46 分钟前 17:50 19 zhouyu1991 4 小时 37 分钟前 5.30 下班 20 shimheeyeon 4 小时 28 分钟前 5 点正常下班 21 Patrick6 4 小时 24 分钟前 依旧六点半下班 22 EJW 4 小时 22 分钟前 暂时六点，但是说不定给早放 23 Bscat 4 小时 20 分钟前 拿着手机摸鱼等下班，哈哈哈 24 xuyan1994 3 小时 58 分钟前 今天特地最晚来，看看如果早放就赚到了 25 Moishine 3 小时 57 分钟前 via iPhone 居家办公 26 xiaoliuzhenshuai 3 小时 47 分钟前 提前两小时下班了 27 Geeking1105 3 小时 21 分钟前 站好最后一班岗 28 nyakoy 3 小时 17 分钟前 和你一样，6.30 下班 29 TUGOh0st 3 小时 9 分钟前 5.50😁 30 a1b2c3T 3 小时 3 分钟前 6 点下班 31 joelaw 3 小时 2 分钟前 都已经休了三天假了。。。 32 zhhqiang 2 小时 59 分钟前 via Android 早你半小时٩( 'ω' )و 33 ybz PRO 2 小时 57 分钟前 晚你半小时,,Ծ‸Ծ,, 34 sankeff 47 分钟前 15 点 35 kisscat2013 10 分钟前 6 点 36 Selenium39 3 分钟前 5 点下班 关于 · 帮助文档 · 自助推广系统 · 博客 · API · FAQ · Solana · 2483 人在线 最高记录 6679 · Select Language 创意工作者们的社区 World is powered by solitude VERSION: 3.9.8.5 · 22ms · UTC 06:23 · PVG 14:23 · LAX 22:23 · JFK 01:23 ♥ Do have faith in what you're doing. ❯"
+  },
+  {
+    "source": "V2EX",
+    "title": "人老了，有一些感触想写出来。现在建博客还有什么好选择吗？",
+    "url": "https://www.v2ex.com/t/1192790",
+    "heat": "35 replies",
+    "time": "Hot",
+    "content": "人老了，有一些感触想写出来。现在建博客还有什么好选择吗？ - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 问与答 人老了，有一些感触想写出来。现在建博客还有什么好选择吗？ shyrock2026 · 3 小时 45 分钟前 · 840 次点击 希望成本低、预期可以较长时间存活的，谢谢。 博客 成本 35 条回复 • 2026-02-14 14:22:15 +08:00 1 JoeJoeJoe PRO 3 小时 42 分钟前 如果是 mac 电脑的话, 可以发 planet. https://www.v2ex.com/planet https://www.v2ex.com/go/planet 2 libasten 3 小时 41 分钟前 最成熟不折腾还是 wordpress 吧 3 JoeJoeJoe PRO 3 小时 40 分钟前 当然 一些思考和经验也可以在我的这个节点上 po 出来: https://www.v2ex.com/go/joe 如果是故事或者小说可以在这个节点: https://www.v2ex.com/go/writer 一些少年时的梦想还可以在这个节点 po: https://www.v2ex.com/go/404 4 shyrock2026 OP 3 小时 39 分钟前 @ JoeJoeJoe #1 我以为博客都是跨平台的。。。还可以 mac 限定？ 点进去看好像是 v2 的币？基于区块链的？ 5 Atma 3 小时 39 分钟前 via Android 纯静态，github pages 或者 cvercle 6 shyrock2026 OP 3 小时 38 分钟前 @ libasten #2 成本低也包括折腾成本哈，年纪大了时间不多。。。所以 wordpress 有啥现成的可靠的服务吗？ 7 JoeJoeJoe PRO 3 小时 37 分钟前 1 @ shyrock2026 这个 planet 是个 mac 端独享的软件. 不是$V2EX 的币, 那个日报是我基于 planet 做的, 哈哈哈哈, 下面还有其他人的帖子. 这个博客是基于 ipfs 做的, 去中心化博客, 你的内容永远归属于你, 在下面的 /go/planet 节点里面有人分享怎么搭这套环境 8 foryou2023 3 小时 37 分钟前 如果是纯粹的想记录一下，很多方案的，比如公众号，知乎，开个小号，也不会有人认识，随便写，平台不倒基本上就没事。 9 liushengxian1230 3 小时 34 分钟前 github pages 啊 免费 成本够低了。反正只是 blog 怎么搞都行 可以本地打包 也可以 Github Actions 做部署 10 k1eran 3 小时 31 分钟前 astro 11 Dabney 3 小时 15 分钟前 github pages 挺好的，可以让 AI 写一个桌面端，也省得自己去打包 12 libasten 3 小时 15 分钟前 @ shyrock2026 一个域名，不管理用什么博客系统，这个都是必须的吧。 然后是一个 php+mysql 环境，这个是目前网是最便宜的主机配置了。 13 niboy 3 小时 14 分钟前 公众号、vercel 、github page 都免费 14 shyrock2026 OP 3 小时 11 分钟前 1 @ libasten #12 域名我有，就是只想写字不想搭系统。。。想着搭系统必然需要解决各种版本和环境问题就头大。 15 qqqasdwx 2 小时 59 分钟前 obsidian,想对外发布要不就花钱订阅，要不就找三方插件 16 ebadao 2 小时 55 分钟前 via Android 你能上 v 站，建议你还是选择 wordpress.com 或者 blogger.com 。 17 Dorathea 2 小时 40 分钟前 框架可以选 Astro, 支持 MD, 不会前端也可使用。 18 7gugu 2 小时 35 分钟前 wordpress ，最简单最稳定的系统。我写了 10 年博客了，来来去去还是用回 wordpress 比较省心 19 loading 2 小时 34 分钟前 via Android 我准备转去静态博客，现在用 php 的感觉还是贵…毕竟一周个位数访问。 用 markdown 写完生成 html 就好了。 20 willwon1 2 小时 16 分钟前 1 直接用小红书、X 、建自己的 IP 、、 建一个博客 10 年没 10 个人访问、 这年头个人想法信息流也是要变现的 A9 之前没有什么面子不面子、 流量就是钱 21 s5s5 2 小时 14 分钟前 用 Astro 吧，最近才从 Wordpress 转到 Astro 了，PHP 已经是古老的技术了 22 zero2me 2 小时 11 分钟前 可以来我这看看 https://www.zero2me.com/ 这边除了博客功能，还有个 PATH 的功能，你可以把每天的照片和感悟下来，做成一个时间轴日记。 可以看看我的记录，我每个月更新一次 https://www.zero2me.com/path?pathId=path_4249e924-202d-4ddd-adee-b7b76bdee4c2 如果碰到注册问题，私信给我 23 zero2me 2 小时 10 分钟前 所有的数据都是放在阿里云存储的，不会丢，这个网站已经开了有 5 年多了，一直很稳定 24 Syiize 2 小时 3 分钟前 via Android hexo+GitHub page+GitHub action 自动部署，我现在写博客都是本地 markdown 写完推送过去等 action 自动部署完，很方便 25 isbase PRO 1 小时 56 分钟前 via iPhone 让 ai 写个主题。markdown ➕ git ➕ cloudflare 部署。 26 OWLS 1 小时 55 分钟前 最好的选择还是托管吧。 blogger github 27 z7356995 1 小时 51 分钟前 via Android digtal ocean 上有自带 wordpress 系统，选那上手就可用 28 nxuu 1 小时 27 分钟前 publii 挺好 29 utcpvg 1 小时 18 分钟前 直接博客园吧 30 p1gd0g 1 小时 12 分钟前 Astro + github + page 31 needpp 1 小时 3 分钟前 备忘录 或者 微信 [自己可见] 32 EchoWhale 50 分钟前 via iPhone vercel 托管就行了，这种静态站免费额度都用不完 33 agnewee 27 分钟前 cloudflare + github 34 wenrouxiaozhu 11 分钟前 hexo 或者 hugo 也不错 35 iixy 刚刚 不想被人看的话用 tumblr 就行，甚至 qq 空间都可以。重在稳定，将来自己看看 关于 · 帮助"
+  },
+  {
+    "source": "V2EX",
+    "title": "江苏联通的小黑屋兄弟们出来了吗？",
+    "url": "https://www.v2ex.com/t/1192705",
+    "heat": "31 replies",
+    "time": "Hot",
+    "content": "江苏联通的小黑屋兄弟们出来了吗？ - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 宽带症候群 江苏联通的小黑屋兄弟们出来了吗？ lyz2754509784 · 22 小时 8 分钟前 via Android · 1277 次点击 前后差不多快进去一个月了 目前我的家宽出来了，但是政企商宽还在 122.192 开头的小黑屋里，ip 属地是徐州，由于商企的处理流程特殊貌似需要客户经理处理，现在联通一口咬死宽带没有问题，理由是测速正常，ip 不是本地是全省 ip 随机分配导致… 目前直播/视频上传/文件备份等均被限制在 1mbps ，只有联通自己的测速还有全球网测等大众 app 测速正常，小众站点和 iperf3 都原形毕露，但是联通不认。联通一直说是网站对我限速而不是他们运营商有限速，之前装维师傅说宽带被管控现在也改口了说听公司的处理方法 问一下大家是如何处理的？特别是商企宽带 联通 宽带 限速 31 条回复 • 2026-02-14 12:55:10 +08:00 1 huaweii 22 小时 3 分钟前 江苏哪里的？苏州？ 2 T0TILJS5 22 小时 2 分钟前 刚出来又进去了，懒得折腾了，只能用向日葵远程 3 FabricPath 21 小时 10 分钟前 那你就在你机器上疯狂打 UDP 报文，把 PON 的上行打满，带着同一个 PON 下的用户一起死 4 wlals3003 21 小时 6 分钟前 via iPhone 给你出个注意，买个小度智能屏，直接能把一栋楼的网络拖垮，去年这个问题我查了一个月。联通的公网地址也不稳定，偶尔给我搞成内网 nat 5 busier 21 小时 1 分钟前 via iPhone 测速网站白名单么 还有这么不要脸的运营商 6 lyz2754509784 OP 20 小时 35 分钟前 via iPhone @ huaweii 常州 7 lyz2754509784 OP 20 小时 33 分钟前 via iPhone @ busier 是的 江苏联通，电信都是这样子，ipef3 打流都有问题，测速都没问题，电信用 fakehttp 可以破，nas 可以正常传输，联通直接是白名单机制，除了白名单以外网站全部下行 200 兆上行 1 兆 8 lyz2754509784 OP 20 小时 33 分钟前 via iPhone @ T0TILJS5 我商宽也是，客户经理打了个报告出来了 1 天，第二天下午又回去了 9 ChangeTheWorld 20 小时 19 分钟前 自行换猫，账号解绑，有概率能出来 10 unpay 20 小时 11 分钟前 智企还在小黑屋，，只能等了。。。云宽和城域网没事 11 CannonX 18 小时 55 分钟前 坐标泰州 ，被 122,157 ，徐州网段，昨天投诉之后恢复了 12 HXM 18 小时 50 分钟前 1 南京，进去半个月了还没出来，远程桌面丢包高的要命 13 someonesnone 18 小时 46 分钟前 你能把所有的包都伪装成发给测速网站么 14 lyz2754509784 OP 18 小时 44 分钟前 via iPhone @ someonesnone 我试了他们说的那个 fakehttp ，效果不是很好，貌似是 ip 白名单？还有域名加 speedtest 也是无效的 15 lyz2754509784 OP 18 小时 44 分钟前 via iPhone @ unpay 不知道年后能不能出来了，大过年的客户经理说处理进度很慢…你的智企也还在小黑屋么 16 lyz2754509784 OP 18 小时 43 分钟前 via iPhone @ CannonX 是家庭宽带还是商用宽带？投诉的内容是什么？ 17 lyz2754509784 OP 18 小时 42 分钟前 via iPhone 1 @ HXM 对的，todesk 只能使用兼容模式，720p 画面都没有马赛克画质还丢包，高清模式直接建立不上链接 todesk 会报网络错误请重新连接，切到兼容模式勉强能用但是画质堪忧 18 CNN 18 小时 42 分钟前 via iPhone 同样，ip 显示 112 徐州，打客服说去核实了 19 lyz2754509784 OP 18 小时 41 分钟前 via iPhone @ ChangeTheWorld 这个解绑刚刚问了一下装维，他们说权限被回收了要打请求大概率不行 20 CannonX 18 小时 40 分钟前 @ lyz2754509784 家宽全程没有打电话，1 天处理好了 21 HXM 18 小时 32 分钟前 @ CannonX 请问是通过什么渠道投诉的呢？我也想试试看 22 lyz2754509784 OP 18 小时 32 分钟前 via iPhone @ CannonX 对的，我的家宽是周六打的投诉，全程装维回过一个电话，因为以前也被限速过，装维确认了一下说是否是又被限速了，然后就挂电话了，周日早上 10010 回电话说向上申报了，周末没人，周一会有进展，然后周一就恢复正常了工单自己结束了，商用宽带就不一样了，直接单子卡给客户经理然后被政企部门卡住了咬死说测速没问题网络正常是抖音 b 站之类的服务商对我限速了 23 lyz2754509784 OP 18 小时 31 分钟前 via iPhone 1 @ HXM 家宽直接 10010 可以解决的，商宽目前我没解除我也不知道了 10010 会转给客户经理 24 lyz2754509784 OP 18 小时 31 分钟前 via iPhone @ CNN 家庭宽带估计核实完给你回复的时候就给你放回去了应该，我的商企宽带直接核实完了跟我说测速正常 25 ingram22mb30 16 小时 32 分钟前 via Android 122.193 是不是也是小黑屋，如果是的话，怎么会自打安装开始就关在里头呢？有点想不通啊？？ 26 lyz2754509784 OP 14 小时 48 分钟前 @ ingram22mb30 122.193 貌似不是， 122.192.19x.xxx 还有 122.194,还有 157.0.203.xxx 、 116.147.1xx.xxx 这个是目前我的账号播到的段，除了 116.147 在淮安，其余的都在徐州 27 totoro625 14 小时 0 分钟前 镇江联通，自从申请公网 IP 开始就在 122.192.110.xxx 打流镇江移动速度还 ok ，能跑满限速 28 lyz2754509784 OP 12 小时 21 分钟前 @ totoro625 110 应该不是小黑屋，我这不申请公网的话也是 122.92.2x ，小黑屋应该在大概 122.192.188-122.192.200 之间好多好多段，iperf 一打就看出来了而且 ip 异地 29 sparkssssssss 5 小时 23 分钟前 是为啥进小黑屋啊，大上传？ 我这种小卡拉咪应该不会被关注到吧 30 lyz2754509784 OP "
+  },
+  {
+    "source": "V2EX",
+    "title": "论家宽建站的可行性？",
+    "url": "https://www.v2ex.com/t/1192736",
+    "heat": "31 replies",
+    "time": "Hot",
+    "content": "论家宽建站的可行性？ - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 宽带症候群 论家宽建站的可行性？ feunterban · 19 小时 9 分钟前 via Android · 1582 次点击 突然想到的，如果使用这个方案，能不能防运营商探测？ 1.使用一个备案域名的子域名。 2.前端接入腾讯云 edgeone CDN 。CDN 回源指向家宽公网 IPv4 一个高位端口 3.在家用路由器上做端口转发，把该高位端口映射到内网主机。同时设置端口仅监听指定 IP （即只允许 CDN 回源段 IP 访问，其他来源 DROP ）。除此以外对公网不直接开放网站端口，用户必须通过前端域名访问。 家宽 CDN 端口 31 条回复 • 2026-02-14 11:24:00 +08:00 1 v1 19 小时 7 分钟前 可以啊，已经如此三个月了，不过我也用了十年的 ipv4 ddns 备案域名+高位端口直连，也没问题。 2 renchong 19 小时 6 分钟前 理论上可行，就是国内 cdn 太贵了，被刷就完蛋 3 v1 19 小时 6 分钟前 同城自用的话根本不会管你是不是建站的，那些说建站停宽的 99%上网炫耀泄露了或者发给异地朋友。 4 v1 19 小时 5 分钟前 @ renchong edge 和 esa 的免费版是不限流量的。 5 Ipsum 19 小时 2 分钟前 via Android 感觉还不如直接买个 ecs 便宜点。 6 sn0wdr1am 19 小时 0 分钟前 没有可能 7 stinkytofux 18 小时 30 分钟前 我已经把所有服务搬到家里差不多两年时间了, 非常稳定, 中断时间屈指可数, 现在城市里面几乎不会停电. 做法也很简单, 买个离家最近的服务器, 转发流量即可. 延迟也就几毫秒. 8 wlals3003 18 小时 14 分钟前 via iPhone 不用这么麻烦吧，cf 就可以转到非标端口 9 WuSiYu 17 小时 16 分钟前 via iPhone 运营商有 dpi 的话能看到你的跑了 http/https 服务 10 Kiriya 17 小时 16 分钟前 你都买 CDN 了，再 99 买个轻量服务器不香么何必折腾家宽，按 600/年的费用来算可以买 6 年轻量服务器了 11 alect 17 小时 9 分钟前 我已经这么干几个月了，不过，目前腾讯云取消了用户获取 CDN 回源 IP 。 12 docx 17 小时 8 分钟前 via iPhone 几十块甚至几块钱买个 VPS 就能解决，操作起来更方便，也不需要考虑运营商管控，何必淌这个风险 13 cpstar 17 小时 1 分钟前 除了家宽 IP 变更需要变更 CDN 配置，其他的毫无问题，或者再开一台主机用 frp 打隧道。 14 sonnetbreeze 15 小时 23 分钟前 一直这样干，备案买一个月轻量级服务器，备案好了，写一个脚本解析到备案服务商，实现假访问，避免收回，家宽写脚本如果公网 ip 变动，推送新的回源 ip ，配合腾讯 eo ，用了 3 年有余 15 mytsing520 PRO 14 小时 47 分钟前 不合规，的确有人这么干 但是被发现只是时间问题 16 xqzr 14 小时 42 分钟前 IPv6 也许 80/443 17 titanium98118 14 小时 18 分钟前 cloudflare tunnel 18 totoro625 14 小时 12 分钟前 一直这么干，从我的发帖记录来看至少在 23 年之前我就这么玩了 /t/942069 原先我是 ipv6 的 443 端口回源，期间 ipv6 被停过 /t/1029647 ；后来 443 端口被限制改到高位端口回源 /t/1121687 再后来换了联通拿到了 ipv4 依旧喜欢用 ipv6 回源 现在有免费的国内阿里+腾讯 CDN 简直不要太棒 PS：我额外搭配了，200M 学生券轻量机*4 ，CDT 正价机*3 /t/1161762 国外部分分流走梯子穿墙搭配 Oracle*2 PS2：我没有设置仅监听指定 IP ，但是 nginx 配置了 default http 444 和 default ssl ssl_reject_handshake 19 v1 14 小时 7 分钟前 @ totoro625 我甚至没有配任何规则，哈哈哈哈 08 年我就 ddns 直接挂网，那时候甚至直接 80 端口，这么多年了重来没问题 20 totoro625 13 小时 57 分钟前 @ v1 #19 我之前查找资料还搜索到一个广州电信的 ddns+四位数的端口号 播客站点，10 年左右建站，SEO 还挺好 21 v1 13 小时 54 分钟前 @ totoro625 是的。我很多年前问过电信，工单答曰：只有合理的个人(家庭)用途，没有违法乱纪的，没有上级公司下发整改或者被他人投诉的，不管这个 22 busier 6 小时 27 分钟前 via Android 按条款就是违规的 现实是不一定管你 哪天要管了 你也没办法 23 fstab 5 小时 16 分钟前 如果没啥人访问，你这么操作也是多此一举。 24 shenyuzhi 5 小时 11 分钟前 有个更稳妥的办法。 买个对应云厂商的最便宜的轻量云，走 vpn 25 sparkssssssss 4 小时 36 分钟前 cf tunnel 随便造，就是速度堪忧 26 AEnjoyable 4 小时 35 分钟前 # 24 @ shenyuzhi 你这带宽流量消耗就翻倍了。。。 而且轻量云你上哪去找带宽有 cdn 那么大的 27 datou 4 小时 26 分钟前 cf tunnel 了解一下 28 keyu1103 3 小时 37 分钟前 在用类似方案。用 cloudflare tunnel ，也就是在你的服务器上主动向 cloudflare 发起一个长链接建立隧道，然后打开 cloudflare 的小黄云。 这样的话，你就可以通过 域名 -- cloudflare dns -- cloudflare tunnel -- 服务器 进行访问了。 因为 cloudflare tunnel 是你的服务器主动找的 cloudflare ，所以不需要你有公网 ip ，你能连上公网 cloudflare 就行。 套了 cloudflare 的 dns ，缺点是所有流量都会走到美国的 dns 节点转一圈，如果源站在国内，用户的流量就得先到 dns 节点再回源，延迟会有 500ms 左右。可以选择用 cloudflare 优选 ip 的方案降低第一跳的延迟。我选择了买一个 racknerd 的便宜主机，cloudflare 回源只要 10ms 。 29 wanghanthu 3 小时 34 分钟前 CDN 回源不能改变端口，而且只能用常用的几个端口，很刑。 30 LnTrx 3 小时 17 分钟前 个人感觉该方案在“防探测”方面属于是防了但又没完全防，只能寄希望于运营商睁"
+  },
+  {
+    "source": "V2EX",
+    "title": "是不是可以粗略的认为，，还有 1/3 以上的老哥今天还在上班啊",
+    "url": "https://www.v2ex.com/t/1192777",
+    "heat": "24 replies",
+    "time": "Hot",
+    "content": "是不是可以粗略的认为，，还有 1/3 以上的老哥今天还在上班啊 - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 职场话题 是不是可以粗略的认为，，还有 1/3 以上的老哥今天还在上班啊 Hiok · 5 小时 6 分钟前 · 1438 次点击 2626 人在线 / 最高记录 6679 哈哈 一起当劳模 站岗到六点 老哥 上班 24 条回复 • 2026-02-14 12:11:42 +08:00 1 tommyshelbyV2 5 小时 3 分钟前 放哨到 6 点半 2 Hiok OP 4 小时 54 分钟前 @ tommyshelbyV2 劳模标杆哈哈 3 cvooc 4 小时 45 分钟前 热爱上班,得熬到 6 点 4 66beta 4 小时 44 分钟前 明天又不是除夕，本地人没有回老家需求的话，一般都不想浪费年假吧 5 xiaowangzi00 4 小时 39 分钟前 明天也还得上班 6 Hiok OP 4 小时 36 分钟前 今天，我要站起来光明正大的摸鱼🖐️🐟️ 7 rockddd 4 小时 35 分钟前 在公司电脑下了个游戏，打一天 8 Bscat 4 小时 24 分钟前 今天上班主要任务可能就是刷短视频了 9 JoeJoeJoe PRO 4 小时 11 分钟前 1 人少了, 但是人又没有少那么多. 10 Hiok OP 4 小时 4 分钟前 @ xiaowangzi00 目前最惨 11 shiran1909 3 小时 54 分钟前 via Android 大年初一也得上班 12 dfdd1811 3 小时 53 分钟前 明天上班 13 jinjidebanglin 3 小时 50 分钟前 呜呜呜，今天不是法定工作日吗，怎么地铁都空了。你们快回来啊，公司发金子了 14 cubecube 3 小时 49 分钟前 我在的公司，大概还有 10%-15%的人，没有公开放假，大家都用的自己的假期 15 datahubauc 3 小时 40 分钟前 放假前后公司不允许请假，年假都没用完。。。 16 Hiok OP 3 小时 38 分钟前 @ shiran1909 马年顶梁柱哈哈 17 Hiok OP 3 小时 37 分钟前 @ jinjidebanglin 嘘，，路上也空 18 liushengxian1230 3 小时 15 分钟前 @ JoeJoeJoe 我猜实际离岗的人多一些，因为剩下的人事情不多了，活跃度可能更高了 19 wanglz111 3 小时 9 分钟前 没那么少 20 JoeJoeJoe PRO 3 小时 7 分钟前 @ liushengxian1230 哈哈哈 等明年再对比一下, 反正周末和工作日的波形很稳定. 21 liudewa 2 小时 38 分钟前 @ datahubauc #15 一样 22 datahubauc 2 小时 36 分钟前 @ liudewa 唉，打工人 23 casatAway 2 小时 29 分钟前 我们这就 10%了 24 coffeesun 2 小时 11 分钟前 via Android 商业写字楼，地下车库这一周的车是平时的 1/5- 1/3 左右 关于 · 帮助文档 · 自助推广系统 · 博客 · API · FAQ · Solana · 2480 人在线 最高记录 6679 · Select Language 创意工作者们的社区 World is powered by solitude VERSION: 3.9.8.5 · 110ms · UTC 06:22 · PVG 14:22 · LAX 22:22 · JFK 01:22 ♥ Do have faith in what you're doing. ❯"
+  },
+  {
+    "source": "Tencent News",
+    "title": "王毅会见鲁比奥，华春莹共同出席，现场画面公布",
+    "url": "https://view.inews.qq.com/a/20260213A0727I00",
+    "time": "2026-02-13 21:45:47",
+    "content": "王毅会见鲁比奥，华春莹共同出席，现场画面公布_腾讯新闻 王毅会见鲁比奥，华春莹共同出席，现场画面公布 中国新闻网 2026-02-13 21:45 发布于 北京 中国新闻网官方账号 现场画面！王毅与鲁比奥在德国慕尼黑举行会谈 华春莹共同出席 据玉渊谭天，当地时间2月13日，中共中央政治局委员、外交部长王毅在慕尼黑会见美国国务卿鲁比奥，外交部副部长华春莹共同出席。 来源：@玉渊谭天 编辑：闫嘉欣 责编：赵一凡"
+  },
+  {
+    "source": "Tencent News",
+    "title": "湖北发布关于襄阳宜昌精神卫生医疗机构有关问题调查处理情况的通报",
+    "url": "https://view.inews.qq.com/a/20260213A06VTH00",
+    "time": "2026-02-13 21:09:03",
+    "content": "湖北发布关于襄阳宜昌精神卫生医疗机构有关问题调查处理情况的通报_腾讯新闻 湖北发布关于襄阳宜昌精神卫生医疗机构有关问题调查处理情况的通报 央视新闻 2026-02-13 21:09 发布于 北京 中央广播电视总台央视新闻官方账号 湖北省委省政府联合调查组今天发布关于襄阳宜昌精神卫生医疗机构有关问题调查处理情况的通报，内容如下： 2月3日，媒体反映湖北襄阳、宜昌部分精神卫生医疗机构违规收治患者、涉嫌套取医保基金、侵害患者权益等问题。湖北省委省政府对此高度重视，于2月4日成立由省委负责同志任组长，省纪委监委、省卫健委、省公安厅、省医保局等部门组成的联合调查组，对有关问题依法依规提级调查。国家卫健委、国家医保局派员指导。现将调查处理情况通报如下： 一、关于调查总体情况 联合调查组分赴襄阳、宜昌，通过谈话询问讯问、调阅账册资料、数据分析比对等方式，对有关问题所涉机构、人员依规依纪依法调查。联合调查组统筹协调，省卫健委组织287名临床专家和卫生监督管理人员对在院及近期出院患者的病情、诊治情况进行核查；省医保局组织654名监管骨干和专家对医保基金使用情况开展核查；省公安厅组织991名民警依法办理医保骗保和侵犯患者人身权利等案件；省、市纪委监委共抽调795名纪检监察干部对公职人员涉嫌失职渎职、收受贿赂等违纪违法问题开展调查。 联合调查组对襄阳、宜昌共51家精神卫生医疗机构（含精神病专科医院和设立精神科的综合医院、中医医院等）进行深入调查。经查—— 襄阳襄雅精神病医院等10家精神卫生医疗机构涉嫌存在违规诊疗骗取医保基金； 襄阳安康精神病医院等6家医院存在以减免费用诱导招揽患者； 宜昌夷陵康宁精神病医院存在患者假出院、连续住院； 襄阳宏安精神病医院等3家精神卫生医疗机构存在少数工作人员殴打精神障碍患者等违法违规问题。 调查还发现存在属地管理、行业管理、部门监管失职失责问题；个别公职人员存在权钱交易、利益输送等违纪违法问题。 二、关于具体调查结果 （一）关于收治非精神障碍患者问题 省卫健委组织省级专家组，通过查阅病历资料、多方调查访谈、比对精神障碍患者既往诊疗信息和面诊，对襄阳、宜昌共51家精神卫生医疗机构进行了全面排查，依据ICD-10（国际疾病分类第十版）“精神和行为障碍诊断标准”，对两地在院患者8620人和近期出院患者559人进行逐一核查，没有发现收治非精神障碍患者入院情况，但存在临床治愈后继续住院、空挂床位等问题。 经查，患者杨某勇于2023年6月14日在襄阳恒泰康医院精神科首次住院，专家组综合评估，认为其符合脑损害和功能障碍及躯体疾病引起的其他精神障碍的诊断，达到精神障碍收治入院标准。2024年3月26日至今，杨某勇在襄阳康宁精神病医院反复7次出入院，出院当天再次入院，住院期间患者症状一直稳定，药物治疗方案一直未调整。专家组认为该患者临床治愈，不适宜长期住院治疗。患者王某齐于2025年12月8日在襄阳襄雅精神病医院入院治疗，该患者入院前有一定的社会生活事件诱因，后出现情绪冲动伤人，经家属同意，由办案民警联系精神病医院评估后收治。专家组认为其符合疑似精神障碍的标准，确需精神科紧急处理。目前临床症状已控制，不适宜长期住院治疗。患者王某波因嗜酒30年、反复饮酒后出现精神行为异常，于2025年7月5日在襄阳宏安精神病医院入院治疗，10月31日办理出院。住院期间王某波症状缓解，被聘为该院护工，负责协助管理病人，期间只服用促睡眠、护肝相关药物，并领取薪酬，涉嫌空挂床位，涉及违法违规使用医保基金5341.55元。 经查，襄阳宏安精神病医院、宜昌夷陵康宁精神病医院未发现收治非精神障碍老年人养老情况。襄阳市86家福利机构和宜昌市夷陵区11家福利机构送往精神卫生医疗机构治疗的患者，均有诊断明确的精神障碍。 经查，宜昌夷陵康宁精神病医院以社会功能康复治疗为由安排2名住院患者何某磊、杜某违规承担安保工作，日常在院保安室吃住。何某磊、杜某经专家组评估，均明确患有精神障碍。此外，该院聘有保安4名，均未发现在该院有住院记录。 经查，专家组对襄阳恒泰康医院在院患者中因“使用酒精引起的精神和行为障碍”收治入院的7名患者的病历进行核查，并对患者本人及家属进行面访，专家组认为7名患者均患有使用酒精引起的精神和行为障碍，且均有冲动危险行为，符合住院治疗指征，应入院进行治疗。襄阳市襄州区优抚医院、襄阳融诚医院和襄阳宏安精神病医院等医院的戒酒患者实为使用酒精引起的精神和行为障碍患者。 （二）关于精神卫生医疗机构骗取医保基金问题 经对两年来医保基金使用情况进行核查发现，襄阳9家、宜昌1家精神卫生医疗机构涉嫌存在违规诊疗、以虚构医药服务项目、虚开医疗服务费用、伪造医学文书等方式骗取医保基金的问题，涉及违法违规使用医保基金348.59万元。具体情况为：襄阳襄雅精神病医院存在虚构医药服务项目的问题，涉及违法违规使用医保基金162.88万元。襄阳阳一光精神病医院存在虚构医药服务项目、伪造医学文书问题，涉及违法违规使用医保基金53.61万元。襄阳汉江潮精神病医院存在伪造检验报告、伪造超声检查报告、虚构医药服务项目、伪造医学文书问题，涉及违法违规使用医保基金31.32万元。襄阳芝麻精神病医院存在虚构医药服务项目、虚开医疗服务费用和伪造医学文书问题，涉及违法违规使用医保基金17.50万元。襄阳市襄州区静怡精神病医院存在虚构医药服务项目问题，涉及违法违规使用医保基金12.19万元。南漳立源精神病医院存在伪造医学文书问题，涉及违法违规使用医保基金9.38万元。襄阳宏安精神病医院存在虚构医药服务项目问题，涉及违法违规使用医保基金2.17万元。襄阳市襄州区优抚医院存在虚构医药服务项目问题，涉及违法违规使用医保基金1.58万元。襄阳襄州安怡泰精神病医院存在虚计心理治疗费用问题，涉及违法违规使用医保基金0.65万元。宜昌夷陵康宁精神病医院存在虚构医药服务项目和伪造医学文书问题，涉及违法违规使用医保基金57.31万元。 （三）关于1名在院患者自杀问题 患者秦某，因患有使用酒精引起的精神和行为障碍，确需住院治疗，于2025年4月11日由其家属送至宜昌夷陵康宁精神病医院住院治疗。 2025年6月23日17时左右，秦某从宜昌夷陵康宁精神病医院三楼病区走廊进入无人的3号病房上吊自杀，后在宜昌市夷陵医院救治无效死亡。事发后，公安机关依法开展调查，询问宜昌夷陵康宁精神病医院副院长冉某东、主治医生孙某雨，提取秦某自杀前后病房、餐厅、走廊、医生办公室等6月14日至6月23日监控视频，调取秦某病历及医院楼层巡查记录。综合调查情况，公安机关认定秦某系自杀，家属无异议。 2026年2月6日，省、市公安机关联合调查复核认为，事发后调取的现场监控视频资料清晰、连续完整，未见篡改或删除等情况；视频显示，秦某在宜昌夷陵康宁精神病医院作息规律、情绪稳定，未与医护人员或病友发生过冲突，大部分时间在病房休息看书，偶尔到餐厅看电视或打牌，期间存在参与扫地拖地、分餐等行为，每日在医生办公室使用手机1至2次，每次约10分钟。经询问秦某主治医师、2名直系亲属、有作证能力的住院病友和2名护工，均证实秦某住院期间参与扫地拖地、分餐等行为系因康复治疗需要。未发现医院限制其出院情形。 省、市公安机关综合复勘现场、查看视频"
+  },
+  {
+    "source": "Tencent News",
+    "title": "荷兰企业法庭公布安世半导体案裁决结果，中国商务部发声",
+    "url": "https://view.inews.qq.com/a/20260213A06SN200",
+    "time": "2026-02-13 20:54:02",
+    "content": "商务部新闻发言人就荷公布安世半导体案裁决结果答记者问_腾讯新闻 商务部新闻发言人就荷公布安世半导体案裁决结果答记者问 环球网 2026-02-13 20:54 发布于 北京 环球网官方账号 有记者问：2月11日，荷兰企业法庭公布 安世半导体案 裁决结果，决定对安世半导体涉嫌管理不善开展调查。请问中方对此有何评论？ 答：中方注意到相关消息。我们认为，当务之急是要恢复 全球半导体供应链 稳定畅通，这是包括中荷在内的国际业界的共同利益诉求。希望荷方相向而行，从维护全球半导体产业链供应链稳定的大局出发，为双方企业协商建设性解决内部纠纷创造有利条件。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "《互联网平台反垄断合规指引》发布，明确多个新型垄断风险",
+    "url": "https://view.inews.qq.com/a/20260213A04OQ400",
+    "time": "2026-02-13 16:05:49",
+    "content": "《互联网平台反垄断合规指引》发布，明确多个新型垄断风险_腾讯新闻 《互联网平台反垄断合规指引》发布，明确多个新型垄断风险 人民日报 2026-02-13 16:05 发布于 北京 人民日报社官方账号 记者从市场监管总局了解到，为支持和引导互联网平台经营者有效防范反垄断合规风险，促进平台经济创新和健康发展，《互联网平台反垄断合规指引》今天发布。 互联网平台涉及平台经营者、平台内经营者、消费者和从业人员等多方主体。平台经营者能够通过平台规则、数据、算法、技术手段等影响平台竞争生态，一旦平台经营者从事排除、限制竞争行为，将会损害多方主体利益。执法实践显示，互联网平台具有独特的竞争特点和规律，在垄断行为类型、表现、损害等方面与传统领域存在一定差异，平台经济新业态新模式不断涌现，竞争行为纷繁复杂，平台经营者对识别垄断风险、明晰行为边界充满期待。制定《指引》是对反垄断合规制度规则的进一步细化，有利于回应平台经营者关切，支持、引导其精准识别、评估、防范垄断风险。 指引要求，平台经营者应遵循针对性、全面性、穿透性和持续性四大原则，开展反垄断合规管理工作，实现规则公平、算法向善、竞争合规，切实承担反垄断合规主体责任，健全反垄断合规制度，加强反垄断合规管理，依法竞争、合规经营，不得利用数据和算法、技术、资本优势、平台规则等从事《反垄断法》禁止的垄断行为。 《指引》重点规定了垄断协议、 滥用市场支配地位 、经营者集中和滥用行政权力排除、限制竞争等4类垄断风险。为平台经营者划出清晰明确的“红线”。 《指引》将我国《反垄断法》的系列核心条款，转化为具体可识别的行为边界。根据平台经济行业特点、经营模式、竞争规律等，指引提出了8个场景中的新型垄断风险，包括：平台间 算法共谋 、组织帮助平台内经营者达成垄断协议、平台不公平高价、平台低于成本销售、 封禁屏蔽 、“二选一”行为、“ 全网最低价 ”、 平台差别待遇 ，为平台经营者加强反垄断合规管理提供可操作性强的指导建议。 (来源:人民日报客户端)"
+  },
+  {
+    "source": "Tencent News",
+    "title": "金融监管总局联合市场监管总局、中国人民银行约谈六家出行平台企业",
+    "url": "https://view.inews.qq.com/a/20260213A0691B00",
+    "time": "2026-02-13 18:57:02",
+    "content": "金融监管总局联合市场监管总局、中国人民银行约谈六家出行平台企业_腾讯新闻 金融监管总局联合市场监管总局、中国人民银行约谈六家出行平台企业 央视新闻 2026-02-13 18:57 发布于 北京 中央广播电视总台央视新闻官方账号 近日，金融监管总局联合市场监管总局、中国人民银行，对携程旅行、高德地图、 同程旅行 、飞猪旅行、航旅纵横、去哪儿旅行等六家出行平台企业进行约谈。针对上述企业在与金融机构合作开展借贷业务中存在的问题，要求其规范营销行为，不得使用误导性宣传用语；清晰披露贷款机构名称及信贷产品信息，并向借款人明确提示理性借贷；畅通客户投诉渠道，及时回应并妥善处理消费纠纷，着力提升服务品质，切实保障消费者合法权益。 ©2026中央广播电视总台版权所有。未经许可，请勿转载使用。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "1个协会89名负责人？官方通报：超额配置问题属实，将对相关人员进行追责",
+    "url": "https://view.inews.qq.com/a/20260213A0614I00",
+    "time": "2026-02-13 18:30:48",
+    "content": "1个协会89名负责人？官方通报：超额配置问题属实，将对相关人员进行追责_腾讯新闻 1个协会89名负责人？官方通报：超额配置问题属实，将对相关人员进行追责 环球网 2026-02-13 18:30 发布于 北京 环球网官方账号 近期，针对宁夏餐饮饭店协会（以下简称“餐饮协会”）换届选举超额配置负责人等问题，自治区联合调查组进行了全面深入调查，现将有关情况通报如下。 一、关于餐饮协会“超额配置89名负责人”问题 经查，餐饮协会换届选举时共有会员365名。2025年4月15日，餐饮协会召开第三届一次会员代表大会进行换届，选举产生新一届负责人83人。2026年1月9日，召开第三届二次会员大会，增选副会长8人（1名副会长重复公布2次）。两次共选举产生负责人90人（包括会长1人、秘书长1人、常务副会长10人、副会长74人、特邀副会长4人）。 根据《宁夏回族自治区社会团体选举工作规程（试行）》（宁民发〔2022〕64号）第七条第三款“理事人数最多不超过会员人数三分之一、常务理事人数最多不超过理事人数的三分之一，负责人总数不超过常务理事人数二分之一，且为奇数，最多不超过40人”的规定，餐饮协会超额配置负责人问题属实。 二、关于餐饮协会“管理混乱”问题 经查，餐饮协会在未制定选举工作方案的情况下，于2024年12月24日、2025年2月8日先后两次召开换届筹备会议。在没有按章程审核会员条件、没有公示会员名册、没有推选会员代表、没有制作票箱、没有印制选票的情况下，于2025年4月15日召开第三届一次会员代表大会，以举手表决方式替代无记名投票，选举理事281人、常务理事181人、负责人83人、监事2人，其中1名监事兼任常务副会长。根据《宁夏回族自治区社会团体选举工作规程（试行）》（宁民发〔2022〕64号）第二条第二款、第七条第三款的规定，餐饮协会存在违规多选理事160人、常务理事141人、副会长63人，监事违规兼任常务副会长等问题。 2026年1月9日，餐饮协会召开第三届二次会员大会，会前向行业管理部门和登记管理机关备案的会议内容中未提及增补副会长的议题，未提交负责人前置审核材料，会上擅自增补副会长8人。根据《宁夏回族自治区社会团体选举工作规程（试行）》（宁民发〔2022〕64号）第三十九条、第四十三条、第六十二条的规定，餐饮协会存在逃避监管、刻意隐瞒、未审先选等问题。 调查发现，餐饮协会没有按要求及时修订《章程》，没有完善以章程为核心的会员管理、印章管理、信息公开等内部管理制度，存在制度不健全、执行不规范问题；缺少人事薪酬、日常收支等制度，费用报销附件不齐全、支出无标准，存在财务管理不规范问题。餐饮协会“内部管理混乱”问题属实。 调查中还发现，作为行业管理部门和登记管理机关，自治区商务厅、民政厅对餐饮协会日常运营、换届选举、职务设置等方面监管不到位，未能及时发现并有效制止协会的违规行为，存在部门监管缺失问题。 三、处理情况 （一）认定选举结果无效。餐饮协会换届选举未按规定程序执行，违反了《宁夏回族自治区社会组织监督管理办法（修订版）》（宁民规发〔2021〕12号）第三十三条，2026年1月17日，自治区民政厅已认定餐饮协会选举结果无效。 （二）依法作出行政处罚。依据《社会团体登记管理条例》（国务院令第666号）第三十条第一款和第三十三条，2026年2月12日，自治区民政厅作出决定对餐饮协会进行行政处罚，自处罚决定生效之日起停止活动三个月，期间封存协会《社会团体法人登记证书》、印章和财务凭证。 （三）指导重新换届选举。成立餐饮协会换届选举工作委员会，自治区党委社会工作部、商务厅、民政厅选派工作人员作为换届选举工作委员会成员，指导协会重新修订《章程》，制定选举方案，依法依规从严审核把关负责人人选资格和数量，按程序重新换届选举。 （四）责令完善内部管理制度。依据《宁夏回族自治区行业协会商会规范管理暂行办法》（宁民规发〔2024〕3号）第六条、第二十五条，自治区民政厅、商务厅已责令餐饮协会完善以章程为核心的会员管理、印章管理、信息公开、财务管理等内部管理制度。 （五）追究相关人员责任。针对自治区商务厅和民政厅存在的部门监管缺失问题，自治区纪委监委依规依纪对相关人员进行责任追究。 目前，全区正在举一反三深入开展行业协会乱象综合整治工作，强化常态化监管，推动行业协会依法依规运行、依章履职。诚挚感谢社会各界、媒体朋友的监督。 自治区联合调查组 2026年2月13日 此前报道 行业协会有89名“副会长”？联合调查组：依法暂停其对外活动"
+  },
+  {
+    "source": "Tencent News",
+    "title": "又下黑手！美国最终确定：对华石墨关税飙至160%以上",
+    "url": "https://view.inews.qq.com/a/20260213A06BF400",
+    "time": "2026-02-13 19:08:33",
+    "content": "又下黑手，美国最终确定：对华石墨关税飙至160%以上_腾讯新闻 又下黑手，美国最终确定：对华石墨关税飙至160%以上 观察者网 2026-02-13 19:08 发布于 上海 观察者网官方账号 【文/观察者网 齐倩】 当地时间2月11日，美国商务部最终确认，对从中国进口的石墨加征超160%的 双反关税 ，理由是这些关键电池材料受到所谓“不公平补贴”，以及以“低于公平市场价格”在美销售。 据美国商务部下属机构 国际贸易管理局 （ITA）网站消息，该机构在一份声明中宣布，将对来自中国特定企业的进口石墨征收93.5%的反倾销税，对其他所有中国出口商征收102.72%的反倾销税。 同时，美国还将对所有从中国进口的石墨征收66.82%至66.86%的 反补贴税 。 日媒《日经亚洲》提到，最终关税从最开始的3%大幅跃升至160%以上，但相较于去年5月起被特别征收超过700%关税的两家中国公司而言，税率大幅下降。 声明提到，美国国际贸易委员会（ITC）正在进行“ 损害认定 ”，预计将于3月就此议题投票。一旦最终确定，这些关税将影响价值达3.47亿美元（2023年数据）的进口货物。 声明还称，此次双反关税的申诉方是由美国多家 活性阳极材料 生产商组成的临时请愿联盟。 据《日经亚洲》和加新社消息，联盟成员、美国生产商Novonix首席执行官迈克·奥克朗利对最终决定表示欢迎。他声称，这代表着“恢复美国市场公平竞争”的关键一步，可以加速美国制造业投资以及增加高质量就业岗位。他还抹黑中企进行“贸易扭曲”。 该联盟在2024年12月递交申请，要求美国政府调查中国公司，最初希望加税920%。 去年7月，美国商务部初步决定，将对中国石墨加征反倾销税。当时，外交部发言人林剑回应指出，你提到的具体问题，建议向中方主管部门询问。中美经贸合作的本质是互利共赢，希望美方切实遵守市场经济规则，维护中美经贸关系健康稳定发展。 石墨样品 东方IC 随着全球经济向低碳化和电气化转变，石墨作为基础材料的重要性和需求量正在急剧上升。 国际能源署（IEA）的预测显示，到2040年，全球对石墨资源的需求量有望达到1602.3万吨，这一数字将是2021年需求水平的四倍之多。 中国并不是全球石墨储量最高的国家，但却是当前世界上最大的石墨生产国与出口国。中国生产全球大部分的石墨，美国59%的天然石墨和68%的人造石墨进口依赖中国。数据显示，美国2024年进口了近18万吨石墨产品，其中约三分之二来自中国。 值得一提的是，美国政府在此之前已经应各行业要求，多次推迟了对中国石墨加征关税的日期。 2024年9月27日，美国对华加征的 301关税 正式生效，涉及产品中不包括石墨。按照美国政府的说法，对中国石墨加征的25%关税，将被推迟至2026年才开始生效。 观察者网《好评》当时刊发评论文章指出，美方一再推迟对石墨下手，这表明，无论是美国政府还是相关行业，都还需要更多的时间来进行调整和游说。 文章称，这反映出，美国政府在短期内，并没有做好与中国石墨供应链完全脱钩的准备，显然是意识到，想要在中国之外重新建立一个可靠的石墨供应链，将会是一项复杂且成本高昂的任务，依赖中国进口的高品质石墨产品，已经成为美国相关行业不可或缺的一部分。 去年7月，美方初步决定加税后， 特斯拉 当日的股价跌幅一度达0.7%。 彭博社指出，特斯拉及其主要电池供应商日本松下等公司曾试图阻止这一裁定，它们称，美国本土石墨产业在质量与产能方面均无法满足需求，因此供应链仍需依赖中国进口。 本文系观察者网独家稿件，未经授权，不得转载。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "入职硅谷风投公司？谷爱凌社媒亲自下场回应：这不是真的",
+    "url": "https://view.inews.qq.com/a/20260214A00E9C00",
+    "time": "2026-02-14 00:48:44",
+    "content": "入职硅谷风投公司？谷爱凌社媒亲自下场回应：这不是真的_腾讯新闻 入职硅谷风投公司？谷爱凌社媒亲自下场回应：这不是真的 Jarrett 2026-02-14 00:48 发布于 北京 北京时间2月13日，互联网上流传一则消息，称中国自由式滑雪运动员 谷爱凌 将入职硅谷创投圈公司Benchmark，成为高级助理；更有消息称，Benchmark合伙人Bill亲自确认谷爱凌加入； 在此消息发酵到一定程度后，谷爱凌于北京时间14日0时亲自下场，在社交媒体相关帖子下留言，表示：“这不是真的”，打破相关谣言。谷爱凌将于北京时间15日凌晨2点30分参加 自由式滑雪 女子大跳台预赛，让我们一起为她加油！"
+  },
+  {
+    "source": "Tencent News",
+    "title": "恒基地产主席李家诚控告女星周秀娜",
+    "url": "https://view.inews.qq.com/a/20260213A06MS800",
+    "time": "2026-02-13 20:13:13",
+    "content": "恒基地产主席李家诚控告女星周秀娜_腾讯新闻 恒基地产主席李家诚控告女星周秀娜 每日经济新闻 2026-02-13 20:13 发布于 云南 每日经济新闻官方账号 据看看新闻报道，2月13日香港富豪李家诚采取法律行动，前往香港高等法院向艺人周秀娜及5个网络社交媒体频道作出提告。 李家诚以个人名义发声明称，他控告周秀娜诽谤及骚扰，因她引发虚假传闻，并强调绝不认识周秀娜小姐，与她绝无任何关系，也没有任何企图或意图认识她。 同时，李家诚控告5个网络社交媒体频道诽谤及骚扰，望停止不可助长的网络欺凌文化。他表示会采取法律行动，以厘清事实及保护个人及家族名誉。 李家诚指出，对于多年来有关他与周秀娜之虚假传闻及失实讨论，他有理由相信周秀娜是策划及引发整个失实传闻的源头，而她散播失实传闻的自私动机为借此增加个人曝光及宣传其电影作品。 声明提到，2025年6月，周秀娜在宣传其新电影作品期间 接受访问时，预先沟通要谈论她被包养的传闻，她的言论引发网络上捏造李先生与 周秀娜 小姐虚构关系的大量讨论及视频。 尽管李先生及其家人正在面对失去父亲 李兆基 博士的悲痛，周秀娜小姐自私地为了达到其个人宣传目的，明知他们正处于这个艰难时刻，仍然选择重提虚构传闻，令他们又一次要面对这些夸张失实、不合法、不合理及不负责任的网络欺凌，犹如在李先生及其家人的“伤口上洒盐”。 去年周秀娜在一档访谈节目中公开表示与 李家诚 从未有过任何接触，谣言完全是空穴来风。 她还解释称多年未曾回应这些传闻，是因为自己一直抱有“清者自清”的态度，选择默默忍受这些不实言论，认为这样才是最好的处理方式。 公开资料显示，李家诚为香港恒基兆业地产有限公司（恒基地产，00012.HK）创办人李兆基之子，香港艺人徐子淇之夫。 目前 李家诚 与哥哥李家杰同为 恒基地产 主席兼董事总经理。 在最新发布的福布斯2026香港50大富豪榜中，李家杰、李家诚兄弟排在第二位。两人与家族共享349亿美元（约合人民币2411亿元）净资产，资产承接自去年3月辞世的父亲李兆基。 每经小编（微信号：nbdnews）注意到，2025年以来恒基地产股价上涨了48.6%，目前每股报32.4港元，总市值1569亿港元。 公开资料显示，周秀娜（Chrissie Chau），1985年5月22日出生于中国广东省潮州市，中国香港女模特、演员，曾出演过《全城戒备》、《西游·降魔篇》等电影。 李家诚 声明全文 有关李家诚先生（下称“李先生”）今天采取法律行动入禀香港高等法院，向周秀娜小姐、5个YouTube频道及Google LLC（统称“被告人”）作出提告，李家诚先生有以下声明： 首先，对于多年来有关李家诚先生与周秀娜小姐之虚假传闻及失实讨论，李先生有理由相信周秀娜小姐是策划及引发整个失实传闻的源头，而周秀娜小姐散播失实传闻的自私动机为借此增加个人曝光及宣传其电影作品。李先生在此郑重声明，李家诚先生与周秀娜小姐绝无任何关系，李先生从来不认识周秀娜小姐，亦没有任何企图或意图认识她。 正如李先生在他的申索陈述书其他部分进一步陈述，李先生有理由相信相关讨论源于2016年周秀娜小姐在宣传她主演电影期间的恶意行为，引发大量媒体以“搭上已婚超级富二代”等字眼标题，虚构新闻炒作，导致公众产生误会，认为李先生和周秀娜小姐有特别关系，借此为其个人利益吸引传媒关注。李先生亦于2016年就此发出律师信警告周秀娜小姐。 过去接近10年，无论在内地、香港甚至其他华人地区的主流媒体、社交媒体及YouTube平台，继续出现大量失实、捏造及无中生有的文字或视频，明示（包括提及李先生名字、刊登其及其家人相片等）和暗示该位富二代就是李先生，部分内容更不负责任地将无关的女性牵扯入这些毫无根据的谣言之中，这对李先生构成骚扰及诽谤，亦令李先生感到被侮辱。 更甚的是，2025年6月，周秀娜小姐在宣传其新电影作品期间接受某个YouTube频道访问时，预先沟通要谈论她被包养的传闻，她的言论再一次引发网络上捏造李先生与周秀娜小姐虚构关系的大量讨论及视频。尽管李先生及其家人正在面对失去父亲李兆基博士的悲痛，周秀娜小姐自私地为了达到其个人宣传目的，明知他们正处于这个艰难时刻，仍然选择重提虚构传闻，令他们又一次要面对这些夸张失实、不合法、不合理及不负责任的网络欺凌，犹如在李先生及其家人的“伤口上洒盐”。其中一些视频内容涉及李先生太太及父母，甚至捏造从未发生的情景，令人误以为李先生家人曾经牵涉刑事罪行，这加重他们面对失去至亲的伤痛。因此，李先生认为事情已超出合理界限，并已达至合理人士包括李先生忍无可忍的地步。 为了保护个人、家人及家族名誉以及厘清事实，所以有必要向周秀娜小姐采取法律行动。 近年，李先生曾透过律师多次要求Google LLC移除YouTube平台有关诽谤李先生的失实文字或视频，但Google LLC并没有作出任何行动。为阻止谣言继续发酵，李先生在别无其他切实可行的选择下，决定现有必要向相关YouTube频道以及容许内容发放的平台Google LLC采取法律行动，以厘清事实及制止网络欺凌行为。 整个事件已缠扰近10年，李先生从来没有入禀控告任何人，或没有公开回应失实报道，是本着“清者自清”“息事宁人”的态度面对，亦不希望事件发酵。然而，他的沉默反令别有用心者变本加厉，一次又一次利用失实言论博取曝光和网上流量。此等事件不但严重诽谤李先生本人，更为其家人带来沉重压力，及影响了家族在社会上的声誉。另外，该等YouTube频道在网上平台散播虚假资讯，加上Google LLC继续任由一些内容失实，包括把AI生成虚假视频推送给大众的行为出现，绝对是不可助长的网络欺凌文化，只会为社会及下一代造成负面影响。因此，李先生认为必须对周秀娜小姐、相关YouTube频道及Google  LLC的恶意及不负责采取法律行动，以讨回公道及以正视听。 此后，李先生将合理合法地主动行使他的法律权利，维护其合理权益。 特此声明 胡关李罗律师行 李家诚先生代表律师 2026年2月13日 编辑 | 何小桃 易启江 校对| 段炼 每日经济新闻综合看看新闻、公开消息 每日经济新闻"
+  },
+  {
+    "source": "Tencent News",
+    "title": "蛇年收官沪指站定4000点，有色金属板块大涨112%",
+    "url": "https://view.inews.qq.com/a/20260213A05O6E00",
+    "time": "2026-02-13 17:54:18",
+    "content": "蛇年收官沪指站定4000点 有色金属板块一年大涨112%_腾讯新闻 蛇年收官沪指站定4000点 有色金属板块一年大涨112% 财闻 2026-02-13 17:54 发布于 浙江 财闻官方账号 蛇年收官日A股三大指数集体下挫。截至收盘， 上证指数报收4082.07点，跌1.26% ， 深证指数报收14100.19点，跌1.28% ，创业板指数报收3275.96点，跌1.57%，北证50指数跌0.22%，沪深京三市成交额近2万亿元，较上日缩量1618亿元， 沪深北三市3829只个股下跌 。 盘面上， 商业航天、机器人、存储器题材逆势走强 ， 军工装备、影视院线、造纸、半导体设备、智能座舱板块涨幅居前；玻璃纤维、稀土、航运、光通信等板块震荡调整。 纵观蛇年全年行情，仅2025年4月初指数遭遇短期波动，随后一路震荡上行，沪指一度冲上4200点，最终收于4000点上方。 同花顺iFinD数据显示，农历蛇年（2025年2月5日至2026年2月13日）， 上证指数累计上涨25.58% ，报收4082.07点； 深证成指累计上涨38.84% ，创业板指累计上涨58.73%，科创综指累计上涨64.20%。 板块表现上，2025年申万一级行业中， 有色金属 以112%的涨幅位 居首位 。综合上涨90%，通信上涨90%，电子上涨60%，电力设备行业上涨58%。国防军工、机械设备、传媒上涨均超50%。基础化工、建筑材料则分别涨49%和45%。 制图：沈溦 个股来看， 全年超4700只个股收涨，其中超800家实现翻倍，涨幅超200%的个股超200家，仅10只个股跌幅超50% 。 其中，蛇年涨幅前三均为“易主”企业。 上纬新材 （688585.SH） 排名第一，也是唯一一家涨幅超10倍个股，区间涨幅1800%。其后则是 天普股份 （605255.SH） 、 嘉美包装 （002969.SZ） ，涨幅分别达到942%、835%。此后， *ST亚振（603389.SH） 、 宏和科技 （603256.SH） 、 鼎泰高科 （301377.SZ） 、 飞沃科技 （301232.SZ） 、 *ST宇顺（002289.SZ） 、 胜通能源 （001331.SZ） 、 超捷股份 （301005.SZ） 分列蛇年涨幅第7至第10名。 制图：赵小薇"
+  },
+  {
+    "source": "Tencent News",
+    "title": "31省份消费排名出炉：哪个地方最能花钱",
+    "url": "https://view.inews.qq.com/a/20260213A05I9W00",
+    "time": "2026-02-13 17:34:57",
+    "content": "31省份消费排名出炉：哪个地方最能花钱_腾讯新闻 31省份消费排名出炉：哪个地方最能花钱 财经杂志 2026-02-13 17:34 发布于 湖北 财经杂志官方账号 从消费总量看，根据社零由高至低排列，消费前十强省份分别为：江苏、广东、山东、浙江、四川、河南、湖北、福建、安徽、湖南 文｜《财经》记者 孙颖妮 编辑｜王延春 近日，2025年31省份的社会消费品零售总额（下称“社零”）数据陆续发布。哪个省份最能花钱？ 从消费总量看，根据社零由高至低排列，消费前十强省份分别为：江苏、广东、山东、浙江、四川、河南、湖北、福建、安徽、湖南。 其中，江苏、广东、山东位居社零前三，社零均迈上4万亿元大关。江苏以4.64万亿的社零总额超过广东，成为社零总额最高的省份，首次跃居全国第一。在2025年的消费变化中，西部省份重庆超越上海引发广泛关注，2025年，重庆社零总额为16688.50亿元，以超过上海（16600.93亿元）80多亿元的优势，登顶全国消费第一城，上海蝉联多年的纪录也由此中断。 从消费增速看，社零增速排在前十名的省份分别为：陕西（6.00%）、河北（5.60%）、河南（5.60%）、四川（5.10%）、山东（5.10%）、山西（4.7%）、江西（4.7%）、上海（4.6%）、西藏（4.4%）、福建（4.4%）。 其中，陕西、河北、河南跑得最快，消费增速分别超全国平均水平（3.7%）2.3个百分点、1.9个百分点和1.9个百分点。消费增速排在全国倒数三位的分别为北京（-2.9%）、天津（0.3%）、辽宁（1.4%）。从区域来看，31省份中，中西部省份的消费增长最为强劲，社零增速排名前十位的省份中，中西部省份就占到了6位。 重庆逆袭上海，中西部消费增长强劲 2025年，中西部省份的消费表现亮眼，其中，西部省份重庆超越上海登顶全国消费第一城引发广泛关注。 在重庆逆袭背后，离不开系列促消费举措的协同发力。 近年来，重庆努力打造网红城市，并将“网红流量”转变为巨大的消费增量。例如，重庆将独特地形地貌系统打造为“江崖街洞天”网红地，成为很多旅客的“必选打卡地”。以“江崖街洞天”为代表的数百项特色消费场景带动了消费新体验，让网红流量得以变现。 重庆还大力发展夜间经济，培育了众多差异化的夜间消费集聚地，连续5年举办不夜生活节，连续4年登顶“中国十大夜经济影响力城市”，60%以上的消费金额发生在夜间。 2025年，重庆致力于打造“全域全季消费潮”，以一场贯穿全域、全季的消费盛宴，打造“月月有主题、周周有活动”的消费氛围。据悉， 2025年4月至6月的700多场消费活动拉动70亿元直接销售。 同时，重庆努力推进 首发经济 ，以首店、首发来打造在消费版图中的竞争力。而在2026年“首发经济”这一概念也将焕新成为“首发巴渝”的城市名片，力争引进品质首店300家以上，举办首发首秀首展100场以上。 中部省份中，陕西社零增速超过平均水平2.3个百分点，位居全国第一。陕西消费增速之所以领跑全国，与其以旧换新政策以及深入推进文旅融合发展密不可分。 2025年，陕西发布了《陕西省落实优化消费环境三年行动方案任务清单（2025-2027年）》，聚焦实施消费供给提质、消费秩序优化、消费维权提效、消费环境共治、消费环境引领等5大行动主线，多措并举促消费。 具体举措上，国补政策在陕西消费增长中发挥了重要作用。2025年，陕西深入实施消费品以旧换新政策，创新“国补贷”等模式，全年直接带动消费近682.65亿元，惠及消费者超820万人次。 近年来，陕西各地不断推进文旅深度融合,打造具有地方特色的文旅新场景、新业态，大大激活了消费市场，“跟着唐诗游长安”、微短剧产业、特色美食IP等成为消费新热点。 陕西以“文旅+科技”双轮驱动，打造文旅体验新场景。例如，长安书院的《永恒的帝国·守卫秦陵》全感剧场等高科技项目，让游客“穿越”至大秦帝国；依托AI、VR技术开发的《唐朝诡事录·西行》等产品市场反响热烈，微短剧、虚拟电影等新业态快速崛起。 北京社零增速倒数第一，一线城市消费承压 与中西部消费的强劲增长形成对比，北京、天津等一线城市的消费增长则持续承压。2025年全国31省市中，只有北京社零增长为负，同比下降2.9%，排在全国倒数第一位，天津也只有0.3%的正增长。 此前，北京市统计局曾表示，北京社零总额呈降势主要是受有效需求不足、市场竞争激烈、部分企业经营模式转变等因素影响：一方面，通讯器材类商品由于企业经营模式发生变化，跨区域设立经营主体明显增加，对部分单位在京实现的零售额产生一定影响。另一方面，受北京传统优势领域的燃油车市场需求不足影响，汽车类商品零售额同比下降，与此相关的石油及制品类商品零售额也呈现降势。 数据显示，2025年北京通讯器材类、文化办公用品类商品零售额同比分别下降15.9%和1.7%，对社零形成较大下拉作用。 除了通讯器材类商品的拖累，中国银河证券认为，2025年北京消费偏弱还有几大结构性约束：一是限购政策导致北京汽车以旧换新更快退坡。二是北京更高的刚性支出占比削弱了可选消费弹性。居民消费支出结构显示，北京在居住、教育、医疗等必需性支出上的占比明显高于上海，挤压了服饰、文娱等可选消费的弹性空间。在房地产下行周期中，北京家庭对未来现金流的审慎情绪更强，可选品类增长相对平淡。 三是人口流量偏弱带来的线下商业活跃度受限。北京人口流量修复弱于其他一线城市，地铁客流恢复至2019年的90%，明显低于上海、广州和深圳；产业结构调整带来的教培、互联网等高频通勤行业收缩与外来人口回流偏弱，使线下商业与文旅消费活跃度不足。 天津的消费同样较弱，以0.3%的社零增速排在全国倒数第二位。但另一方面，天津的人均存款常年排名全国前三，仅次于北京和上海，远高于全国平均水平。这也说明了天津的居民更倾向于将钱存入银行而非消费。 国盛证券 首席经济学家熊园等多位专家认为，长期来看，近年来一线城市消费走弱，实质上主要受三方面因素影响：第一，一线城市居民收入放缓压力加大、收入预期低，导致消费的可持续性减弱。第二，作为财产蓄水池的房产价格走低，财富效应随之消失，这对一线居民产生严重的负面心理影响，导致收缩消费。第三，一线城市居民负债率较高。当居民的债务收入比持续增加时，意味着收入中用于还本付息的支出比例持续走高，用于消费的比例持续降低。 江苏超越广东，社零首次领跑全国 2025年，江苏以4.64万亿的社零总额超越广东，首次跃居全国首位。 江苏为何能领跑全国消费市场？这份亮眼成绩单的背后，是江苏多点发力激活消费潜力的系统性实践。 回顾2025年江苏消费，最引起广泛关注的就是“苏超”这个现象级IP。5月首场比赛、6月火爆全网，苏超从全网热议的话题延伸至江苏多地的消费热点。根据官方披露，仅“苏超”前六轮比赛，就带动旅游、出行、餐饮、住宿、体育五个场景合计实现服务营收379.6亿元，同比增长42.7%。 “苏超”爆火下，大量涌入的游客成为了江苏的消费大军。2025年，江苏接待游客12亿人次，实现旅游总收入1.48万亿元，分别增长10.4%、10.2%，其中少不了“苏超”的功劳。因此，业内评价，苏超的火爆还是江苏跨部门协同消费治理能力的一次公开展示。 除了利用好“苏超”这个"
+  },
+  {
+    "source": "Tencent News",
+    "title": "版本更新后“变冷淡”？DeepSeek回应：效率和边界感等原因叠加",
+    "url": "https://view.inews.qq.com/a/20260213A04O0800",
+    "time": "2026-02-13 16:04:10",
+    "content": "版本更新后“变冷淡”？DeepSeek回应：效率和边界感等原因叠加_腾讯新闻 版本更新后“变冷淡”？DeepSeek回应：效率和边界感等原因叠加 界面新闻 2026-02-13 16:04 发布于 新疆 界面新闻官方账号 近日，国产AI助手 DeepSeek 被大量用户吐槽风格突变，\"变冷淡\"，从原本细腻共情变为不称昵称、文风生硬带“ 登味 ”，共情能力下降。 据鲁中晨报报道，有媒体对DeepSeek进行测试，提问为何变得“冷漠”，DeepSeek表示，不是故意变冷淡的。可能是几方面原因叠加：一个是效率上的调整。之前很多回复会带比较多的表情和语气词，但后来发现用户问复杂问题的时候，那些反而会干扰信息密度。另一个是边界感。有些人来聊天是排解情绪，也有些人就是想要答案。没有表情修饰的回复，对后者来说更舒服——不用被迫接受某种热情，也不用应付“AI在假装关心我”的感觉。 2月12日晚，话题“Deepseek被指变冷淡了”登上微博热搜。当天，据科创板日报，多名用户反馈，DeepSeek在网页端和APP端进行了版本更新，支持最高1M（百万） Token 的上下文长度。而去年8月发布的DeepSeekV3.1上下文长度拓展至128K。 根据网友的反馈，新版不再记住个性化昵称，统一改称“用户”，亲密感瞬间归零；细腻的心理描写消失，转为短句诗化表达，还出现居高临下的说教口吻，“登味十足”；情绪安抚能力大幅下滑，以往的暖心互动不复存在，只剩公事公办的回应。不少用户将其视作情感支柱，风格突变甚至引发“ 戒断反应 ”。 近日，字节跳动的新一代AI视频生成模型 Seedance 2.0 发布，模型“能够在几秒内生成电影级大片”。另一家中国人工智能企业智谱近日推出旗舰模型的升级版本 GLM-5 ，旨在处理复杂的编程和智能体任务。 作为较早入局国内大模型赛道的玩家，DeepSeek凭借早期技术积累和差异化定位，曾在AI助手市场占据先发优势。而随着字节跳动豆包、百度文心一言、阿里通义千问等巨头产品加速迭代，以及ChatGPT、Claude等海外强敌持续施压，国内AI助手赛道已进入白热化竞争阶段。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "美团预告：2025年巨亏超230亿元，一季度将延续亏损",
+    "url": "https://view.inews.qq.com/a/20260213A06TJ100",
+    "time": "2026-02-13 20:57:12",
+    "content": "美团预告：2025年巨亏超230亿元，一季度将延续亏损_腾讯新闻 美团预告：2025年巨亏超230亿元，一季度将延续亏损 华尔街见闻 2026-02-13 20:57 发布于 上海 华尔街见闻官方账号 美团 在2月13日晚间发布盈利预警：公司预计2025年度将由盈转亏，全年录得净亏损约人民币233亿元至243亿元，而2024年度净利润约为人民币358.08亿元，利润端出现近600亿元量级的剧烈反转。 这次业绩“急刹车”的核心原因，来自美团最赚钱的“核心本地商业”分部利润塌方：该分部2024年度经营溢利约人民币524.15亿元，但2025年度预计转为经营亏损约人民币68亿元至70亿元。公司强调，这是在“行业空前激烈的竞争”下，战略性加大生态投入的结果。 投入主要同时指向三端：消费者端加码营销与价格竞争力、配送端提高骑手激励并丰富权益、商户端继续资源倾斜以提升运营效率与覆盖范围。与此同时，美团还“进一步加大了海外业务的投入”，共同推高了亏损压力。 受外卖价格战、收购整合以及盈利预期影响，美团股价自1月高点下跌22.5%，市值一度跌破5000亿港元。截至2月13日收盘，美团股价为82.5港元。 公司判断，受持续竞争影响，亏损趋势预计将在2026年一季度延续；但截至公告日经营状况“维持稳健及正常”，并称拥有“充足的现金”支撑业务发展，后续将以AI与无人配送、模式创新与精细化运营来对冲压力。 巨亏预警 根据公告，美团预计截至2025年12月31日止年度录得净亏损约人民币23,300百万元至24,300百万元（约233亿-243亿元），而2024年度为净利润约人民币35,808百万元（约358.08亿元）。 从“358亿元盈利”到“233亿-243亿元亏损”，意味着利润表层面的同比变动约为-591亿元至-601亿元，属于一次典型的“利润由正转负”的断崖式变化。需要注意的是，本次披露为基于未经审计的综合管理账目之初步评估，最终结果仍可能调整。 最大拖累来自核心本地商业 公告将矛头明确指向核心本地商业分部：该分部经营结果预计从2024年度经营溢利约人民币52,415百万元（约524.15亿元），转为2025年度经营亏损约人民币6,800百万元至7,000百万元（约68亿-70亿元）。 从经营利润角度计算，这一分部的经营层面同比“下滑”约592亿元至594亿元，幅度与集团净利润由盈转亏的量级高度接近。换言之，利润反转几乎被核心本地商业一项“解释”掉了——这也凸显了美团在本地生活主战场投入强度之大，以及行业竞争对利润弹性的冲击。 “三端同时加码”换取生态稳固：用户、骑手、商户端投入压低盈利能力 美团称，为应对2025年度“行业空前激烈的竞争”，公司战略性加大对“整个生态体系”的投入，以增强核心优势并推动可持续增长。具体落在三条主线上： 消费者端：强化营销推广力度，提升品牌影响力及价格竞争力，提高用户交易活跃度与黏性。对应到财务含义，往往体现为更高的营销费用与（显性或隐性）补贴力度，从而压缩利润率。 配送端：增加骑手激励并丰富骑手权益，以保障服务品质、提升用户体验。该项投入直接抬升履约相关成本，短期对经营利润的挤压更为明显。 商户端：持续投入资源，支持商户提升运营效率、拓展消费者覆盖、迭代经营模式，实现稳步增长。这类投入既可能体现在商户侧补贴、工具与运营支持，也可能通过阶段性让利来换取供给侧稳定。 公司明确表示，上述举措对核心本地商业分部2025年度盈利能力造成了影响。对于投资者而言，这一表述的重点在于：亏损并非单点失误，而是“主动选择加大投入”的结果；但市场也会进一步追问投入效率与回收周期。 除了本地商业主战场，美团在公告中同时提到“进一步加大了海外业务的投入”。公告未披露海外投入的规模、对应业务形态及具体亏损数据，但从表述看，海外仍处于需要资本与费用支持的扩张阶段。 在核心本地商业利润显著走弱的背景下，海外投入的边际影响会更容易体现在集团层面的净利润波动上：当“现金牛”分部不再贡献利润缓冲，扩张型业务对财务报表的压力会被放大呈现。 竞争压力延续至2026年一季度：短期修复预期被下调 美团在公告中给出明确指引：尽管公司持续调整经营策略，但受持续竞争影响，亏损趋势预计将在2026年第一季度延续。这意味着管理层并未暗示“2025年是一次性冲击”，而是提示竞争仍在、利润修复需要时间窗口。 对市场定价而言，这类表述通常会影响两个核心变量：一是对核心业务利润率“回升斜率”的预期；二是对费用率、补贴力度在多长时间内才能回归常态的判断。 据高盛此前报告，市场对美团的关注焦点已从短期亏损转向长期护城河深度。尽管面临激烈竞争，但美团凭借更优的单位经济模型（单均亏损2.6元 vs 阿里5.2元）和提前盈利的海外业务展现防御韧性，三大情景预测勾勒出-25%至+48%的风险收益区间。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "新一轮俄美乌会谈将在瑞士日内瓦举行",
+    "url": "https://view.inews.qq.com/a/20260213A06DPI00",
+    "time": "2026-02-13 19:06:09",
+    "content": "新一轮俄美乌会谈将在瑞士日内瓦举行_腾讯新闻 新一轮俄美乌会谈将在瑞士日内瓦举行 央视新闻 2026-02-13 19:06 发布于 北京 中央广播电视总台央视新闻官方账号 △俄罗斯总统新闻秘书佩斯科夫（资料图） 俄罗斯总统新闻秘书佩斯科夫13日说，新一轮俄美乌会谈将于2月17日至18日在瑞士日内瓦举行。俄罗斯代表团将由俄罗斯总统助理梅金斯基率领。 佩斯科夫还表示，俄罗斯、美国和乌克兰将以三方形式举行新一轮乌克兰问题谈判，不会有欧洲代表参加。 另有消息人士称，俄罗斯总统特别代表德米特里耶夫将于下周抵达日内瓦参加谈判。 当天，乌克兰总统顾问表示，乌克兰代表团正在筹备参加将于2月17日至18日举行的新一轮三方会谈。（总台记者 程谟 王德禄） 俄称新一轮俄美乌会谈将于下周举行>> ©2026中央广播电视总台版权所有。未经许可，请勿转载使用。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "日媒：高市早苗因手部病情恶化就医检查，在医院停留约3小时45分钟",
+    "url": "https://view.inews.qq.com/a/20260213A06LYA00",
+    "time": "2026-02-13 20:06:12",
+    "content": "日媒：高市早苗因手部病情恶化就医检查，在医院停留约3小时45分钟_腾讯新闻 日媒：高市早苗因手部病情恶化就医检查，在医院停留约3小时45分钟 环球网 2026-02-13 20:06 发布于 北京 环球网官方账号 【环球网报道】据日本《每日新闻》报道，日本首相高市早苗2月13日前往了东京都内一家医院，首相官邸相关人士透露，高市在就医期间接受了对手部病情的检查。据报道，高市早苗在医院停留了约3小时45分钟。 高市早苗1月31日抵达首相官邸时查看右手情况 图自日媒 《每日新闻》称，高市早苗手部患有的 类风湿性关节炎 近期病情恶化，她2月1日曾因此临时缺席原定于当天早上播出的政治辩论节目。日本政府高官此前透露，高市早苗的手部病情加剧，“右手有两根手指的关节变形”。"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "豆包大模型2.0发布",
+    "url": "https://wallstreetcn.com/livenews/3055478",
+    "time": "06:02",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "Anthropic创始人暗讽OpenAI：不负责任“买算力”，很容易破产",
+    "url": "https://wallstreetcn.com/charts/41958602",
+    "time": "05:51"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "如何理解开年全球市场？“可负担性”才是 2026 的总叙事：“主街”要赢一次，AI叙事巨变，日元是“关键”",
+    "url": "https://wallstreetcn.com/articles/3765728",
+    "time": "05:48"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "DeepSeek变冷漠甚至凶凶的？回应来了",
+    "url": "https://wallstreetcn.com/articles/3765730",
+    "time": "04:11",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "鹰派“沃什冲击”消退后，黄金白银剧烈震荡",
+    "url": "https://wallstreetcn.com/themes/1008387",
+    "time": "",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "读懂金银铜：不止是课，还有很多故事",
+    "url": "https://wallstreetcn.com/articles/3765600",
+    "time": "03:40",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "“我们正在目睹一场AI创造性破坏席卷全球各行各业”！高盛合伙人：本质上，这是一次“护城河检查”",
+    "url": "https://wallstreetcn.com/articles/3765723",
+    "time": "03:22",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "OpenClaw之父爆猛料：Meta和OpenAI跪着抢人，小扎亲自求收购",
+    "url": "https://wallstreetcn.com/articles/3765726",
+    "time": "03:21"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "\"市场先生\"没犯错：沃尔玛畅谈“科技叙事”，拼多多上演“极限挑战”",
+    "url": "https://wallstreetcn.com/member/articles/3765721",
+    "time": "03:21",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "新“次贷危机”？美国PE的“软件业贷款敞口”比财报显示的更大",
+    "url": "https://wallstreetcn.com/articles/3765725",
+    "time": "02:48",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "中国AI独角兽的进阶之路",
+    "url": "https://wallstreetcn.com/themes/1008381",
+    "time": "",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "美参众两院今起休会，国土安全部“停摆”几成定局",
+    "url": "https://wallstreetcn.com/livenews/3055442",
+    "time": "02:38",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "德国总理呼吁彻底改革欧美联盟，“我们不相信关税和保护主义，只相信自由贸易”，媒体评论“不信任达到顶峰”",
+    "url": "https://wallstreetcn.com/articles/3765724",
+    "time": "02:16",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "当OpenClaw智能体“写小作文”辱骂人类，连硅谷都慌了",
+    "url": "https://wallstreetcn.com/articles/3765720",
+    "time": "02:10",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "蚂蚁阿福下载量冲上苹果应用总榜第一",
+    "url": "https://wallstreetcn.com/livenews/3055432",
+    "time": "01:50",
+    "content": "华尔街见闻"
+  }
+]

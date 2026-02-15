@@ -1,0 +1,42 @@
+# Sensitive files - DO NOT BACKUP
+*.token
+*.key
+*.pem
+credentials/
+secrets/
+
+# Exclude sensitive config files with tokens
+claude-code-config/settings.json
+claude-code-config/settings.local.json
+
+# Backup logs
+backup.log
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.Python
+
+# Session files
+sessions/
+*.session
