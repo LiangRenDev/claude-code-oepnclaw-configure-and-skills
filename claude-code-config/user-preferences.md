@@ -15,3 +15,8 @@
 
 ## Important Notes
 - Add new preferences here as I learn them
+
+## Active Rules
+See `.claude/rules/` directory for all active rules:
+- **usage-monitoring-rule.md**: CRITICAL - Quota checking every 10 minutes, stop at 80%
+- **tool-whitelist-rule.md**: HIGH - Safe tools, MCP whitelist, automation constraints
