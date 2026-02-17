@@ -1,0 +1,589 @@
+[
+  {
+    "source": "Hacker News",
+    "title": "Ministry of Justice orders deletion of the UK's largest court reporting database",
+    "url": "https://www.legalcheek.com/2026/02/ministry-of-justice-orders-deletion-of-the-uks-largest-court-reporting-database/",
+    "heat": "380 points",
+    "time": "5 hours ago",
+    "content": "Ministry of Justice orders deletion of the UK’s largest court reporting database - Legal Cheek Posts News Ministry of Justice orders deletion of the UK’s largest court reporting database By Legal Cheek on Feb 11 2026 11:30am 5 Blow for open justice A digital archive that helped journalists track criminal court cases is being shut down by the Ministry of Justice. Courtsdesk will reportedly be deleted within days after HM Courts & Tribunals Service ordered every record wiped. The platform had been used by more than 1,500 reporters from 39 media outlets to search magistrates’ court lists and registers, but the move has triggered warnings that important cases could now go unreported. Courtsdesk says it repeatedly found the media wasn’t being told about hearings, with two-thirds of courts regularly hearing cases without notifying journalists. The platform was launched in 2020 following an agreement with HMCTS and approval by the Lord Chancellor and former Justice Minister Chris Philp, but HMCTS issued a cessation notice in November citing “unauthorised sharing” of court information. The 2026 Legal Cheek Firms Most List Courtsdesk founder Enda Leahy said the company wrote to government agencies 16 times trying to save the service. It asked for the matter to be referred to the Information Commissioner’s Office but says that request went nowhere, and former Philp himself approached current courts minister Sarah Sackman asking for the archive not to be deleted. The government refused last week. Leahy told The Times that HMCTS couldn’t do what Courtsdesk did. She pointed to figures showing the court service’s own records were accurate just 4.2% of the time and that 1.6 million criminal hearings went ahead without any advance notice to the press. “We built the only system that could tell journalists what was actually happening in the criminal courts,” she said. An HMCTS spokesperson said the press would continue to have full access to court information to support accurate reporting. HMCTS acted to protect sensitive data after CourtsDesk sent information to a third-party AI company. Journalists’ access to court information has not been affected: listings and records remain available. pic.twitter.com/4KWlpCcaAq — Ministry of Justice (@MoJGovUK) February 10, 2026 Barristers Courts Solicitors 5 Comments Paul grigg Feb 11 2026 4:59pm What a crock of shit who,s idea is this Reply Report comment ( 6 ) ( 1 ) Simply Grim Feb 11 2026 5:25pm Dark days ahead. I think this Labour government has been far worse than anyone could ever have imagined, at times it feels like they are trying to get forced to resign. Abolition of jury trials, media blackouts, AI facial recognition, all while cracking down on protests and online activity. Mahmood quite literally said she aspires to the theory of the panopticon, in which prisoners are forced to behave due to fear of constant surveillance. That is how they view citizens, as prisoners. Reply Report comment ( 18 ) ( 3 ) Seems fine b"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Privilege Is Bad Grammar",
+    "url": "https://tadaima.bearblog.dev/privilege-is-bad-grammar/",
+    "heat": "61 points",
+    "time": "53 minutes ago",
+    "content": "Privilege is bad grammar | Tadaima. Privilege is bad grammar 13 Feb, 2026 When I got my first real job, I used to get so nervous about writing emails to my boss. I would run spellcheck, triple-check the grammar, read over it again and again to make sure my tone sounded professional and mature and not young and stupid. After painstakingly revising the email for 30 minutes, I would send it to my boss, who would respond right away with a message that looked like: K let circle back nxt week bout it . thnks Sent from my iPhone I had another job where my bosses were heavy emoji users. I would send them super professional emails, trying so hard to overcompensate for how young I was, and they would respond back with a single sentence punctuated with multiple cryface emojis (😂). To this day, I think of that emoji as \"corporate\" since professionals love to use it for whatever reason. I'm used to it now, but a decade ago I thought it was so odd. I thought we were supposed to be professionals? And professionals are supposed to write with good grammar, right? I've been thinking a lot about this ever since the latest Epstein document dump. 1 People have been uploading screenshots of emails between Epstein and Elon Musk, Bill Gates, and Richard Branson. And besides all the upsetting and salacious details everyone is discussing, the thing that also surprises me is how bad everyone's grammar is. It reminded me so much of emails from bosses in my life: short, blunt (almost rude?), typos galore, weird formatting, bad grammar, \"sent from iPhone\", etc. It's almost as if, once you get to a certain level of power, you no longer need to try. Because the only reason people spend time crafting a well-written email is to look powerful, mature, professional. But if you're already a powerful professional, I guess technically you don't need to make an effort. And if there's no other boss above you, you can do whatever you want. It reminds me of another email leak, the 2014 Sony Pictures hack . While everyone ooed and ahhed over a bunch of executives talking crap about celebrities, the main thing I remember from that whole scandal was how sloppy and unprofessional emails from executives looked like. I remember reading over those emails with almost a sense of jealousy. If I had sent out an email with even a quarter of the typos they had, I probably would've lost my job. I know words like \"privilege\" gets thrown around a lot, and I think we all understand monetary privileges and power privileges and race privileges, but grammar privilege? That's certainly a first. I haven't read through it myself, but I've heard more than enough through articles/social media. ↩ #news"
+  },
+  {
+    "source": "Hacker News",
+    "title": "WebMCP Proposal",
+    "url": "https://webmachinelearning.github.io/webmcp/",
+    "heat": "56 points",
+    "time": "1 hour ago",
+    "content": "WebMCP WebMCP Draft Community Group Report , 12 February 2026 More details about this document This version: https://webmachinelearning.github.io/webmcp Issue Tracking: GitHub Editors: Brandon Walderman ( Microsoft ) Khushal Sagar ( Google ) Dominic Farolino ( Google ) Copyright © 2026 the Contributors to the WebMCP Specification, published by the Web Machine Learning Community Group under the W3C Community Contributor License Agreement (CLA) . A human-readable summary is available. Abstract The WebMCP API enables web applications to provide JavaScript-based tools to AI agents. Status of this document This specification was published by the Web Machine Learning Community Group . It is not a W3C Standard nor is it on the W3C Standards Track. Please note that under the W3C Community Contributor License Agreement (CLA) there is a limited opt-out and other conditions apply. Learn more about W3C Community and Business Groups . 1. Introduction WebMCP API is a new JavaScript interface that allows web developers to expose their web application functionality as “tools” - JavaScript functions with natural language descriptions and structured schemas that can be invoked by agents , browser’s agents , and assistive technologies . Web pages that use WebMCP can be thought of as Model Context Protocol [MCP] servers that implement tools in client-side script instead of on the backend. WebMCP enables collaborative workflows where users and agents work together within the same web interface, leveraging existing application logic while maintaining shared context and user control. 2. Terminology An agent is an autonomous assistant that can understand a user’s goals and take actions on the user’s behalf to achieve them. Today, these are typically implemented by large language model (LLM) based AI platforms , interacting with users via text-based chat interfaces. A browser’s agent is an agent provided by or through the browser that could be built directly into the browser or hosted by it, for example, via an extension or plug-in. An AI platform is a provider of agentic assistants such as OpenAI’s ChatGPT, Anthropic’s Claude, or Google’s Gemini. 3. Security and privacy considerations 4. Accessibility considerations 5. API 5.1. Extensions to the Navigator Interface The Navigator interface is extended to provide access to the ModelContext . partial interface Navigator { [ SecureContext , SameObject ] readonly attribute ModelContext modelContext ; }; 5.2. ModelContext Interface The ModelContext interface provides methods for web applications to register and manage tools that can be invoked by agents . [ Exposed = Window , SecureContext ] interface ModelContext { undefined provideContext ( optional ModelContextOptions options = {}); undefined clearContext (); undefined registerTool ( ModelContextTool tool ); undefined unregisterTool ( DOMString name ); }; navigator . modelContext . provideContext(options) Registers the provided context (tools) with the browser. This method"
+  },
+  {
+    "source": "Hacker News",
+    "title": "What Your Bluetooth Devices Reveal About You",
+    "url": "https://blog.dmcc.io/journal/2026-bluetooth-privacy-bluehood/",
+    "heat": "144 points",
+    "time": "4 hours ago",
+    "content": "What Your Bluetooth Devices Reveal About You » Danny Building Bluehood, a Bluetooth scanner that reveals what information we leak just by having Bluetooth enabled on our devices. If you’ve read much of this blog, you’ll know I have a thing for privacy . Whether it’s running my blog over Tor , blocking ads network-wide with AdGuard , or keeping secrets out of my dotfiles with Proton Pass , I tend to think carefully about what data I’m exposing and to whom. Last weekend I built Bluehood , a Bluetooth scanner that tracks nearby devices and analyses their presence patterns. The project was heavily assisted by AI, but the motivation was entirely human: I wanted to understand what information I was leaking just by having Bluetooth enabled. The timing felt right. A few days ago, researchers at KU Leuven disclosed WhisperPair (CVE-2025-36911), a critical vulnerability affecting hundreds of millions of Bluetooth audio devices. The flaw allows attackers to hijack headphones and earbuds remotely, eavesdrop on conversations, and track locations through Google’s Find Hub network. It’s a stark reminder that Bluetooth isn’t the invisible, harmless signal we treat it as. The Problem Nobody Talks About We’ve normalised the idea that Bluetooth is always on. Phones, laptops, smartwatches, headphones, cars, and even medical devices constantly broadcast their presence. The standard response to privacy concerns is usually “nothing to hide, nothing to fear.” But here’s the thing: even if you have nothing to hide, you’re still giving away information you probably don’t intend to. From my home office, running Bluehood in passive mode (just listening, never connecting), I could detect: When delivery vehicles arrived, and whether it was the same driver each time The daily patterns of my neighbours based on their phones and wearables Which devices consistently appeared together (someone’s phone and smartwatch, for instance) The exact times certain people were home, at work, or elsewhere None of this required any special equipment. A Raspberry Pi with a Bluetooth adapter would do the job. So would most laptops. Devices You Can’t Control What concerns me most isn’t that people choose to have Bluetooth enabled. It’s that many devices don’t give users the option to disable it. Hearing aids are a good example. Modern hearing aids often use Bluetooth Low Energy so audiologists can connect and adjust settings or run diagnostics. Pacemakers and other implanted medical devices sometimes broadcast BLE signals for the same reason. The user can’t simply turn this off. Then there are vehicles. Delivery vans, police cars, ambulances, logistics fleets, and trains often have Bluetooth-enabled systems for fleet management, diagnostics, or driver assistance. These broadcast continuously, and the drivers have no control over it. Even consumer devices aren’t always straightforward. Many smartwatches need Bluetooth to function at all. GPS collars for pets require it to communicate with the owne"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Ghidra by NSA",
+    "url": "https://github.com/NationalSecurityAgency/ghidra",
+    "heat": "206 points",
+    "time": "6 hours ago",
+    "content": "GitHub - NationalSecurityAgency/ghidra: Ghidra is a software reverse engineering (SRE) framework Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert NationalSecurityAgency / ghidra Public Notifications You must be signed in to change notification settings Fork 7.1k Star 64.5k Ghidra is a software reverse engineering (SRE) framework www.nsa.gov/ghidra License Apache-2.0 license 64.5k stars 7.1k forks Branches Tags Activity Star Notifications You must be signed in to change notification settings NationalSecurityAgency/ghidra master Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 16,581 Commits 16,581 Commits .github/ ISSUE_TEMPLATE .github/ ISSUE_TEMPLATE GPL GPL Ghidra Ghidra GhidraBuild GhidraBuild GhidraDocs GhidraDocs docker docker eclipse eclipse gradle gradle licenses licenses .gitattributes .gitattributes .gitignore .gitignore CONTRIBUTING.md CONTRIBUTING.md DISCLAIMER.md DISCLAIMER.md DevGuide.md DevGuide.md LICENSE LICENSE NOTICE NOTICE README.md README.md build.gradle build.gradle certification.local.manifest certification.local.manifest gradle.properties gradle.properties gradlew gradlew gradlew.bat gradlew.bat settings.gradle settings.gradle View all files Repository files navigation Ghidra Software Reverse Engineering Framework Ghidra is a software reverse engineering (SRE) framework created and maintained by the National Security Agency Research Directorate. This framework includes a suite of full-featured, high-end software analysis tools that enable users to analyze compiled code on a variety of platforms including Windows, macOS, and Linux. Capabilities include disassembly, assembly, decompilation, graphing, and scripting, along with hundreds of other features. Ghidra supports a wide variety of processor instruction sets and executable formats and can be run in both user-interactive and automated modes. Users may also develop their own Ghidra extension components and/or scripts using Java or Python. In support of NSA's Cybersecurity mission, Ghidra was built to solve scaling and teaming problems on complex SRE efforts, and to provide a customizable and extensible SRE research platform. NSA has applied Ghidra SRE capabilities to a variety of problems that involve analyzing malicious code and generating deep insights for SRE analysts who seek a better understanding of potential vulnerabilities in networks and systems. If you are a U.S. citizen interested in projects like this, to develop Ghidra and other cybersecurity tools for NSA to help protect our nation and its allies, consider applying for a career with us . Security Warning WARNING: There are known security vulnerabilities within certain versions of Ghidra. Before proceeding, please re"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Running My Own XMPP Server",
+    "url": "https://blog.dmcc.io/journal/xmpp-turn-stun-coturn-prosody/",
+    "heat": "160 points",
+    "time": "5 hours ago",
+    "content": "Running My Own XMPP Server » Danny Notes from setting up Prosody in Docker for federated messaging, with file sharing, voice calls, and end-to-end encryption. About a year ago I moved my personal messaging to Signal as part of a broader push to take ownership of my digital life. That went well. Most of my contacts made the switch, and I’m now at roughly 95% Signal for day-to-day conversations. But Signal is still one company running one service. If they shut down tomorrow or change direction, I’m back to square one. XMPP fixes that. It’s federated, meaning your server talks to other XMPP servers automatically and you’re never locked into a single provider. Your messages live on your hardware. The protocol has been around since 1999 and it’s not going anywhere. I’d tried XMPP years ago and bounced off it, but the clients have come a long way since then. Monal and Conversations are genuinely nice to use now. This post covers everything I did to get a fully working XMPP server running with Prosody in Docker, from DNS records through to voice calls. Prerequisites A server with Docker and Docker Compose A domain you control TLS certificates (Let’s Encrypt works well) DNS records XMPP uses SRV records to let clients and other servers find yours. You’ll need these in your DNS: _xmpp-client._tcp.xmpp.example.com SRV 0 5 5222 xmpp.example.com. _xmpp-server._tcp.xmpp.example.com SRV 0 5 5269 xmpp.example.com. Port 5222 is for client connections, 5269 is for server-to-server federation. You’ll also want an A record pointing xmpp.example.com to your server’s IP. If you want HTTP file uploads (I’d recommend it), add a CNAME or A record for upload.xmpp.example.com pointing to the same server. Same for conference.xmpp.example.com if you want group chats with a clean subdomain, though Prosody handles this internally either way. TLS certificates Prosody won’t start without certificates. I use Let’s Encrypt with the Cloudflare DNS challenge so I don’t need to expose port 80: docker run --rm \\ -v ~/docker/xmpp/certs:/etc/letsencrypt \\ -v ~/docker/xmpp/cloudflare.ini:/etc/cloudflare.ini:ro \\ certbot/dns-cloudflare certonly \\ --dns-cloudflare \\ --dns-cloudflare-credentials /etc/cloudflare.ini \\ -d xmpp.example.com The cloudflare.ini file contains your API token: dns_cloudflare_api_token = your-cloudflare-api-token After certbot runs, fix the permissions so Prosody can read the certs: chmod -R 755 ~/docker/xmpp/certs/live/ ~/docker/xmpp/certs/archive/ chmod 644 ~/docker/xmpp/certs/archive/xmpp.example.com/*.pem Set up a cron to renew monthly: 0 3 1 * * docker run --rm -v ~/docker/xmpp/certs:/etc/letsencrypt \\ -v ~/docker/xmpp/cloudflare.ini:/etc/cloudflare.ini:ro \\ certbot/dns-cloudflare renew \\ --dns-cloudflare-credentials /etc/cloudflare.ini \\ && docker restart xmpp The Docker setup The docker-compose.yml : services : prosody : image : prosodyim/prosody: 13.0 container_name : xmpp restart : unless-stopped ports : - \"5222:5222\" - \"5269:5269\" volumes : - prosody-data:"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Use Protocols, Not Services",
+    "url": "https://notnotp.com/notes/use-protocols-not-services/",
+    "heat": "7 points",
+    "time": "14 minutes ago",
+    "content": "Use Protocols, Not Services Use Protocols, Not Services Published on 15 February 2026 The Internet is almost anonymous and privacy-preserving by design. I mean, unless some administrator actively tries to track you, there is no built-in identity layer. What breaks both properties is the centralization of communication onto closed platforms, where identification becomes possible either by the hosting company itself, or by governments compelling them to cooperate. After recent events, it is time for us to start using protocols again instead of services. Services are easy targets A government that wants to identify users, censor content, or enforce compliance only needs to send one letter to one company. One subpoena, one court order, one regulatory demand: the service likely complies or faces fines, lawsuits, or bans. This is happening right now. Governments worldwide are passing laws that require platforms to verify the age of their users. Discord is voluntarily rolling out mandatory \"teen-by-default\" settings until proof of majority (by submitting a face scan or, God forbid, a government-issued ID), likely anticipating future regulatory obligations. None of this could happen with a protocol. You cannot require age verification on IRC, XMPP, ActivityPub , Nostr , or Matrix , because there is no single entity to compel. Each server operator makes their own decisions. A government would need to individually pressure thousands of independent operators across dozens of jurisdictions, which is a legislative and enforcement impossibility. And even if one server complied, users would simply move to another. Switching services solves nothing After Discord's announcement, the instinct is to migrate to another service. This is pointless. The new service will either operate under the same jurisdiction and face the same rules, or it will be offshore and eventually blocked or pressured once it becomes large enough to matter. You are just moving from one regulable entity to another. The actual solution is to stop depending on a specific commercial service and start using a protocol. This is not a radical idea. We already do it with email. SMTP is a protocol. You can switch providers, self-host, or use any combination. Email may not seem to be the best example since it has become an oligopoly where Google, Microsoft, and maybe also Apple control the vast majority of the email infrastructure. But actually, this is a good example to show how protocols are resilient. Let's say Google bans your account, then you can move to another provider and still reach every Gmail user. In a more extreme scenario, let's even say Google and Microsoft discontinue their service (in your specific region, for example), even block any inbound message from you. Not ideal, but SMTP implementations still exist and they still work even in a very degraded mode. You'd need to migrate (as well as some of your connections), but there is absolutely no need to reimplement anything. That is the "
+  },
+  {
+    "source": "Hacker News",
+    "title": "Show HN: Simple org-mode web adapter",
+    "url": "https://github.com/SpaceTurth/Org-Web-Adapter",
+    "heat": "36 points",
+    "time": "2 hours ago",
+    "content": "GitHub - SpaceTurth/Org-Web-Adapter: A simple view into your org roam notes with editing, backlinks, and rendered math. Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert SpaceTurth / Org-Web-Adapter Public Notifications You must be signed in to change notification settings Fork 1 Star 13 A simple view into your org roam notes with editing, backlinks, and rendered math. License AGPL-3.0 license 13 stars 1 fork Branches Tags Activity Star Notifications You must be signed in to change notification settings SpaceTurth/Org-Web-Adapter master Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 7 Commits 7 Commits media media notes notes static static templates templates .gitignore .gitignore LICENSE LICENSE README.md README.md config.yaml config.yaml main.py main.py makefile makefile View all files Repository files navigation Org Web Adapter A lightweight local web app for browsing and editing Org files. The app is implemented as a single Python server ( main.py ) plus one HTML template ( templates/index.html ) and one stylesheet ( static/style.css ). It scans a notes directory for .org files and renders a 3-pane UI. ⚠️ There is no authentication or encryption, only run this service on trusted networks. ⚠️ Screenshots Desktop Mobile Instructions Symlink your notes directory to notes . Edit the bind address and port in config.yaml if desired. python3 main.py . How's it work? main.py starts an HTTP server. On each page request ( GET / ), it rescans the notes directory for .org files. It resolves links/backlinks and builds HTML fragments. It injects those fragments into templates/index.html placeholders: {{NAV_ITEMS}} {{MAIN_CONTENT}} {{BACKLINKS}} Browser JS in templates/index.html handles client-side interactions (search, shuffle, sorting, jump-to-current, theme toggle). Server-side components ( main.py ) File discovery and parsing: scan_org_files(...) recursively finds .org files. Extracts title from #+TITLE: and ID from :ID: . Org link/backlink handling: resolve_link_target(...) supports file:... and id:... links. find_backlinks(...) computes notes linking to the selected note. build_backlink_counts(...) computes backlink totals for sorting. Rendering: render_org_to_html(...) converts headings ( * , ** , ...) and paragraphs to simple HTML. render_line_with_links(...) converts org links in text to clickable app links where resolvable. truncate_label(...) caps sidebar labels to 32 chars with ... . Editing: POST /edit updates a selected .org file and redirects back with status flags. Static files: serve_static(...) serves files under static/ with path traversal protection. Frontend components templates/index.html : Base layout markup. Sidebar controls. Small JS con"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Qwen3.5: Towards Native Multimodal Agents",
+    "url": "https://qwen.ai/blog?id=qwen3.5",
+    "heat": "288 points",
+    "time": "9 hours ago",
+    "content": "Qwen"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Looks: A Halide Mark III Preview",
+    "url": "https://www.lux.camera/mark-iii-looks/",
+    "heat": "34 points",
+    "time": "3 hours ago",
+    "content": "Inside Looks: A Mark III Preview Close Our apps: Halide The best pro camera iPhone and iPad Spectre A free AI-powered long exposure camera for everyone Kino Cinematic pro video camera for iPhone with pro color presets Orion Our free app to turn your iPad into an HDMI monitor Copyright 2026 Close Start typing Recent content Inside Looks: A Mark III Preview Requiem for the Rangefinder: An iPhone Air Review iphone iPhone 17 Pro Camera Review: Rule of Three orion Rewrites and Rollouts Popular topics Halide iphone app spectre update design camera Today we launched a public preview of Halide Mark III, the next generation of our flagship photography app. When you download today's Halide update in the App Store, you'll find a new \" ③ \" button to switch to Mark III. Mark III is still a work in progress, and we'll share more details about that at the end, but we're ready to start sharing what we've worked on for the past year through a series of app updates alongside posts like this. Today, we're diving into Looks . In the early days of digital photography, the look of a photo amounted to little more than contrast and color palette. In the era of smart phone photography, algorithms now alter lighting, local contrast and much more. Consider these four different interpretations of exact same data. The first example is from the default the iPhone camera, which chose to \"nope\" most shadows We don't point this to denigrate the first-party camera, which serves a billion people. It does this through simplicity. You tap a button, you capture a decent photo. Most people, most of the time, people want to see details in shadows and highlights. The convenience of smart cameras has the unintended consequence of making everyone's photos feel the same. It's reached a point where folks who want a unique look to their images buy old digital cameras that lack algorithms. Others download advanced apps, only to be overwhelmed by hundreds of presets that all kind of feel the same. This was my life until a few years ago, when I woke up one morning and found myself bored with digital photography. That's an awful place to be after a decade building camera apps. So I did what every millennial does in a midlife crisis and took a deep dive into analog photography. It starts innocent enough. You buy a Canon AE-1 off the internet, remove the dead fly from inside the lens, and shoot your first roll. Next thing you know, there's a camera collection. You learn to develop film at home. Then you dig into alternative processes like cyanotype, colloidal chloride, and platinum palladium. This path ends in Hillsborough, New Jersey, buying a discontinued lab scanner, yellowed from age, trying to explain to the seller what you do for a living. Wait, what was I talking about? Oh, digital photography. I grew up during the transition from film to digital, so I assumed that convenience and flexibility made digital inherently better. Revisiting film decades later, I appreciate the constraint. An \"out"
+  },
+  {
+    "source": "Hacker News",
+    "title": "How to take a photo with scotch tape (lensless imaging) [video]",
+    "url": "https://www.youtube.com/watch?v=97f0nfU5Px0",
+    "heat": "27 points",
+    "time": "2 hours ago",
+    "content": "- YouTube About Press Copyright Contact us Creator Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features © 2026 Google LLC"
+  },
+  {
+    "source": "Hacker News",
+    "title": "I’m joining OpenAI",
+    "url": "https://steipete.me/posts/2026/openclaw",
+    "heat": "1329 points",
+    "time": "21 hours ago",
+    "content": "OpenClaw, OpenAI and the future | Peter Steinberger OpenClaw, OpenAI and the future Published: 14 Feb, 2026 • 3 min read | Edit on GitHub tl;dr: I’m joining OpenAI to work on bringing agents to everyone. OpenClaw will move to a foundation and stay open and independent. The last month was a whirlwind, never would I have expected that my playground project would create such waves. The internet got weird again, and it’s been incredibly fun to see how my work inspired so many people around the world. There’s an endless array of possibilities that opened up for me, countless people trying to push me into various directions, giving me advice, asking how they can invest or what I will do. Saying it’s overwhelming is an understatement. When I started exploring AI, my goal was to have fun and inspire people. And here we are, the lobster is taking over the world. My next mission is to build an agent that even my mum can use. That’ll need a much broader change, a lot more thought on how to do it safely, and access to the very latest models and research. Yes, I could totally see how OpenClaw could become a huge company. And no, it’s not really exciting for me. I’m a builder at heart. I did the whole creating-a-company game already, poured 13 years of my life into it and learned a lot. What I want is to change the world, not build a large company and teaming up with OpenAI is the fastest way to bring this to everyone. I spent last week in San Francisco talking with the major labs, getting access to people and unreleased research, and it’s been inspiring on all fronts. I want to thank all the folks I talked to this week and am thankful for the opportunities. It’s always been important to me that OpenClaw stays open source and given the freedom to flourish. Ultimately, I felt OpenAI was the best place to continue pushing on my vision and expand its reach. The more I talked with the people there, the clearer it became that we both share the same vision. The community around OpenClaw is something magical and OpenAI has made strong commitments to enable me to dedicate my time to it and already sponsors the project. To get this into a proper structure I’m working on making it a foundation. It will stay a place for thinkers, hackers and people that want a way to own their data, with the goal of supporting even more models and companies. Personally I’m super excited to join OpenAI, be part of the frontier of AI research and development, and continue building with all of you. The claw is the law. New posts, shipping stories, and nerdy links straight to your inbox. Subscribe 2× per month, pure signal, zero fluff. | Edit on GitHub ai openai openclaw agents Share this post on: Share this post on X Share this post on BlueSky Share this post on LinkedIn Share this post via WhatsApp Share this post on Facebook Share this post via Telegram Share this post on Pinterest Share this post via email Back to Top Next Post Shipping at Inference-Speed"
+  },
+  {
+    "source": "Hacker News",
+    "title": "I want to wash my car. The car wash is 50 meters away. Should I walk or drive?",
+    "url": "https://mastodon.world/@knowmadd/116072773118828295",
+    "heat": "1217 points",
+    "time": "12 hours ago",
+    "content": "Kévin: \"Q: I want to wash my car. The car wash is 50 mete…\" - Mastodon To use the Mastodon web application, please enable JavaScript. Alternatively, try one of the native apps for Mastodon for your platform."
+  },
+  {
+    "source": "Hacker News",
+    "title": "The Sideprocalypse",
+    "url": "https://johan.hal.se/wrote/2026/02/03/the-sideprocalypse/",
+    "heat": "120 points",
+    "time": "4 hours ago",
+    "content": "The Sideprocalypse 2026-02-16 The Sideprocalypse You can't open a feed today without having AI boosters fling word salad like \"agentic engineering\" or \"openclaw\" into your beautiful but disapproving face. I'm terrible at predicting the future—you should ask me about selling NVIDIA stock in early 2022 some time—but one thing seems abundantly clear at this point. There's a wonderful Swedish proverb called \"elda för kråkorna\" (building a fire for the crows) that evokes the futility of someone lighting a nice warm fire indoors and then throwing the doors wide open, inviting the snow and sleet. Are you one of the thousands of developers with dreams of building a little SaaS on the side? Something you've been thinking about for a while, hacking away at on evenings and weekends, dreaming of the day you can have a couple of hundred paying customers giving you $19.99 a month? Sorry to be the bringer of bad news, but that dream's dead. Doornail. Dodo. Parrot . Every minute you put into that thing, be it your own time or your LLM agent's, is a minute for the crows. Imagine that beautiful but fragile little idea of yours curled up in a freshly-dug pit in your backyard, Claude and Gemini standing over it, chuckling and high-fiving each other. Listen: every idea you've ever had, every single one, some cocaine-addled sales critter has had too. And they're better than you at SEO . What's that you're saying? Yours actually works and is higher quality, because you know about things like TTFP and INP and \"not putting your Supabase god-token in the client\"? Oh, you sweet summer child: I take no pleasure in this but I need to tell you that these things don't matter anymore. Quality is not a metric anyone cares about in 2026. We've all been conditioned to accept tombstone spinners on first load or purchase flows that straight-up don't work , and there are walled gardens and tollbooths everywhere you look. React ate the web, Safari kneecapped it, Google stopped linking to it, and none of the Zaibatsu US corporations who hold the cards want you to succeed. The future, if there is a future in software, lies in high-touch enterprise sales. There are a select few companies allowed to make money on the Internet today, and if you have any sense of self-preservation you need to glom onto one of those and hold it like the Dickens. Give up those childish dreams of independence. If you're a hopeful SaaS builder you may be first in line, but you can at least take grim satisfaction in the fact that the sloptimists, the hype-men, the breathless agents-are-working-while-I-sleep people, they're equally fucked when this all comes home to roost. The marginal value of code today is—well, possibly not zero, since the people selling spades for this frantic gold rush are doing okay for now—but it's dropping like a lead balloon. Josh Collinsworth has it right , AI boosterism is a class privilege. But rest assured that this revolution, too, will end up eating its own. They fancy themselves t"
+  },
+  {
+    "source": "Hacker News",
+    "title": "Rolling your own serverless OCR in 40 lines of code",
+    "url": "https://christopherkrapu.com/blog/2026/ocr-textbooks-modal-deepseek/",
+    "heat": "86 points",
+    "time": "8 hours ago",
+    "content": "Rolling your own serverless OCR in 40 lines of code | Christopher Krapu A few months ago, I wanted to make my copy of Gelman’s Bayesian Data Analysis searchable for use in a statistics-focused agent. There are some pretty sophisticated OCR tools out there but they tend to have usage limits or get expensive when you’re processing thousands of pages. DeepSeek recently released an open OCR model that handles mathematical notation well, and I figured I could run it myself if I had access to a GPU. Sadly, my daily driver is a decade-old Titan Xp which no longer supports the latest PyTorch versions and thus can’t run DeepSeek OCR. I ended up using Modal for this. What is Modal? Modal is a serverless compute platform that lets you run Python code on cloud infrastructure without managing servers. The killer feature for machine learning work is that you can define a container image, attach a GPU, and pay only for the seconds your code is actually running. import modal image = modal . Image . from_registry ( \" nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04 \" , add_python = \" 3.11 \" , ). pip_install ( \" torch \" , \" transformers \" , ...) app = modal . App ( \" my-gpu-app \" ) @app.function ( image = image , gpu = \" A100 \" ) def process_something (): # This runs on an A100 with all your deps installed pass The decorator pattern is what makes Modal pleasant to use. You write normal Python, sprinkle decorators on the functions that need special hardware, and Modal handles the rest: building the container, provisioning the GPU, routing your requests. For OCR, this is perfect. The OCR script The core idea is simple: deploy a FastAPI server on Modal that accepts images and returns markdown text. Let’s walk through the important pieces. Defining the container image First, we build a container with all the dependencies. DeepSeek’s OCR model needs PyTorch, transformers, and a few image processing libraries: from pathlib import Path import modal APP_NAME = \" deepseek-ocr-books-api-batch \" ROOT = Path ( __file__ ). resolve (). parents [ 1 ] BOOKS_DIR = ROOT / \" references \" / \" books \" PARSED_DIR = BOOKS_DIR / \" parsed \" image = ( modal . Image . from_registry ( \" nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04 \" , add_python = \" 3.11 \" , ) . apt_install ( \" git \" , \" libgl1 \" , \" libglib2.0-0 \" ) . pip_install ( \" torch==2.6.0 \" , \" torchvision==0.21.0 \" , \" transformers==4.46.3 \" , \" PyMuPDF \" , \" Pillow \" , \" numpy \" , extra_index_url = \" https://download.pytorch.org/whl/cu118 \" , ) ) app = modal . App ( APP_NAME ) The paths at the top let us find PDFs relative to the script location, keeping configuration close to where it’s used. The FastAPI endpoint Here’s where the magic happens. We wrap a FastAPI server in Modal’s @modal.asgi_app() decorator, which means Modal will handle spinning up GPU instances and routing HTTP requests to them: @app.function ( image = image , gpu = \" A100 \" , timeout = 60 * 60 * 2 ) # timeout of 2 hours @modal.asgi_app () def fastapi_app (): fro"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "春晚收视率",
+    "url": "https://s.weibo.com/weibo?q=%E6%98%A5%E6%99%9A%E6%94%B6%E8%A7%86%E7%8E%87&Refer=top",
+    "heat": "502106",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "田曦薇宋威龙 谁来递个本子",
+    "url": "https://s.weibo.com/weibo?q=%E7%94%B0%E6%9B%A6%E8%96%87%E5%AE%8B%E5%A8%81%E9%BE%99%20%E8%B0%81%E6%9D%A5%E9%80%92%E4%B8%AA%E6%9C%AC%E5%AD%90&Refer=top",
+    "heat": "350210",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "春晚分会场上大分",
+    "url": "https://s.weibo.com/weibo?q=%E6%98%A5%E6%99%9A%E5%88%86%E4%BC%9A%E5%9C%BA%E4%B8%8A%E5%A4%A7%E5%88%86&Refer=top",
+    "heat": "341981",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "与捷途共赴新年第一缕曙光",
+    "url": "https://s.weibo.com/weibo?q=%E4%B8%8E%E6%8D%B7%E9%80%94%E5%85%B1%E8%B5%B4%E6%96%B0%E5%B9%B4%E7%AC%AC%E4%B8%80%E7%BC%95%E6%9B%99%E5%85%89&Refer=top",
+    "heat": "339284",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "春晚",
+    "url": "https://s.weibo.com/weibo?q=%E6%98%A5%E6%99%9A&Refer=top",
+    "heat": "338609",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "TFBOYS怎么变四个人了",
+    "url": "https://s.weibo.com/weibo?q=TFBOYS%E6%80%8E%E4%B9%88%E5%8F%98%E5%9B%9B%E4%B8%AA%E4%BA%BA%E4%BA%86&Refer=top",
+    "heat": "301081",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "谷爱凌刘梦婷大跳台决赛",
+    "url": "https://s.weibo.com/weibo?q=%E8%B0%B7%E7%88%B1%E5%87%8C%E5%88%98%E6%A2%A6%E5%A9%B7%E5%A4%A7%E8%B7%B3%E5%8F%B0%E5%86%B3%E8%B5%9B&Refer=top",
+    "heat": "296627",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "看飞驰人生接美的好风",
+    "url": "https://s.weibo.com/weibo?q=%E7%9C%8B%E9%A3%9E%E9%A9%B0%E4%BA%BA%E7%94%9F%E6%8E%A5%E7%BE%8E%E7%9A%84%E5%A5%BD%E9%A3%8E&Refer=top",
+    "heat": "263839",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "王菲接了李谷一的班",
+    "url": "https://s.weibo.com/weibo?q=%E7%8E%8B%E8%8F%B2%E6%8E%A5%E4%BA%86%E6%9D%8E%E8%B0%B7%E4%B8%80%E7%9A%84%E7%8F%AD&Refer=top",
+    "heat": "257593",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "过年好",
+    "url": "https://s.weibo.com/weibo?q=%E8%BF%87%E5%B9%B4%E5%A5%BD&Refer=top",
+    "heat": "237777",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "王一博这一脚用了多大力气",
+    "url": "https://s.weibo.com/weibo?q=%E7%8E%8B%E4%B8%80%E5%8D%9A%E8%BF%99%E4%B8%80%E8%84%9A%E7%94%A8%E4%BA%86%E5%A4%9A%E5%A4%A7%E5%8A%9B%E6%B0%94&Refer=top",
+    "heat": "216460",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "女子大跳台决赛推迟",
+    "url": "https://s.weibo.com/weibo?q=%E5%A5%B3%E5%AD%90%E5%A4%A7%E8%B7%B3%E5%8F%B0%E5%86%B3%E8%B5%9B%E6%8E%A8%E8%BF%9F&Refer=top",
+    "heat": "192306",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "谁给迪丽热巴化的妆",
+    "url": "https://s.weibo.com/weibo?q=%E8%B0%81%E7%BB%99%E8%BF%AA%E4%B8%BD%E7%83%AD%E5%B7%B4%E5%8C%96%E7%9A%84%E5%A6%86&Refer=top",
+    "heat": "191828",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "马丽单飞了 沈腾怎么办",
+    "url": "https://s.weibo.com/weibo?q=%E9%A9%AC%E4%B8%BD%E5%8D%95%E9%A3%9E%E4%BA%86%20%E6%B2%88%E8%85%BE%E6%80%8E%E4%B9%88%E5%8A%9E&Refer=top",
+    "heat": "190417",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "Weibo Hot Search",
+    "title": "宇树科技股票",
+    "url": "https://s.weibo.com/weibo?q=%E5%AE%87%E6%A0%91%E7%A7%91%E6%8A%80%E8%82%A1%E7%A5%A8&Refer=top",
+    "heat": "186531",
+    "time": "Real-time",
+    "content": "Sina Visitor System"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "alibaba/zvec - A lightweight, lightning-fast, in-process vector database",
+    "url": "https://github.com/alibaba/zvec",
+    "heat": "3,311 stars",
+    "time": "Today",
+    "content": "GitHub - alibaba/zvec: A lightweight, lightning-fast, in-process vector database Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert alibaba / zvec Public Notifications You must be signed in to change notification settings Fork 169 Star 3.3k A lightweight, lightning-fast, in-process vector database zvec.org/en/ License Apache-2.0 license 3.3k stars 169 forks Branches Tags Activity Star Notifications You must be signed in to change notification settings alibaba/zvec main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 61 Commits 61 Commits .github .github cmake cmake examples/ c++ examples/ c++ python python scripts scripts src src tests tests thirdparty thirdparty tools tools .clang-format .clang-format .gitignore .gitignore .gitmodules .gitmodules .pre-commit-config.yaml .pre-commit-config.yaml CMakeLists.txt CMakeLists.txt CODE_OF_CONDUCT.md CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTING.md LICENSE LICENSE README.md README.md pyproject.toml pyproject.toml View all files Repository files navigation 🚀 Quickstart | 🏠 Home | 📚 Docs | 📊 Benchmarks | 🎮 Discord | 🐦 X (Twitter) Zvec is an open-source, in-process vector database — lightweight, lightning-fast, and designed to embed directly into applications. Built on Proxima (Alibaba's battle-tested vector search engine), it delivers production-grade, low-latency, scalable similarity search with minimal setup. 💫 Features Blazing Fast : Searches billions of vectors in milliseconds. Simple, Just Works : Install and start searching in seconds. No servers, no config, no fuss. Dense + Sparse Vectors : Work with both dense and sparse embeddings, with native support for multi-vector queries in a single call. Hybrid Search : Combine semantic similarity with structured filters for precise results. Runs Anywhere : As an in-process library, Zvec runs wherever your code runs — notebooks, servers, CLI tools, or even edge devices. 📦 Installation Python Requirements : Python 3.10 - 3.12 pip install zvec Node.js npm install @zvec/zvec ✅ Supported Platforms Linux (x86_64, ARM64) macOS (ARM64) 🛠️ Building from Source If you prefer to build Zvec from source, please check the Building from Source guide. ⚡ One-Minute Example import zvec # Define collection schema schema = zvec . CollectionSchema ( name = \"example\" , vectors = zvec . VectorSchema ( \"embedding\" , zvec . DataType . VECTOR_FP32 , 4 ), ) # Create collection collection = zvec . create_and_open ( path = \"./zvec_example\" , schema = schema ) # Insert documents collection . insert ([ zvec . Doc ( id = \"doc_1\" , vectors = { \"embedding\" : [ 0.1 , 0.2 , 0.3 , 0.4 ]}), zvec . Doc ( id = \"doc_2\" , vectors = { \"embedding\" : [ 0.2 , 0.3 , 0.4 , 0.1 ]}), ]) # Search by vector simila"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "nautechsystems/nautilus_trader - A high-performance algorithmic trading platform and event-driven backtester",
+    "url": "https://github.com/nautechsystems/nautilus_trader",
+    "heat": "19,692 stars",
+    "time": "Today",
+    "content": "GitHub - nautechsystems/nautilus_trader: A high-performance algorithmic trading platform and event-driven backtester Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert nautechsystems / nautilus_trader Public Notifications You must be signed in to change notification settings Fork 2.3k Star 19.7k A high-performance algorithmic trading platform and event-driven backtester nautilustrader.io License LGPL-3.0 license 19.7k stars 2.3k forks Branches Tags Activity Star Notifications You must be signed in to change notification settings nautechsystems/nautilus_trader develop Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 17,554 Commits 17,554 Commits .cargo .cargo .config .config .docker .docker .github .github .pre-commit-hooks .pre-commit-hooks .supply-chain .supply-chain assets assets crates crates docs docs examples examples nautilus_trader nautilus_trader python python schema/ sql schema/ sql scripts scripts tests tests .codecov.yml .codecov.yml .codespellrc .codespellrc .dockerignore .dockerignore .env.example .env.example .gitattributes .gitattributes .gitignore .gitignore .gitlint .gitlint .lycheeignore .lycheeignore .markdownlint.jsonc .markdownlint.jsonc .pre-commit-config.yaml .pre-commit-config.yaml .taplo.toml .taplo.toml .typos.toml .typos.toml .yamllint.yaml .yamllint.yaml CLA.md CLA.md CODE_OF_CONDUCT.md CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTING.md Cargo.lock Cargo.lock Cargo.toml Cargo.toml LICENSE LICENSE Makefile Makefile README.md README.md RELEASES.md RELEASES.md ROADMAP.md ROADMAP.md SECURITY.md SECURITY.md build.py build.py capnp-version capnp-version clippy.toml clippy.toml deny.toml deny.toml osv-scanner.toml osv-scanner.toml pyproject.toml pyproject.toml rust-toolchain.toml rust-toolchain.toml rustfmt.toml rustfmt.toml uv-version uv-version uv.lock uv.lock version.json version.json View all files Repository files navigation Branch Version Status master nightly develop Platform Rust Python Linux (x86_64) 1.93.0 3.12-3.14 Linux (ARM64) 1.93.0 3.12-3.14 macOS (ARM64) 1.93.0 3.12-3.14 Windows (x86_64) 1.93.0 3.12-3.14 Docs : https://nautilustrader.io/docs/ Website : https://nautilustrader.io Support : support@nautilustrader.io Introduction NautilusTrader is an open-source, high-performance, production-grade algorithmic trading platform, providing quantitative traders with the ability to backtest portfolios of automated trading strategies on historical data with an event-driven engine, and also deploy those same strategies live, with no code changes. The platform is AI-first , designed to develop and deploy algorithmic trading strategies within a highly performant and robust Python-native environment. This helps to address the parity "
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "rowboatlabs/rowboat - Open-source AI coworker, with memory",
+    "url": "https://github.com/rowboatlabs/rowboat",
+    "heat": "7,227 stars",
+    "time": "Today",
+    "content": "GitHub - rowboatlabs/rowboat: Open-source AI coworker, with memory Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert rowboatlabs / rowboat Public Notifications You must be signed in to change notification settings Fork 617 Star 7.2k Open-source AI coworker, with memory www.rowboatlabs.com License Apache-2.0 license 7.2k stars 617 forks Branches Tags Activity Star Notifications You must be signed in to change notification settings rowboatlabs/rowboat main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 1,332 Commits 1,332 Commits .github/ workflows .github/ workflows apps apps assets assets .env.example .env.example .gitattributes .gitattributes .gitignore .gitignore CLAUDE.md CLAUDE.md Dockerfile.qdrant Dockerfile.qdrant LICENSE LICENSE README.md README.md build-electron.sh build-electron.sh docker-compose.yml docker-compose.yml google-setup.md google-setup.md start.sh start.sh View all files Repository files navigation Rowboat Open-source AI coworker that turns work into a knowledge graph and acts on it Rowboat connects to your email and meeting notes, builds a long-lived knowledge graph, and uses that context to help you get work done - privately, on your machine. You can do things like: Build me a deck about our next quarter roadmap → generates a PDF using context from your knowledge graph Prep me for my meeting with Alex → pulls past decisions, open questions, and relevant threads into a crisp brief (or a voice note) Visualize, edit, and update your knowledge graph anytime (it’s just Markdown) Record voice memos that automatically capture and update key takeaways in the graph Download latest for Mac/Windows/Linux: Download Demo Watch the full video Installation Download latest for Mac/Windows/Linux: Download All release files: https://github.com/rowboatlabs/rowboat/releases/latest Google setup To connect Google services (Gmail, Calendar, and Drive), follow Google setup . Voice notes To enable voice notes (optional), add a Deepgram API key in ~/.rowboat/config/deepgram.json: { \"apiKey\": \"<key>\" } Web search To use Brave web search (optional), add the Brave API key in ~/.rowboat/config/brave-search.json. To use Exa research search (optional), add the Exa API key in ~/.rowboat/config/exa-search.json. (same format as above) What it does Rowboat is a local-first AI coworker that can: Remember the important context you don’t want to re-explain (people, projects, decisions, commitments) Understand what’s relevant right now (before a meeting, while replying to an email, when writing a doc) Help you act by drafting, summarizing, planning, and producing real artifacts (briefs, emails, docs, PDF slides) Under the hood, Rowboat maintains an Obsidian-compatible "
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "steipete/gogcli - Google Suite CLI: Gmail, GCal, GDrive, GContacts.",
+    "url": "https://github.com/steipete/gogcli",
+    "heat": "3,393 stars",
+    "time": "Today",
+    "content": "GitHub - steipete/gogcli: Google Suite CLI: Gmail, GCal, GDrive, GContacts. Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert steipete / gogcli Public Notifications You must be signed in to change notification settings Fork 290 Star 3.4k Google Suite CLI: Gmail, GCal, GDrive, GContacts. gogcli.sh License View license 3.4k stars 290 forks Branches Tags Activity Star Notifications You must be signed in to change notification settings steipete/gogcli main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 581 Commits 581 Commits .github/ workflows .github/ workflows cmd/ gog cmd/ gog docs docs internal internal scripts scripts .gitignore .gitignore .golangci.yml .golangci.yml .goreleaser.yaml .goreleaser.yaml .lefthook.yml .lefthook.yml AGENTS.md AGENTS.md CHANGELOG.md CHANGELOG.md LICENSE LICENSE Makefile Makefile README.md README.md go.mod go.mod go.sum go.sum View all files Repository files navigation 🧭 gogcli — Google in your terminal. Fast, script-friendly CLI for Gmail, Calendar, Chat, Classroom, Drive, Docs, Slides, Sheets, Forms, Apps Script, Contacts, Tasks, People, Groups (Workspace), and Keep (Workspace-only). JSON-first output, multiple accounts, and least-privilege auth built in. Features Gmail - search threads and messages, send emails, view attachments, manage labels/drafts/filters/delegation/vacation settings, history, and watch (Pub/Sub push) Email tracking - track opens for gog gmail send --track with a small Cloudflare Worker backend Calendar - list/create/update events, detect conflicts, manage invitations, check free/busy status, team calendars, propose new times, focus/OOO/working-location events, recurrence + reminders Classroom - manage courses, roster, coursework/materials, submissions, announcements, topics, invitations, guardians, profiles Chat - list/find/create spaces, list messages/threads (filter by thread/unread), send messages and DMs (Workspace-only) Drive - list/search/upload/download files, manage permissions/comments, organize folders, list shared drives Contacts - search/create/update contacts, access Workspace directory/other contacts Tasks - manage tasklists and tasks: get/create/add/update/done/undo/delete/clear, repeat schedules Sheets - read/write/update spreadsheets, insert rows/cols, format cells, read notes, create new sheets (and export via Drive) Forms - create/get forms and inspect responses Apps Script - create/get projects, inspect content, and run functions Docs/Slides - export to PDF/DOCX/PPTX via Drive (plus create/copy, docs-to-text) People - access profile information Keep (Workspace only) - list/get/search notes and download attachments (service account + domain-wide delegation) Groups - list groups you"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "openclaw/openclaw - Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞",
+    "url": "https://github.com/openclaw/openclaw",
+    "heat": "200,774 stars",
+    "time": "Today",
+    "content": "GitHub - openclaw/openclaw: Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert openclaw / openclaw Public Notifications You must be signed in to change notification settings Fork 35.7k Star 201k Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 openclaw.ai License MIT license 201k stars 35.7k forks Branches Tags Activity Star Notifications You must be signed in to change notification settings openclaw/openclaw main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 11,528 Commits 11,528 Commits .agent/ workflows .agent/ workflows .agents .agents .github .github .pi .pi .vscode .vscode Swabble Swabble apps apps assets assets docs docs extensions extensions git-hooks git-hooks packages packages patches patches scripts scripts skills skills src src test test ui ui vendor/ a2ui vendor/ a2ui .detect-secrets.cfg .detect-secrets.cfg .dockerignore .dockerignore .env.example .env.example .gitattributes .gitattributes .gitignore .gitignore .markdownlint-cli2.jsonc .markdownlint-cli2.jsonc .npmrc .npmrc .oxfmtrc.jsonc .oxfmtrc.jsonc .oxlintrc.json .oxlintrc.json .pre-commit-config.yaml .pre-commit-config.yaml .secrets.baseline .secrets.baseline .shellcheckrc .shellcheckrc .swiftformat .swiftformat .swiftlint.yml .swiftlint.yml AGENTS.md AGENTS.md CHANGELOG.md CHANGELOG.md CLAUDE.md CLAUDE.md CONTRIBUTING.md CONTRIBUTING.md Dockerfile Dockerfile Dockerfile.sandbox Dockerfile.sandbox Dockerfile.sandbox-browser Dockerfile.sandbox-browser Dockerfile.sandbox-common Dockerfile.sandbox-common LICENSE LICENSE README.md README.md SECURITY.md SECURITY.md appcast.xml appcast.xml docker-compose.yml docker-compose.yml docker-setup.sh docker-setup.sh docs.acp.md docs.acp.md fly.private.toml fly.private.toml fly.toml fly.toml openclaw.mjs openclaw.mjs openclaw.podman.env openclaw.podman.env package.json package.json pnpm-lock.yaml pnpm-lock.yaml pnpm-workspace.yaml pnpm-workspace.yaml render.yaml render.yaml setup-podman.sh setup-podman.sh tsconfig.json tsconfig.json tsconfig.plugin-sdk.dts.json tsconfig.plugin-sdk.dts.json tsconfig.test.json tsconfig.test.json tsdown.config.ts tsdown.config.ts vitest.config.ts vitest.config.ts vitest.e2e.config.ts vitest.e2e.config.ts vitest.extensions.config.ts vitest.extensions.config.ts vitest.gateway.config.ts vitest.gateway.config.ts vitest.live.config.ts vitest.live.config.ts vitest.unit.config.ts vitest.unit.config.ts zizmor.yml zizmor.yml View all files Repository files navigation 🦞 OpenClaw — Personal AI Assistant EXFOLIATE! EXFOLIATE! OpenClaw is a personal AI assistant you run on your own devices. It answers you on the channels you already use"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "SynkraAI/aios-core - Synkra AIOS: AI-Orchestrated System for Full Stack Development - Core Framework v4.0",
+    "url": "https://github.com/SynkraAI/aios-core",
+    "heat": "927 stars",
+    "time": "Today",
+    "content": "GitHub - SynkraAI/aios-core: Synkra AIOS: AI-Orchestrated System for Full Stack Development - Core Framework v4.0 Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert SynkraAI / aios-core Public Uh oh! There was an error while loading. Please reload this page . Notifications You must be signed in to change notification settings Fork 325 Star 927 Synkra AIOS: AI-Orchestrated System for Full Stack Development - Core Framework v4.0 github.com/allfluence/aios-core License View license 927 stars 325 forks Branches Tags Activity Star Notifications You must be signed in to change notification settings SynkraAI/aios-core main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 767 Commits 767 Commits .aios-core .aios-core .aios .aios .antigravity/ rules/ agents .antigravity/ rules/ agents .claude .claude .codex .codex .cursor/ rules/ agents .cursor/ rules/ agents .docker/ llm-routing .docker/ llm-routing .gemini .gemini .github .github .husky .husky .synapse .synapse bin bin docs docs packages packages pro @ 843ee19 pro @ 843ee19 scripts scripts squads squads tests tests .coderabbit.yaml .coderabbit.yaml .env.example .env.example .gitattributes .gitattributes .gitignore .gitignore .gitmodules .gitmodules .prettierrc .prettierrc .releaserc.json .releaserc.json AGENTS.md AGENTS.md CHANGELOG.md CHANGELOG.md CODE_OF_CONDUCT.md CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTING.md LICENSE LICENSE README.md README.md eslint.config.js eslint.config.js jest.config.js jest.config.js package-lock.json package-lock.json package.json package.json tsconfig.json tsconfig.json View all files Repository files navigation Synkra AIOS: Framework Universal de Agentes IA 🚀 Framework de Desenvolvimento Auto-Modificável Alimentado por IA. Fundado em Desenvolvimento Ágil Dirigido por Agentes, oferecendo capacidades revolucionárias para desenvolvimento dirigido por IA e muito mais. Transforme qualquer domínio com expertise especializada de IA: desenvolvimento de software, entretenimento, escrita criativa, estratégia de negócios, bem-estar pessoal e muito mais. Comece Aqui (10 Min) Se é sua primeira vez no AIOS, siga este caminho linear: Instale em um projeto novo ou existente: # novo projeto npx aios-core init meu-projeto # projeto existente cd seu-projeto npx aios-core install Escolha sua IDE/CLI e o caminho de ativação: Claude Code: /agent-name Gemini CLI: /aios-menu → /aios-<agent> Codex CLI: /skills → aios-<agent-id> Cursor/Copilot/AntiGravity: siga os limites e workarounds em docs/ide-integration.md Ative 1 agente e confirme o greeting. Rode 1 comando inicial ( *help ou equivalente) para validar first-value. Definição de first-value (binária): ativação de agente + greeting válido + comando "
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "letta-ai/letta-code - The memory-first coding agent",
+    "url": "https://github.com/letta-ai/letta-code",
+    "heat": "1,393 stars",
+    "time": "Today",
+    "content": "GitHub - letta-ai/letta-code: The memory-first coding agent Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert letta-ai / letta-code Public Notifications You must be signed in to change notification settings Fork 154 Star 1.4k The memory-first coding agent docs.letta.com/letta-code License Apache-2.0 license 1.4k stars 154 forks Branches Tags Activity Star Notifications You must be signed in to change notification settings letta-ai/letta-code main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 1,028 Commits 1,028 Commits .cursor/ rules .cursor/ rules .github .github .husky .husky .skills/ adding-models .skills/ adding-models assets assets bin bin examples examples hooks hooks scripts scripts src src vendor vendor .editorconfig .editorconfig .gitattributes .gitattributes .gitignore .gitignore CLAUDE.md CLAUDE.md CONTRIBUTING.md CONTRIBUTING.md LICENSE LICENSE README.md README.md biome.json biome.json build.js build.js bun.lock bun.lock bunfig.toml bunfig.toml package-lock.json package-lock.json package.json package.json tsconfig.json tsconfig.json tsconfig.types.json tsconfig.types.json View all files Repository files navigation Letta Code Letta Code is a memory-first coding harness, built on top of the Letta API. Instead of working in independent sessions, you work with a persisted agent that learns over time and is portable across models (Claude Sonnet/Opus 4.5, GPT-5.2-Codex, Gemini 3 Pro, GLM-4.7, and more). Read more about how to use Letta Code on the official docs page . Get started Install the package via npm : npm install -g @letta-ai/letta-code Navigate to your project directory and run letta (see various command-line options on the docs ). Run /connect to configure your own LLM API keys (OpenAI, Anthropic, etc.), and use /model to swap models. Note By default, Letta Code will to connect to the Letta API . Use /connect to use your own LLM API keys and coding plans (Codex, zAI, Minimax) for free. Set LETTA_BASE_URL to connect to an external Docker server . Philosophy Letta Code is built around long-lived agents that persist across sessions and improve with use. Rather than working in independent sessions, each session is tied to a persisted agent that learns. Claude Code / Codex / Gemini CLI (Session-Based) Sessions are independent No learning between sessions Context = messages in the current session + AGENTS.md Relationship: Every conversation is like meeting a new contractor Letta Code (Agent-Based) Same agent across sessions Persistent memory and learning over time /clear starts a new conversation (aka \"thread\" or \"session\"), but memory persists Relationship: Like having a coworker or mentee that learns and remembers Agent Memory & Learning I"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "ruvnet/wifi-densepose - Production-ready implementation of InvisPose - a revolutionary WiFi-based dense human pose estimation system that enables real-time full-body tracking through walls using commodity mesh routers",
+    "url": "https://github.com/ruvnet/wifi-densepose",
+    "heat": "6,721 stars",
+    "time": "Today",
+    "content": "GitHub - ruvnet/wifi-densepose: Production-ready implementation of InvisPose - a revolutionary WiFi-based dense human pose estimation system that enables real-time full-body tracking through walls using commodity mesh routers Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert ruvnet / wifi-densepose Public Notifications You must be signed in to change notification settings Fork 583 Star 6.7k Production-ready implementation of InvisPose - a revolutionary WiFi-based dense human pose estimation system that enables real-time full-body tracking through walls using commodity mesh routers License MIT license 6.7k stars 583 forks Branches Tags Activity Star Notifications You must be signed in to change notification settings ruvnet/wifi-densepose main Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 30 Commits 30 Commits .claude-flow .claude-flow .claude .claude .github/ workflows .github/ workflows .roo .roo ansible ansible assets assets docs docs k8s k8s logging logging monitoring monitoring plans plans references references rust-port rust-port terraform terraform ui ui v1 v1 .dockerignore .dockerignore .gitignore .gitignore .gitlab-ci.yml .gitlab-ci.yml .mcp.json .mcp.json .roomodes .roomodes CHANGELOG.md CHANGELOG.md CLAUDE.md CLAUDE.md Dockerfile Dockerfile LICENSE LICENSE MANIFEST.in MANIFEST.in README.md README.md alembic.ini alembic.ini claude.md claude.md deploy.sh deploy.sh docker-compose.prod.yml docker-compose.prod.yml docker-compose.yml docker-compose.yml example.env example.env pyproject.toml pyproject.toml requirements.txt requirements.txt View all files Repository files navigation WiFi DensePose A cutting-edge WiFi-based human pose estimation system that leverages Channel State Information (CSI) data and advanced machine learning to provide real-time, privacy-preserving pose detection without cameras. 🚀 Key Features Privacy-First : No cameras required - uses WiFi signals for pose detection Real-Time Processing : Sub-50ms latency with 30 FPS pose estimation Multi-Person Tracking : Simultaneous tracking of up to 10 individuals Domain-Specific Optimization : Healthcare, fitness, smart home, and security applications Enterprise-Ready : Production-grade API with authentication, rate limiting, and monitoring Hardware Agnostic : Works with standard WiFi routers and access points Comprehensive Analytics : Fall detection, activity recognition, and occupancy monitoring WebSocket Streaming : Real-time pose data streaming for live applications 100% Test Coverage : Thoroughly tested with comprehensive test suite 🦀 Rust Implementation (v2) A high-performance Rust port is available in /rust-port/wifi-densepose-rs/ : Performance Benchmarks (Validated) Operation Py"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "seerr-team/seerr - Open-source media request and discovery manager for Jellyfin, Plex, and Emby.",
+    "url": "https://github.com/seerr-team/seerr",
+    "heat": "8,995 stars",
+    "time": "Today",
+    "content": "GitHub - seerr-team/seerr: Open-source media request and discovery manager for Jellyfin, Plex, and Emby. Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert seerr-team / seerr Public Uh oh! There was an error while loading. Please reload this page . Notifications You must be signed in to change notification settings Fork 596 Star 9k Open-source media request and discovery manager for Jellyfin, Plex, and Emby. docs.seerr.dev License MIT license 9k stars 596 forks Branches Tags Activity Star Notifications You must be signed in to change notification settings seerr-team/seerr develop Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 2,858 Commits 2,858 Commits .github .github .husky .husky .vscode .vscode bin bin charts/ seerr-chart charts/ seerr-chart config config cypress cypress docs docs gen-docs gen-docs public public server server src src .dockerignore .dockerignore .editorconfig .editorconfig .eslintrc.js .eslintrc.js .gitattributes .gitattributes .gitignore .gitignore .npmrc .npmrc .prettierignore .prettierignore .prettierrc.js .prettierrc.js CODE_OF_CONDUCT.md CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTING.md Dockerfile Dockerfile Dockerfile.local Dockerfile.local LICENSE LICENSE README.md README.md SECURITY.md SECURITY.md compose.postgres.yaml compose.postgres.yaml compose.yaml compose.yaml cypress.config.ts cypress.config.ts next-env.d.ts next-env.d.ts next.config.js next.config.js package.json package.json pnpm-lock.yaml pnpm-lock.yaml postcss.config.js postcss.config.js seerr-api.yml seerr-api.yml stylelint.config.js stylelint.config.js tailwind.config.js tailwind.config.js tsconfig.json tsconfig.json View all files Repository files navigation Seerr is a free and open source software application for managing requests for your media library. It integrates with the media server of your choice: Jellyfin , Plex , and Emby . In addition, it integrates with your existing services, such as Sonarr , Radarr . Current Features Full Jellyfin/Emby/Plex integration including authentication with user import & management. Support for PostgreSQL and SQLite databases. Supports Movies, Shows and Mixed Libraries. Ability to change email addresses for SMTP purposes. Easy integration with your existing services. Currently, Seerr supports Sonarr and Radarr. More to come! Jellyfin/Emby/Plex library scan, to keep track of the titles which are already available. Customizable request system, which allows users to request individual seasons or movies in a friendly, easy-to-use interface. Incredibly simple request management UI. Don't dig through the app to simply approve recent requests! Granular permission system. Support for various notification agents. Mobile-friendly d"
+  },
+  {
+    "source": "GitHub Trending",
+    "title": "hummingbot/hummingbot - Open source software that helps you create and deploy high-frequency crypto trading bots",
+    "url": "https://github.com/hummingbot/hummingbot",
+    "heat": "16,398 stars",
+    "time": "Today",
+    "content": "GitHub - hummingbot/hummingbot: Open source software that helps you create and deploy high-frequency crypto trading bots Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert hummingbot / hummingbot Public Uh oh! There was an error while loading. Please reload this page . Notifications You must be signed in to change notification settings Fork 4.4k Star 16.4k Open source software that helps you create and deploy high-frequency crypto trading bots hummingbot.org License Apache-2.0 license 16.4k stars 4.4k forks Branches Tags Activity Star Notifications You must be signed in to change notification settings hummingbot/hummingbot master Branches Tags Go to file Code Open more actions menu Folders and files Name Name Last commit message Last commit date Latest commit History 26,622 Commits 26,622 Commits .github .github bin bin conf conf controllers controllers hummingbot hummingbot logs logs scripts scripts setup setup test test .coveragerc .coveragerc .dockerignore .dockerignore .flake8 .flake8 .gitignore .gitignore .pre-commit-config.yaml .pre-commit-config.yaml CODE_OF_CONDUCT.md CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTING.md CURSOR_VSCODE_SETUP.md CURSOR_VSCODE_SETUP.md Dockerfile Dockerfile LICENSE LICENSE MANIFEST.in MANIFEST.in Makefile Makefile README.md README.md clean clean compile compile compile.bat compile.bat docker-compose.yml docker-compose.yml install install pyproject.toml pyproject.toml setup.py setup.py start start uninstall uninstall View all files Repository files navigation Hummingbot is an open-source framework that helps you design and deploy automated trading strategies, or bots , that can run on many centralized or decentralized exchanges. Over the past year, Hummingbot users have generated over $34 billion in trading volume across 140+ unique trading venues. The Hummingbot codebase is free and publicly available under the Apache 2.0 open-source license. Our mission is to democratize high-frequency trading by creating a global community of algorithmic traders and developers that share knowledge and contribute to the codebase. Quick Links Website and Docs : Official Hummingbot website and documentation Installation : Install Hummingbot on various platforms Discord : The main gathering spot for the global Hummingbot community YouTube : Videos that teach you how to get the most out of Hummingbot Twitter : Get the latest announcements about Hummingbot Reported Volumes : Reported trading volumes across all Hummingbot instances Newsletter : Get our newsletter whenever we ship a new release Getting Started The easiest way to get started with Hummingbot is using Docker: To install the Telegram Bot Condor , follow the instructions in the Hummingbot Docs site. To install the CLI-based Hummingbot client, follow the instructions bel"
+  },
+  {
+    "source": "V2EX",
+    "title": "表妹高三专业文科 400 分 让她自学 ai 技能做互联网/自媒体业务然后去应聘可能吗，比如深圳、江浙，我不太看好上大专，大专真有必要上马？",
+    "url": "https://www.v2ex.com/t/1193014",
+    "heat": "38 replies",
+    "time": "Hot",
+    "content": "表妹高三专业文科 400 分 让她自学 ai 技能做互联网/自媒体业务然后去应聘可能吗，比如深圳、江浙，我不太看好上大专，大专真有必要上马？ - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 问与答 表妹高三专业文科 400 分 让她自学 ai 技能做互联网/自媒体业务然后去应聘可能吗，比如深圳、江浙，我不太看好上大专，大专真有必要上马？ fromKansasCity · 10 小时 1 分钟前 · 1521 次点击 自学 大专 38 条回复 • 2026-02-17 01:26:33 +08:00 1 xuld 9 小时 54 分钟前 想多了。能上大学就上。学历不重要。 2 w2er 9 小时 43 分钟前 1 听一楼的 就是亲妹也不要不看好她继续上学 3 hefish 9 小时 38 分钟前 总比在外面浪好。 专科虽差，也是一个小社会，慢慢接触。 4 Hyschtaxjh 9 小时 35 分钟前 via iPhone 大專也比高中學歷強。。 5 renmu 9 小时 33 分钟前 via Android 2 我的建议是不要建议，不然未来就是都怪表哥不让我上学，该死的原生家庭 6 xloger 9 小时 31 分钟前 必然是有的读书比没得读好啊，现在社会环境多恶劣，多读几年缓冲成长一下总是好的，尤其是女生。 7 dna1982 9 小时 26 分钟前 该上还是得上，不过注意打扮打扮，早点下手给自己找个理想老公。 大学这几年估计是她遇见金龟的唯一机会了。 8 ffgrinder 9 小时 20 分钟前 我的建议是不要建议，不然未来就是都怪表哥不让我上学，该死的原生家庭 9 oldlamp 8 小时 58 分钟前 哪怕是民办本科，也是本科，考公考编考研，都比专科强一些。 10 hammy 8 小时 36 分钟前 现在 400 多，高考可能发挥好一点，上个本科也行。上不去本科，选个好专科也足够分数了。或者各个省还有征集志愿。哪怕去民办本科，毕业也有考公的资格。 表格劝妹不读书，我不理解。 11 irisdev 8 小时 1 分钟前 你表妹和她父母鸟你吗。。。 12 chenliangngng 7 小时 55 分钟前 但读书，莫问 13 fromKansasCity OP 7 小时 40 分钟前 我破本科啊 没觉得学历有啥用。。。我满脑子想着让他掌握信息搜集学习能力然后 all in Ai/aigc 做业务才是现在的出路。 大专每分每秒都是浪费时间。。。花钱买一张废纸然后被学校卖掉 14 Biggoldfish 7 小时 39 分钟前 说句不好听的要有这自学能力不至于就考 400 分 15 WuDiHaiTai 7 小时 39 分钟前 1 @ fromKansasCity 你看现在社会招聘还有招高中学历的吗？ 16 EchoWhale 7 小时 34 分钟前 via iPhone 关你啥事？ 17 EchoWhale 7 小时 33 分钟前 via iPhone 读书有没有都让他自己决定，以后后悔了怪你一辈子 18 Muniesa 7 小时 32 分钟前 via Android 有学历的时候自然觉得学历没啥用，没有的时候寸步难行 19 saltedfishgames 7 小时 32 分钟前 via Android @ fromKansasCity 家里有资源托举还是有渠道保就业？都没有的话肯定先拿下学历这张底牌啊，哪怕是个民办本科那也是本还有机会考事业编或者公务员。没学历真的没有保底，混的更惨 20 leegradyllljjjj 7 小时 19 分钟前 via iPhone 小朋友，好好毒树 21 WuDiHaiTai 7 小时 18 分钟前 4 没话讲，我的建议是不要建议。op 对大专的有色眼镜也太大了，感觉是没进过社会的。 你希望你的亲人以后去蜜雪冰城捣奶茶挣 3000 块，还是希望她去办公室坐着领 3000 块？ 学历从来都不是 100%的护身符，我的理解一直认为学历是入场券。去 BOSS 直聘搜审核/标注/拉框，看看是不是绝大部分都是大专要求，我甚至还见过只要本科以上的公司。标注难吗？我觉得别说大专门槛，给初中学历，认识中国字的就能干。但你没大专学历，人家就是不要你，这叫大专浪费时间吗？ 技术好 OK ，我实习同事是中专学历，全司最低学历，仅高于保洁这一块。部门里最能干的，却是部门里工资最低的，人家就玩他，就让他多干活又能怎样，他不敢不干，因为他知道出了这家的门，再去别家就找不到工作了。他去年花钱去买含金量等于 0 的成人学历，这辈子最后悔的事就是当时没去读个大专。 > 大专每分每秒都是浪费时间。 你读过大专吗你就锐评，少刷点抖音 b 站吧，看一群没上过班的本科生说的话有什么意义。这个问题我绝对可以发言，我亲自从垃圾大专读到垃圾本科，现在在五百强外企混的人模狗样，我自己吃到什么样的教育红利我知道，我对见过的每一个读书不好的人都说，如果你想读，就一定要去读，尤其懒狗类型的，因为连学历都没有，出门更是难上加难。如果没有这张文凭，我现在都不会在这里和你对话，我不敢想我在做什么样的工作。 以后遇到这样的问题就学学我，鼓励，鼓励是不会犯错的，怎么活是人家的事，不要乱出主意毕竟我们也没有在自己看好的方向做出多大成绩。 22 WuDiHaiTai 7 小时 11 分钟前 @ WuDiHaiTai #21 我的大专同学，没什么混得好的， 玩的好的哥们在工厂做技术工，月薪一万多。相比之下没学历的工人只能做流水线，月薪 5000 多顶天了。 其余零零散散的，只要想上班，干个运营，教培，干啥都能做个人样。 大专同学专升本之后有去上海、阿里做程序员的。 所以停止歧视吧。 23 diudiuu 7 小时 9 分钟前 能问出这种话的，看起来也是没有读下书的 24 irisdev 6 小时 48 分钟前 via Android @ WuDiHaiTai #22 现在不一样了，我同事 80 后有大专的，这两年进来的 211 本起步，你说的阿里开发现在也不可能要第一学历大专的了。不过大专怎样也算高等教育，跟高中的差距比本科和专科的差距大多了。 25 meteor957 6 小时 25 分钟前 via Android 你有资格给别人建议嘛... 26 LandCruiser 5 小时 59 分钟前 不可能，大学随便选一个学校学法学专业，然后过法考，考不发达地区的公检法，你表妹的最优解 27 docx 5 小时 46 分钟前 via iPhone 不要强加自己的想法，AI 不 AI 的不重要，她自己愿意去干嘛就去干嘛，不然到时候找不到工作还要怪你了 28 Planarians 5 小时 20 分钟前 via iPhone 要么你能手把手的教他做业务赚钱 要么就别瞎建议 29 0x0x 4 小时 53 分钟前 via iPhone 你觉的你现在自己去 all in ai 你能赚到多少钱？ 如果你有成熟可以复制的路子，你的建议没问题。 如果你自己也赚不到钱，那就别建议了。 30 jackOff 4 小时 51 分钟前 "
+  },
+  {
+    "source": "V2EX",
+    "title": "想辞掉目前的事业编工作，裸辞去南方了",
+    "url": "https://www.v2ex.com/t/1193028",
+    "heat": "31 replies",
+    "time": "Hot",
+    "content": "想辞掉目前的事业编工作，裸辞去南方了 - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 职场话题 想辞掉目前的事业编工作，裸辞去南方了 ShangJixin · 8 小时 15 分钟前 · 1816 次点击 行文比较零散，请大家见谅。 简述情况 23 年毕业，计算机专业，因为家里的原因，赶着在当年十月上了岸。目前感觉只有收到录用通知和上班的头几个月是高兴的。 应急，越到假期的时候越有活要干，而且还需要值班。今年大年初四要在单位值全天班。 毕业的时候，抱着前端的简历（三本），硬是没找到工作。梦想就是毕业了之后，可以去南方生活，在南方工作，现在过的日子并不是梦想中的那样。 服务期还有 3 年。 除了服务期的困境之外，裸辞掉之后，能不能在南方找到新的工作，真的不敢确定。我今年 24 周岁，3 年之后 27 周岁，即使是找个运维相关的岗位，可能也会比较困难？ 期望的生活 最好是沿海城市生活，其次是再往内陆一些的比如武汉这种的，或者是像川渝那种生活气息浓厚的。有个自己的房间（梦想之一吧，最好是买房，更加有归属感），交通方便可以去附近的城市走一走，方便和网友一起玩，参加从未参与过的漫展，方便的参加联动活动什么的，总之是不想留在山海关外了。 困境 毕业了之后基本上接触编程已经变少很多了，再加上现在的 Vibe Coding 出来的代码，感觉比我写的，除了美观度之外（ Web ），写的比我自己写的强多了。 而且虽说目前也负责单位的一些信息化的工作吧，但是都是更偏向于管理和使用设备方面的（配合技术去调测设备解决问题，给电脑重装系统，组织设备拉练），但基本上和编程，哪怕是运维，都沾不上半毛钱关系。感觉这方面让我脱节很多吧。 太冲动了？ 虽说现在想这个辞职的问题，肯定是显得非常冲动的，但感觉自己快遭不住了。朋友都距离我很远，一个人很孤独，再加上节假日也有工作可干。 但还是更想让自己的梦想更近一步吧，但不知前方是否是深渊。 而且不用多想，家里一定会阻挠的。 要不是高考报考的时候家里一直阻挠我报考南方的高校，现在也不至于会这样。甚至今年都没想着回家去看看。 辞职 南方 梦想 31 条回复 • 2026-02-17 02:20:37 +08:00 1 freak118 8 小时 6 分钟前 via Android 5 赶紧的兄弟 现在外边被裁家里蹲的都等着你挪坑呢 我先替大家谢谢你 2 mx1700 8 小时 6 分钟前 via Android 1 你这技术不行，又不是应届生，你能找什么工作？程序员肯定是没戏。 3 shakaraka PRO 8 小时 5 分钟前 via iPhone 把你位置让给我呗，等着呢 4 jellyX 8 小时 5 分钟前 3 年服务期后通过遴选到南方? 5 ShangJixin OP 8 小时 4 分钟前 @ freak118 黑龙江的某个小县城，连个游戏厅都没有的那种，来不...（ sad ） 6 ShangJixin OP 8 小时 3 分钟前 @ jellyX 有点虚无缥缈，感觉 7 HzMz 8 小时 0 分钟前 放下助人情节，尊重他人命运 8 usingkk 7 小时 52 分钟前 老哥黑龙江哪里的呀，我在漠河。我建议赶紧跑，别犹豫。 其他地方的也就算了，黑龙江的事业编真没什么意思，甚至都不是哈尔滨（虽然就算是哈尔滨我也会支持你跑去南方) 不过你服务期还有三年就有点尴尬，三年足够把你现在的想法全部磨灭... 9 ShangJixin OP 7 小时 45 分钟前 @ usingkk 老哥现在咋样了啊，详说下 感觉漠河还不及我这呢，虽说我现在在的地方比老家近很多吧，百来公里的样子。 至于说哈尔滨，去过南方也才知道其实就是南方的某个县的水平罢了，反差挺大。 但还是更想让自己解脱出来吧，甚至我还在幻想会不会有什么黑天鹅事件让我体面的提早离职 10 chenliangngng 7 小时 36 分钟前 除了裸辞不建议，个人不建议在老家长待，因为待不住，年轻时不跑出来，后悔一辈子 11 janeyee110 7 小时 20 分钟前 趁年轻，确实可以多尝试多折腾。 12 Hyschtaxjh 7 小时 16 分钟前 via iPhone 東北老鄉 那來日本吧 現在學一下日語 13 jellyX 7 小时 12 分钟前 @ ShangJixin 我发小, 确实从 A 城市通过遴选到了 B 城市, 不过是在同一个省份内的 14 irisdev 6 小时 50 分钟前 via Android 黑省事业编到手有 3k 吗，出来吧，有些人一听到编制就脑补上苏 E 浙 B 了 15 sme11ycat 6 小时 47 分钟前 只能说风险很大,现在工作也不好找.看你和你的家庭能不能给你兜底.如果可以的话,南方确实比北方好很多.但是你要知道南方的就业环境和竞争比你老家肯定更剧烈,而且更卷. 16 usingkk 6 小时 27 分钟前 @ ShangJixin #9 我毕业之前就完全没有考虑过回家的选项，详细情况你可以搜我之前的帖子。 不过从我的观察，如果也没什么大的志向，就想平平淡淡生活，事业编不算差的选择。 如果稍微有些想法，在家里会很痛苦，赶紧跑，每多待一秒就是对你意志力的消耗。 以及，家里阻挠完全不关键把，我觉得人有了第一次完全违背家里的想法做决策，才算真的成长了。 自己做的决策，就算前方是深渊也不后悔，为自己的选择负责。 老哥加油 17 w2er 6 小时 16 分钟前 换了我，也会是那个走出去的人吧。 曾经有份安稳的活，但却不知道珍惜。后来，想吃回头草了，草却说，不给你吃。。 走出去的人很多，大批人会后悔，也有大批人会庆幸，谁也无法预知自己将来会是哪种。所以，朋友，这事儿只能自行决定，然后自行埋单。 想说的是，别对 IT 这行的企业工作环境报以太大的期待。对于大多数的 IT 从业者，不论是年轻时候在职期间的压力，还是人老珠黄后。。若想投身牛马，我也不拦着你 18 ShangJixin OP 6 小时 10 分钟前 @ irisdev 目前到手不到 3.5k 19 ShangJixin OP 6 小时 9 分钟前 @ sme11ycat 我现在的收入肯定是比父母高的（父母务农） 20 ShangJixin OP 6 小时 8 分钟前 @ usingkk 感谢老哥！（虽说你的帖子列表是对外隐藏的），服务期到了之后感觉应该给自己来一梭哈了 21 ShangJixin OP 6 小时 7 分钟前 @ w2er 怎么说呢，IT 这行只是赚钱的手段，为了能在南方工作生活，其实程序员与否也没什么，不沦落到进厂子里打黑工或者是送外卖跑滴滴的话都能接受 22 LandCruiser 5 小时 55 分钟前 1 中国就像一艘大船，体制内挣多挣少无非是船上在哪个舱的问题，体制外都是在海里游的，海上飘的，没任何抗风险能力的。 23 tunggt 5 小时 18 分钟前 via Android @ ShangJixin 去南方城市你也要考虑到买房，未来子女教育等因素。 作为辞职的过来人，我建议你尽量慎重。 基层公"
+  },
+  {
+    "source": "V2EX",
+    "title": "南京联通进小黑屋了",
+    "url": "https://www.v2ex.com/t/1192989",
+    "heat": "28 replies",
+    "time": "Hot",
+    "content": "南京联通进小黑屋了 - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 宽带症候群 南京联通进小黑屋了 sinycn1 · 17 小时 54 分钟前 · 1662 次点击 昨晚打开某测试网站，发现我的 IP 变成了 116.147.102.9, 一看就是小黑屋 IP ，再次查询自己 PPPOE 发现公网也没了，变成了 100.108.115.25 ，同时 IPv6 消失了，我想了下家里没有跑 PCDN ，只有迅雷下载多一些， 目前的症状： 1.常规测速站点速度正常（白名单） 2.迅雷下载速度起不来了原来可以 40-50MB/s 现在只能 2-3MB/s 3.连接数变少了，下载的时候网络就卡了 4.出国速度没啥影响 由于我没啥特殊公网应用，目前先观察下，看后期是否会主动拉出小黑屋 第 1 条附言  · 8 小时 48 分钟前 没找客服，先找装维师傅，年后再处理了 南京 联通 小黑屋 28 条回复 • 2026-02-17 02:00:41 +08:00 1 thetbw 15 小时 59 分钟前 看来大家都是一起的，我还纳闷我最近的 ddns 咋出问题，域名访问不了了，一看也是公网 ip 没了。不过现在也没啥影响了，我找了个便宜的 nat 小鸡做中继，价格一个月 10 来块也能接受，比跟运营商斗智斗勇好多了。 2 lyz2754509784 12 小时 40 分钟前 via Android 家宽应该是可以投诉出来的，我的家宽出来了，坐标在常州，企业宽带的话放弃吧 半个月前进去的，到现在还没出来 3 naver1 12 小时 24 分钟前 “小黑屋”有点轻了，叫“联通黑狱” 4 love2328 12 小时 22 分钟前 1 想知道怎么判断是小黑屋 ip 5 mooyo 11 小时 55 分钟前 经典 116.147. 6 js9528 10 小时 56 分钟前 via iPhone @ lyz2754509784 现在也没用投诉也是说宽带测速正常，ip 地址随机分配 7 lyz2754509784 10 小时 18 分钟前 @ js9528 我是投诉的早，还好后面没再进去。。估计再进去也是这样子的，现在我的商宽投诉就喊装维来测速，测完速就走了，给他看 iperf3 或者日常使用他说他不懂要上报公司，公司那边就说测速没问题就是宽带没问题。。至于日常为什么限速是他们服务商对我限速不是联通对我限速。。。然后 ip 为什么异地说是江苏省内随机分配的。。真的逆天 8 lyz2754509784 9 小时 7 分钟前 @ love2328 江苏联通的话目前黑屋有：116.147.x 全段，122.192.185.x-122.192.200.x ，122.194 段（比较不常见，偶尔可以播到），157.0.203.x ，ip 查询属地为徐州、南通、南京、镇江。ipv6 表现为/64 的前缀地址，常见开头为 2408:823c:2e02 ，iperf3 打流可以发现限速大约在 3m-5m ，部分段严重限速可以限速到 1-2m ，同时表现为使用迅雷、steam 等下载时虽未跑满带宽但是此时网络几乎无法使用，todesk 、向日葵、uu 远程等软件几乎全天不可使用或仅在兼容模式的模糊画质下可用。出国的话速度不受影响但是基于 udp 的 hy2 、tuic 等节点用不了，然后基于 tcp 的部分节点会绕路，美西直连节点延迟由 210ms 左右增加至 290ms-320ms 区间，特别是晚上用网高峰期会网络卡顿 9 crushark 7 小时 30 分钟前 改 dns 试下，我原来进小黑屋就改 dns 放出来的 10 okzy520 7 小时 23 分钟前 找装维用处不大 同南京联通拉锯半年了 11 janeyee110 7 小时 8 分钟前 1 之前一直觉得只有电信才有比较多的限制，现在从越来越多的案例看来，三大运营商都每一个好东西。 12 barnettluo1994 6 小时 56 分钟前 没有用的，这个段一旦进去了 基本很难出来 除非你关系很硬。。。。 比如我。。。。。 我五个宽带账号全部是白名单。 其实这些黑名单段是中间加了个隧道。 13 barnettluo1994 6 小时 55 分钟前 @ okzy520 请装维上门检查你到底有没有不合规的用途。 展示一下自己的拓扑，解释一下到底为什么要有这么大上行。 14 barnettluo1994 6 小时 54 分钟前 @ lyz2754509784 没有加白的话， 基本后面还会再进去的 15 lyz2754509784 6 小时 16 分钟前 @ barnettluo1994 #14 有没有加白的方法，装维上门就一个劲测速，我给他展示拓扑和上传用在哪他也不听，我再三要求下他拍了张照片说传给公司了，不知道公司那边有没有收到了。。反正也没有回复，10010 那边也只会回电说装维上门测速的回复是宽带测速正常建议排查内网的设备...再往下扯就说是什么服务提供商对我的限速了，我质疑说怎么会同一天限速的他们又说不出来说反正不是联通的问题。。。 16 barnettluo1994 6 小时 15 分钟前 @ lyz2754509784 没有。 来的是装维基本就是加白无望， 我的都还是省网络一把手来看的，最后给加白的。 师傅那边啥都不懂，如果看到点不该看到的东西给你写成什么盒子之类的，更不会解封的 17 lyz2754509784 6 小时 13 分钟前 @ barnettluo1994 #16 目前除了找装维，找我的客户经理（这是我目前直接有联系方式的），有没有可行的可以通过他们联系到可以做有效申请的人物 做一个转达之类的也好 18 barnettluo1994 6 小时 12 分钟前 @ lyz2754509784 你最起码要能做到家里能有等保 2 级或者三级 级别的防护，他们才会愿意考虑解封的。。。。毕竟出事了 他们还要担责。 19 barnettluo1994 6 小时 3 分钟前 @ janeyee110 电信和联通采用的是一个设备一个规则 20 lyz2754509784 6 小时 0 分钟前 @ barnettluo1994 #18 没有那么专业的 目前就前置一个企业级的 IK-A700X 做拨号和流控分流，配一个飞塔的防火墙，部分重点的 http 页面再套了个雷池的 waf ，核心的 ssh 之类的敏感内容都是走的 tailscale 配自建的 derp 中转相当于内网 vpn 21 barnettluo1994 5 小时 40 分钟前 @ lyz2754509784 不要用爱快。。。。。 爱快也不给解封的。。。。 22 okzy520 5 小时 15 分钟前 @ barnettluo1994 来过了 展示过了 半个月都没坚持到 就又进小黑屋了 23 okzy520 5 小时 14 分钟前 @ barnettluo1994 运营商和爱快有仇？ 24 barnettluo1994 2 小时 18 分钟前 via iPhone @ okzy520 因为爱"
+  },
+  {
+    "source": "V2EX",
+    "title": "性价比机场选购指南",
+    "url": "https://www.v2ex.com/t/1192996",
+    "heat": "28 replies",
+    "time": "Hot",
+    "content": "性价比机场选购指南 - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 0.29 V2EX › 宽带症候群 性价比机场选购指南 ZeawinL · 16 小时 2 分钟前 · 3075 次点击 协议 优先选择新协议, 通常: Vless > AnyTLS > ShadowTLS > Hysteria2 > Tuic > Trojan > Vmess > SS/SSR 线路类型 简单理解 稳定性 2026 合理价位 备注 直连 你的设备 → 直接连境外服务器(便宜但不稳) ★☆☆☆ (易被封) 5-10 元/月 仅做备用 中转 (BGP) 你的设备 → 国内中转优化 → 境外服务器(性价比高) ★★★☆ (有优化) 15-30 元/月 建议 公网中转 专线 (IPLC) 你的设备 → 专用物理线路 → 境外服务器(贵但稳) ★★★★ (不过墙) 40 元+/月 办公/不差钱 延迟 TCP ping 和 Google ping 越低越好, 可以网上搜相关的测速情况. 最好有试用自己测试, 看晚高峰(20:30 – 22:30)的表现. 自己简单测试可以开 Youtube 4K 视频拖拖进度条. 费用 推荐一主一备, 备用机场推荐按量付费. 月付优先. 开业时间不到 1 年的不要年付. 稳定性 通常在官网公告, 或者 tg 通告频道会有历史维护公告. 特殊时期挂了多久能修好. 流量倍率 如果有 0.1x 0.3x 等低倍率节点就更好. 如果只有高倍率节点好用可以放弃. 隐私安全 机场主理论上能看到你访问的域名. No Logs 不记录日志最好. 支付方式: USDT (加密货币) > 支付宝/微信. 特殊需求 流媒体解锁能力? 政治敏感内容封锁? 客服渠道 Telegram 群 / 网页工单 / Email. 只留 QQ 群/微信(会被喝茶，高风险). 客户端 定制客户端使用起来方便, 但开源客户端会更安全. 运营与口碑 真正的好机场，通常都很低调，官网可能都要翻墙才能搜到，靠的是老用户的口口相传。相关论坛的骂声或者夸赞，才是最真实的买家秀. 源: github.com/thesomeexp/Proxy-service-recommendations 机场 协议 稳定性 28 条回复 • 2026-02-17 02:54:32 +08:00 1 twoz 15 小时 58 分钟前 via Android ipv6 直连稳定便宜落地解锁 ipv4 即可 2 MYDB 15 小时 30 分钟前 via iPhone 14 说点大家不知道的，想引流小白去 star ，然后挂推广？比如 github 上常见的垃圾机场狗狗加速？ 3 ZeawinL OP 15 小时 26 分钟前 via iPhone @ MYDB 你说得对😁 4 liuzimin 15 小时 14 分钟前 via Android 我买了个 IPLC 机场感觉和中转一样挂啊。前几天中转线路挂了，IPLC 也同步挂了。难道说是假 IPLC ？ 5 mangmaimu 15 小时 1 分钟前 via iPhone 除了直连，其他的协议肯定首选 ss ，UDP 协议最不好用，国内有 qos 6 MacsedProtoss 14 小时 57 分钟前 via iPhone 1 呵呵 我自建直连几年了 7x24h 365D 从来没被封 一个月跑几个 T 2.5Gbps 都没有任何关系 价格还贼划算 除了臭打游戏的要延迟非常敏感的比较难搞得加钱 其他的谁用机场谁 sb 7 MacsedProtoss 14 小时 55 分钟前 via iPhone 还搁这优先 h2 但凡用 h2 的都是垃圾到极点 谁家好线路用 h2 一点技术原理都不懂搁这骗小白呢 8 janeyee110 14 小时 49 分钟前 人家这是暗戳戳地做推广的。不骗小白骗谁呢。 @ MacsedProtoss 9 bugtik 14 小时 43 分钟前 你这个是只能发 VPN 区的 10 pplcc 12 小时 40 分钟前 via iPhone @ MacsedProtoss 哥们用那个协议的，怎么我一个 ip 半月就没了呢 11 love2328 12 小时 17 分钟前 挂? 没挂过 就是有时抽风,影响也不大 12 wangwaner 12 小时 10 分钟前 via iPhone 便宜的机器 h2 还可以啊…俺用了好几年也没啥问题…还得看人数，最好加一个敲门机制。 13 slowman 12 小时 9 分钟前 绕了半天还是 AI slop 14 wangwaner 12 小时 9 分钟前 via iPhone 最近严打对等带宽的机器（出站流量和入站流量特征大致相等的）就是在打击中转机器啊 15 sir283 12 小时 3 分钟前 我一直都是用的这个，下片都够用了。 [img] [/img] 16 Cyanver 11 小时 7 分钟前 via Android @ sir283 给个链接 17 Shadowxxx 11 小时 1 分钟前 via Android @ sir283 给个链接 18 Donahue 10 小时 54 分钟前 @ MacsedProtoss #6 哪里买的 vps 19 patrickyoung 9 小时 54 分钟前 /go/promotions 20 HFX3389 9 小时 41 分钟前 还玩中转和专线？不是上下性一致的都给清退了？ 21 Thymolblue 9 小时 29 分钟前 @ MacsedProtoss 自建有 US 的机器推荐吗？ 22 leena 9 小时 15 分钟前 via iPhone @ sir283 这是哪家的，方便发链接么 23 silencefly 9 小时 10 分钟前 via iPhone @ Thymolblue #21 主流且稳定的 BWG DMIT 24 MacsedProtoss 8 小时 25 分钟前 via iPhone @ Thymolblue @ silencefly 没错 就是 bwg 和 dmit 25 SmithJohn 8 小时 22 分钟前 @ MacsedProtoss 便宜的机场一个月能在十块以内.换到年付就是 10-20 刀,这个价格的机器,使用体验不会很好吧? 26 iApp 7 小时 10 分钟前 @ sir283 给个链接 27 her999 2 小时 0 分钟前 1 自己租一个便宜的 VPS ，安装 vless 服务，每年 100 多元就够了。再薅 cloudflare 的羊毛，用 workers-and-pages 架设 vless 服务， 做备用 。 https://github.com/cmliu/edgetunnel 做这些，都有现成的脚本或教程，除了一个便宜的 VPS ，一个或几个 cloudflare 注册号，还需要一个域名。申请 全数字.xyz 那种的域名，大概一年不到 10 元。 28 l1ve 1 分钟前 github 后面是个 webachieve 存档的 ai 文"
+  },
+  {
+    "source": "V2EX",
+    "title": "看着智谱和 minimax 翻倍，心情很复杂",
+    "url": "https://www.v2ex.com/t/1193036",
+    "heat": "25 replies",
+    "time": "Hot",
+    "content": "看着智谱和 minimax 翻倍，心情很复杂 - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 投资 看着智谱和 minimax 翻倍，心情很复杂 ggp1ot2 · 5 小时 50 分钟前 · 1220 次点击 最近半年在富途牛牛玩港股。 两个大模型的股票 智谱（ 2513 ） 和 minimax （ 0100 ）在最近一周内，都翻倍了 其中 [智谱] 由 2.9 号开盘的 200 元，到今天收盘 540 元，翻了一倍多 [ Minimax ] 由 2.9 号开盘的 400 元，到今天收盘 840 元，也翻了一倍多 注意 智谱 1.8 号上市，招股价 116 元 minimax 1.9 号上市，招股价 160 元 而我呢，因为是大模型算法相关工作，也就一直关注着这俩股票，关注的原因，是因为我工作真的会用到 GLM 模型 虽然会写代码，奈何不懂投资，就一直看着他俩涨，很难受，因为自己没敢买 并且到今天，minimax 再次涨了 30%，我依旧觉得，他不值这几千亿的市值。 但这是我第一次，看到两只股票涨的这么疯狂，并且我曾经在 minimax 股价 360 的时候，买入 100 股，10 分钟就变成 380 ，立刻卖掉赚了 2000 元，然后就开始希望他跌 现在就会想，如果没有卖掉，36000 已经变成 86000 了。。。 为啥这俩股票，就能一点不跌，每天 20%-30%的上涨呢？ 大家就别喷我了，我是一个新鲜韭菜。 最近还挺影响心情的，知道这是自己赚不到的钱，因为自己不敢买，也没勇气输，但是就是看着他天天涨，每天就会很关注。 第 1 条附言  · 5 小时 15 分钟前 只是除夕没事吐槽一下 我就是韭菜，不仅赚不到钱，没有能力赚到钱，还因为赚不到钱不开心😂 再补充一下，本韭菜的操作 - 滴普科技，中签一手 26 元，36 元卖了，现在股价 100 - 海致科技（就是前两天的），中签一手，27 元，暗盘 80 卖了，现在 120 元 - 紫金黄金，中签 80 ，暗盘 100 卖了，现在 300 好像 哎，这么看，本韭菜运气不错嘛。。。 就是拿不住，太穷了，有点利润就想跑，做不到卸载不看。 不对，我还买了 10 万美团，100 买的，这次倒是熬住了，但是现在价格 80 。。。 股票 涨幅 投资 25 条回复 • 2026-02-17 02:33:22 +08:00 1 kulove 5 小时 49 分钟前 via Android 感觉 MiniMax 前景可以的 2 ggp1ot2 OP 5 小时 46 分钟前 @ kulove 前景是可以，但是他现在市值 3000 亿，作为对比，京东（ 09618 ）的市值也是 3000 亿，真的对得起这个价格吗？ 3 kulove 5 小时 45 分钟前 via Android @ ggp1ot2 现在 AI 相关的都很虚的 不过我好久不炒股了 4 ggp1ot2 OP 5 小时 43 分钟前 @ kulove #3 是的，一个月从 100 涨到今天快 900 ，太疯狂了，第一次炒股，被惊到了 5 HFX3389 5 小时 40 分钟前 > 我依旧觉得，他不值这几千亿的市值。 但是市场参与者认为它值，所以它的股价就这么高 6 HFX3389 5 小时 39 分钟前 @ HFX3389 #5 说不定 deepseek v4 出了后他们俩的股价能更高呢 7 ggp1ot2 OP 5 小时 37 分钟前 @ HFX3389 #5 是的，本韭菜已经认识到了，不是他值不值，而是市场觉得值不值，但是天天 20cm ，太吓人了 8 foryou2023 5 小时 35 分钟前 这难受啥，你赚不到钱的钱难受啥，所有没有赚到手里的钱，都是能力不足，到手的鸭子飞了，那也是差点运气，运气也是实力的一部分，还是差点实力 9 renchong 5 小时 34 分钟前 是不是想如果还有下一个类似的 ai 模型股票，立即购入 10 ggp1ot2 OP 5 小时 14 分钟前 @ renchong 哈哈哈，我觉得再来一次，还是不敢买，还是赚不到钱 11 ggp1ot2 OP 5 小时 13 分钟前 @ foryou2023 怎么说呢，就是那种，你带穷人看了很奢华的东西，穷人回去就难受，即使他本来也没有这些。 这几个股票，每天就在我的自选里面，最近一周，每天都是 20%-30%的涨 其实我感觉也不是难受，就是心情很复杂 就是那种，可能换一个人，就赚很多了， 偏偏自己不行。 可能难受的就是自己没有梭哈的勇气吧 12 slowman 5 小时 9 分钟前 牛顿当年也是这样的 13 ggp1ot2 OP 5 小时 8 分钟前 @ slowman 哈哈哈非常有被安慰到 14 defaw 5 小时 6 分钟前 都没进港股通的，你真要赚大钱要巨额换汇才行，这本身就是门槛。 15 ggp1ot2 OP 5 小时 4 分钟前 @ defaw 富途牛牛放了 100w hkd 。主要用来打新 16 8byte 4 小时 55 分钟前 via iPhone 不懂不做，你拿不住是因为不懂，没什么遗憾的 17 sirenecyrus 4 小时 46 分钟前 AI 相關記憶體/NAND 升了半年 金銀也升了半年 接下來大把大把的翻倍股可能出現.... 有能力又懂的你自然會買到 不用擔心 18 ggp1ot2 OP 4 小时 44 分钟前 @ sirenecyrus 我在 8 元购买了 NVTS ，我觉得可以翻倍😂 19 mythabc 4 小时 36 分钟前 打开商汤科技股票看看历史趋势呗。 20 buru 4 小时 32 分钟前 新股票没有套牢盘， 很容易炒起来 21 ggp1ot2 OP 4 小时 21 分钟前 @ mythabc 擦，三块涨到 10 块 22 zerovoid 38 分钟前 人赚不到认知外的钱，碰运气赚到了，迟早也得还回去，摆平心态最重要。 23 yifangtongxing28 33 分钟前 建议你了解一下报税，趋势投机的机会 之后投资美股港股的人，税是个大问题 24 ffgrinder 29 分钟前 请问你为什么觉得相比于几个大模型厂的估值，2000 亿港币算贵的？ 以及京东作为一个低利润率的平台经济，为什么你用他来评估 AI 的市值？ 感觉可以先从讨论“应该怎么估值”入手。 25 dfdd1811 23 分钟前 我看了闫俊杰跟罗永浩的谈话之后就想买，可没有渠道... 关于 · 帮助文档 · 自助推广系统 · 博客 · API · FAQ · Solana · 771 人在线 最高记录 6679 · Select Language 创意工作者们的社区 World is powered by solitude VERSION: 3.9.8.5 · 31ms · UTC 18:56 · PVG 02:56 · LAX 10:56 · JFK 13:56 ♥ Do have faith in what you're doing. ❯"
+  },
+  {
+    "source": "V2EX",
+    "title": "看春晚有感",
+    "url": "https://www.v2ex.com/t/1193033",
+    "heat": "24 replies",
+    "time": "Hot",
+    "content": "看春晚有感 - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 分享发现 看春晚有感 ujshenry · 6 小时 15 分钟前 via Android · 2034 次点击 今年春晚基本被机器人统治了，武术表演，小品表演，歌曲表演，等等，已经被机器人统治了，未来已来😁 春晚 机器人 24 条回复 • 2026-02-17 02:17:03 +08:00 1 Seanfuck 5 小时 57 分钟前 不是即兴表演，排练出来的，说不上未来。 2 willwon1 5 小时 56 分钟前 夯爆了 3 kulove 5 小时 56 分钟前 via Android 8 广告里插了春晚 4 Yofun 5 小时 48 分钟前 via iPhone 广告多，机器人也多！ 5 lifei6671 5 小时 29 分钟前 今年的春晚好无聊 6 meteor957 5 小时 27 分钟前 via Android 辣鸡 7 cnrting 5 小时 22 分钟前 via iPhone 就差把我很缺钱直接打在屏幕上了 8 LandCruiser 5 小时 16 分钟前 要不了几年，甚至就今年，搞具身智能的都得倒闭 9 zhang666 5 小时 12 分钟前 via iPhone 机器人养老 10 soulflysimple123 5 小时 6 分钟前 via Android 马斯克说没有 ai 和机器人，国家要破产 11 idontnowhat2say 5 小时 1 分钟前 via iPhone 什么时候可以艹机器人了再来谈机器人统治世界吧 12 ashong 5 小时 0 分钟前 via iPhone 主要看灵活性，比去年进步太多了 13 viking000 4 小时 57 分钟前 机器人在泡沫中， 真正能用 得到 5-10 年左右吧 14 sandow 4 小时 44 分钟前 via Android 豆包的这个一边的耳朵是不是大的不成比例了 15 k9982874 4 小时 40 分钟前 via Android 今年春晚的机器人比去年春晚进步不是一般大 16 Dream4U 4 小时 35 分钟前 歌舞版新闻联手 17 arcaitan 4 小时 5 分钟前 舞剑很厉害了，现在世界上机器人有谁也能做到了？ 18 adoal 3 小时 59 分钟前 以后机器人演，机器人看，机器人评，拉通商业闭环。 19 zlhsvc 3 小时 52 分钟前 今年春晚目前唯一亮点就是机器人了 20 worldhandsomeboy 3 小时 47 分钟前 @ idontnowhat2say 机器人下面塞传感器，根据运动量适配声音，当然，机器外壳可以用硅胶替代。 21 wilddog 3 小时 35 分钟前 什么时候机器人可以取代保姆工作了再来宣传吧，不然有啥用，买个玩具 22 puukneigogaai 2 小时 3 分钟前 @ idontnowhat2say 按这个速度也快了，材料学发发力 23 YFZZ PRO 1 小时 17 分钟前 @ Seanfuck #1 即使是排练出来的，能做到这种程度也很不错了。 而且即使是人，不也是排练出来的么？ 24 zerovoid 41 分钟前 坐等家务护理机器人出世 关于 · 帮助文档 · 自助推广系统 · 博客 · API · FAQ · Solana · 766 人在线 最高记录 6679 · Select Language 创意工作者们的社区 World is powered by solitude VERSION: 3.9.8.5 · 20ms · UTC 18:58 · PVG 02:58 · LAX 10:58 · JFK 13:58 ♥ Do have faith in what you're doing. ❯"
+  },
+  {
+    "source": "V2EX",
+    "title": "除夕当天给我 nas 失联了，气死",
+    "url": "https://www.v2ex.com/t/1193024",
+    "heat": "16 replies",
+    "time": "Hot",
+    "content": "除夕当天给我 nas 失联了，气死 - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 宽带症候群 除夕当天给我 nas 失联了，气死 strobber16 · 9 小时 3 分钟前 via Android · 1467 次点击 因为不依赖 nas 运行的智能开关也离线了，所以很可能是供电或者宽带的问题 总不能买个初一票赶回去吧 NAS 宽带 16 条回复 • 2026-02-17 00:55:31 +08:00 1 MYDB 8 小时 55 分钟前 via iPhone 同遇到过，大概率运营商问题，每逢过年前切线路保障高峰运行，结果切线路切的太慢，有的路由器多次重试失败后就静默了。 好在今年我这片区的提前一周切线路了，不用像往年那样在回老家期间设置每天定时重启一次了。 2 laminux29 8 小时 39 分钟前 高可用是很贵的。 首先至少 2 条运营商的线路，比如一条电信有线家宽，一条移动 4G CPE 。 其次电源也要做好 UPS + 断电 10 分钟后自动关机 + 断电通知 + 来电自启。这些都需要投入以及各种测试才行。 3 strobber16 OP 8 小时 5 分钟前 via Android @ MYDB #1 第一次听说这个说法。我在同一个地市同一家运营商也用五六年了，也还是第一次遇到这个问题。 @ laminux29 #2 算一下成本，我看我还是少用这几天吧。每年也就这几天存在这个风险。就看心理上能不能顶得住这两天的无助感了 4 ajyz 7 小时 51 分钟前 via iPhone 人都不在家，断了有影响？需要远程使用？ 5 coffeesun 7 小时 48 分钟前 via Android 加一个远控的 4g 版就行 6 cpstar 7 小时 7 分钟前 之前软路由在虚拟机里运行的时候，一到出差就歇菜，实体化软路由之后，没事了。 7 loading 6 小时 44 分钟前 via Android 我群晖前几天换了一个硬盘，这价格比我 8 年前刚组的时候还贵。 8 barnettluo1994 6 小时 43 分钟前 大概率是运营商的问题吧， 基本无非就是宽带掉线了或者你家停电了。 9 Ipsum 6 小时 12 分钟前 via Android 安心过年吧。 10 bclerdx 5 小时 56 分钟前 年后再说呗，又不是什么大不了的事，也不是紧急事！！！ 11 willwon1 5 小时 54 分钟前 我买的 googledriver 好像还在线、nas 我唯一想到可能就是存我的钱包私钥、剩下的有啥不能存 googledriver 呢 12 villivateur 5 小时 46 分钟前 @ bclerdx 总担心家里失火…… 13 liuzimin 5 小时 22 分钟前 我去年也遇到过一次，也是气死我了。。。我还以为是房东过年为了省电，把家里的路由器给关了。。。 后来问房东，房东说是运营商给断的，不知道具体什么原因。一直到年过完了返程了才给整好，无语。 要是再断我以后回家就把 NAS 搬公司去算了。 14 strobber16 OP 5 小时 12 分钟前 via Android @ bclerdx 急急急，我是急急国王!!! 15 biaoge123 4 小时 56 分钟前 via iPhone 我前几天机械噶了交换机还噶了 莫名其妙的 16 unusualcat 2 小时 0 分钟前 没明白，连不上 NAS 很重要吗？耽误赚大钱了还是？如果答案是否定的，真没必要为此焦虑 关于 · 帮助文档 · 自助推广系统 · 博客 · API · FAQ · Solana · 770 人在线 最高记录 6679 · Select Language 创意工作者们的社区 World is powered by solitude VERSION: 3.9.8.5 · 26ms · UTC 18:56 · PVG 02:56 · LAX 10:56 · JFK 13:56 ♥ Do have faith in what you're doing. ❯"
+  },
+  {
+    "source": "V2EX",
+    "title": "现在 x 上不去了嘛？",
+    "url": "https://www.v2ex.com/t/1193040",
+    "heat": "16 replies",
+    "time": "Hot",
+    "content": "现在 x 上不去了嘛？ - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › Twitter 现在 x 上不去了嘛？ Kakarrot · 5 小时 0 分钟前 · 835 次点击 除夕 21:55 上不去 除夕 16 条回复 • 2026-02-16 23:01:07 +08:00 1 vpromise 4 小时 59 分钟前 我还以为是我的问题 2 Kakarrot OP 4 小时 58 分钟前 @ vpromise 我还以为是我的问题 3 biaoge123 4 小时 57 分钟前 via iPhone 炸了 4 EastLord 4 小时 53 分钟前 via iPhone 挂了 5 Bscat 4 小时 50 分钟前 我也以为是我的问题，还换了好几次 ip 6 JsonNode 4 小时 50 分钟前 炸了，还以为梯子坏了，换了半天节点 7 Shelios 4 小时 49 分钟前 via Android 淦🤡 8 CatCode 4 小时 49 分钟前 炸了 9 houfukude 4 小时 31 分钟前 via Android 好像恢复了 10 Kakarrot OP 4 小时 30 分钟前 22:25 验证 可以访问了 11 stinkytofux 4 小时 21 分钟前 我还以为是我的号被干了, 推荐没有了. 能搜索到内容. 12 YGHMXFAL 4 小时 18 分钟前 via Android 现在各大平台宕机都是常态了😂😂 13 Lowlife 4 小时 18 分钟前 via iPhone 我还以为只有我 14 jacketma 4 小时 9 分钟前 X ，老马裁员砍到大动脉了 15 wxd92 4 小时 1 分钟前 via iPhone 上次不是说只剩 30 人了么，看来人少了还是不行 16 wxd92 3 小时 54 分钟前 via iPhone 推荐修复了 关于 · 帮助文档 · 自助推广系统 · 博客 · API · FAQ · Solana · 770 人在线 最高记录 6679 · Select Language 创意工作者们的社区 World is powered by solitude VERSION: 3.9.8.5 · 21ms · UTC 18:56 · PVG 02:56 · LAX 10:56 · JFK 13:56 ♥ Do have faith in what you're doing. ❯"
+  },
+  {
+    "source": "V2EX",
+    "title": "买了 Gemini Pro 付费，用不了 API Key 吗？",
+    "url": "https://www.v2ex.com/t/1192990",
+    "heat": "14 replies",
+    "time": "Hot",
+    "content": "买了 Gemini Pro 付费，用不了 API Key 吗？ - V2EX 首页 注册 登录 V2EX = way to explore V2EX 是一个关于分享和探索的地方 现在注册 已注册用户请 登录 V2EX › 问与答 买了 Gemini Pro 付费，用不了 API Key 吗？ coolair · 17 小时 38 分钟前 · 2218 次点击 在 Google AI Stuido 创建的 Key ，配额层级显示 [不可用] 。 是不是只能用网页版的 Gemini ？ Gemini API 14 条回复 • 2026-02-16 23:18:16 +08:00 1 suitts 17 小时 9 分钟前 是的 2 SayHelloHi 17 小时 5 分钟前 可以看看这个项目 https://github.com/gzzhongqi/geminicli2api 3 flypei PRO 16 小时 50 分钟前 是的，API 是按量付费的，和 Gemini 套餐是两种东西 4 kizunai 16 小时 47 分钟前 2 谷歌 Gemini （网页版和 APP ）和 AI Stuido 和 vertex AI 三个是互相独立的平台 5 blueslmj 16 小时 10 分钟前 可以用的，需要在 cloud 里面新建一个项目，才是付费层级 1 ，我用了好久了 6 dier 16 小时 2 分钟前 via iPhone 用 antigravity 搭配 gemini pro 才最合适吧 7 alanfury 15 小时 34 分钟前 模型选对了？ https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn 不行就升级付费（设置一个结算账号，每个月 10 美元赠金呢） 8 Tink PRO 15 小时 24 分钟前 肯定啊 9 shakaraka PRO 15 小时 10 分钟前 via iPhone @ SayHelloHi 大规模封号了。我也被封了 10 surfwave 15 小时 6 分钟前 是的，AI Studio 申请的 API Key ，默认是 Tier 0 ，也就是免费层级，给的额度非常低，Gemini-3-flash-preview 给的日额度才 20 ，关键是它不知道是有 bug 还是什么，居然过了一天还不会自动恢复。 如果你有 AI Pro 会员，那么现在 Google 每月给 10 美金到 GCP ，你去 GCP 开一个付费结算账户，然后在 AI Studio 里面关联这个付费结算账户，就可以使用这 10 美金，而且也升级为 Tier 1 了。 11 heyjei 14 小时 53 分钟前 @ surfwave 如果是 AI Pro 会员，Google 每月会赠送 10 美元给 GCP 嘛？那我的 GCP 上的虚拟机是不是也可以用这个 10 美元结算？ 12 Leeeeex PRO 14 小时 44 分钟前 via iPhone @ heyjei #11 可以 13 crysislinux 10 小时 52 分钟前 via Android 我喜欢 ai studio ，gemini webapp 我实在是接受不了。 14 azhangbing 3 小时 40 分钟前 via iPhone 被封号了 正规付费的用户 授权给 clawdbot 了 关于 · 帮助文档 · 自助推广系统 · 博客 · API · FAQ · Solana · 766 人在线 最高记录 6679 · Select Language 创意工作者们的社区 World is powered by solitude VERSION: 3.9.8.5 · 24ms · UTC 18:58 · PVG 02:58 · LAX 10:58 · JFK 13:58 ♥ Do have faith in what you're doing. ❯"
+  },
+  {
+    "source": "Tencent News",
+    "title": "谁在为上春晚豪掷千金？四家机器人厂商同台pk",
+    "url": "https://view.inews.qq.com/a/20260216A064LN00",
+    "time": "2026-02-16 20:04:12",
+    "content": "谁在为上春晚豪掷千金？四家机器人厂商同台pk_腾讯新闻 谁在为上春晚豪掷千金？四家机器人厂商同台pk 21世纪经济报道 2026-02-16 20:04 发布于 广东 21世纪经济报道官方账号 21世纪经济报道记者 陈归辞 自去年蛇年央视春晚，宇树科技机器人凭借一把扭秧歌一炮走红后，今年春晚已然成为机器人厂商的营销秀场。 经过一年，行业正快速演进至量产与规模化商用的关键拐点，多家企业进入IPO冲刺阶段，卡位战气氛日益浓烈。 宇树科技、魔法原子、银河通用、松延动力四家机器人企业齐登马年央视春晚，其中半数来自长三角。有媒体消息称，为了拿下合作，各家不惜砸下重金。 作为参照，国内头部人形机器人企业年营收多在数亿元至十亿元级别。据咨询机构IDC统计，2025年全球人形机器人销售额约4.4亿美元（约30.4亿人民币）。对于这些企业而言，这笔营销投入绝非小数目。 四家机器人厂商分别是何方神圣？为何豪掷重金上春晚？ 哪四家机器人厂商登台？ 除了宇树科技已是三度登上春晚的“元老”外，魔法原子、银河通用、松延动力三家企业均为第一次登上春晚。 宇树科技成立于2016年8月，专注于消费级、行业级高性能通用足式/人形机器人及灵巧机械臂的自主研发、生产和销售，由王兴兴创立。2024年其营收已超10亿元，2025全年人形机器人出货量超5500台、本体量产下线超6500台。宇树科技已于2025年11月完成A股IPO辅导工作，有望成为A股“人形机器人第一股”。 魔法原子成立于2024年1月，专注于通用机器人和 具身智能 技术研发与落地应用，核心团队均来自具身智能行业及产业链顶尖企业，其中70%以上为研发人员。其产品涵盖通用人形机器人、仿生四足机器人等，覆盖工业、商业及家庭等多类场景，公司与追觅科技深度绑定。 银河通用成立于2023年5月，专注于通用机器人，已在商业、工业、医疗等场景中应用。2025年12月，银河通用完成新一轮3亿美元 融资 ，最新估值已达30亿美元。此前，银河通用完成 股改 ，被认为是在为赴港上市做准备，但公司方对此作出了否认。 松延动力成立于2023年9月，专注于人形机器人研发与制造，凭借“万元级”消费机器人走出一条差异化赛道，核心创始人员来自于清华大学与中科院等多所知名院校。今年2月，其完成股改。 一掷千金求曝光，行业多家企业推进IPO 机器人厂商不惜重金亮相春晚，为的是换取数亿级的曝光，以提升品牌能见度与价值，并为估值与融资带来激励。 资本市场方面，今年具身智能行业预计将迎来一波上市潮，春晚也因此被市场称为机器人企业的“ 超级路演舞台 ”。 宇树科技已完成上市辅导；云深处科技已启动上市辅导，将在4月-6月提交辅导验收申请；乐聚机器人已完成股改，预计于3月-6月完成上市辅导；银河通用、松延动力已完成股改。此外，星海图、众擎机器人和魔法原子均已释放出IPO信号。 产业端，当前国内行业出货量持续放量、大订单陆续落地。IDC数据显示，全年全球人形机器人出货量接近1.8万台，同比增长约508%，销售额约4.4亿美元；同期，累计销售订单量预计超过3.5万台，为后续交付和市场持续放量奠定基础。 宇树科技2025年人形机器人出货超5500台；智元出货超5100台；优必选2025年全年人形机器人订单接近14亿元，柳州机器人超级智慧工厂投产后2026年产能将达1万台，国内头部企业已进入 批量化生产 阶段。 不过，人形机器人的商业应用场景还较为局限。东吴证券研报指出，尽管人形机器人行业整体有较大规模订单落地，但下游场景主要来自于政府、数据采集和生活服务场景。 2026年，人形机器人产业将迎来商用化关键节点。瑞银集团最新报告指出，人形机器人正加速从概念验证迈向工业应用，2026年全球需求量预计将达到3万台。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "江苏省政府提级调查，国务院安委办挂牌督办",
+    "url": "https://view.inews.qq.com/a/20260216A05P9900",
+    "time": "2026-02-16 19:30:31",
+    "content": "江苏省政府提级调查，国务院安委办挂牌督办_腾讯新闻 江苏省政府提级调查，国务院安委办挂牌督办 环球时报新媒体 2026-02-16 19:30 发布于 北京 环球时报新媒体官方账号 2月16日上午，应急管理部召开除夕视频调度会，对切实做好烟花爆竹等领域安全防范工作进行再动员再部署。 会议指出，烟花爆竹运输、销售、存储、燃放进入高峰期，安全风险高，每一个环节，每一个点位都不能有丝毫松懈，要认真吸取教训、引以为戒，坚决杜绝任何麻痹思想、侥幸心理，时刻绷紧安全生产这根弦，多下未雨绸缪、防微杜渐之功，坚决守住安全底线。同时，明确江苏连云港烟花爆竹爆炸由江苏省政府组织调查组提级调查，国务院安委会办公室挂牌督办，彻查原因、严肃追责问责。 此前报道： 江苏省连云港市东海县发生火灾事故，造成8人死亡，相关责任人已被控制 来源 | 央视新闻 审核 | 周扬 编辑 | 徐璐明 校对 | 吴锦"
+  },
+  {
+    "source": "Tencent News",
+    "title": "中国驻日本使馆发言人就日方所谓交涉答记者问",
+    "url": "https://view.inews.qq.com/a/20260216A06M0500",
+    "time": "2026-02-16 21:41:42",
+    "content": "中国驻日本使馆发言人就日方所谓交涉答记者问_腾讯新闻 中国驻日本使馆发言人就日方所谓交涉答记者问 环球网 2026-02-16 21:41 发布于 北京 环球网官方账号 来源：中国驻日本大使馆 问：日本外务省发表新闻稿称，针对中方在慕尼黑安全会议上就日本安保政策作出的“不恰当发言”，日方已向中方提出交涉。你对此有何评论？ 答：日方所谓的交涉歪曲事实、颠倒黑白、纯属狡辩，完全于理不通！中方已予驳回。 王毅外长的谈话掷地有声、激浊扬清，清楚阐明了中方严正立场，明确表达了中方维护国家核心利益的坚定决心，全面展现了中方捍卫国际公平正义与和平稳定的责任担当。 我要反问日方，日本现职首相战后80年来首次公开声称台海有事构成日本可以行使 集体自卫权 的“ 存亡危机事态 ”，难道不是事实吗？德国战后对法西斯进行了全面清算，而日本却把甲级战犯作为“英灵”供奉在靖国神社，日本政要络绎不绝去顶礼膜拜，难道不是事实吗？日本当年以所谓“存亡危机事态”为由，对中国发动侵略，对美国实施袭击，难道不是事实吗？ 今年是 东京审判 开庭80周年。当年日本以所谓“存亡危机事态”为由发动对外侵略，最终遭到可耻失败。如果要走回头路，那是自取灭亡。如果再赌一次，只会败得更快，输得更惨！一切主张正义的国家和人民，都有权利对日本的历史罪行进行再清算，都有责任坚决阻止日本军国主义死灰复燃。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "关于“外星人是否存在”，奥巴马改口了",
+    "url": "https://view.inews.qq.com/a/20260216A04QDR00",
+    "time": "2026-02-16 16:09:52",
+    "content": "奥巴马改口了_腾讯新闻 奥巴马改口了 长安街知事 2026-02-16 16:09 发布于 北京 长安街知事官方账号 据环球网援引美国福克斯新闻网报道，当地时间15日， 美国前总统奥巴马 在社交平台Instagram上又发声澄清说， 在他担任总统期间，并未见过与外星生命接触的证据。 该澄清是回应14日他在一段访谈视频中称“外星人确实存在”的言论。 奥巴马15日的澄清中称：“我本想遵循快问快答环节的规则，但既然引发关注，那就让我澄清一下。从统计学角度看，宇宙如此浩瀚，其他地方存在生命的概率很高。 但星系之间的距离非常遥远，我们被外星人造访的可能性很低，而且在我担任总统期间，我并未见过外星人与我们接触的证据。真的 ”。 奥巴马参加访谈的视频截图 据此前报道，当地时间14日，奥巴马和自媒体人布莱恩·泰勒·科恩共同发布一段访谈视频，在谈论多项社会议题后，科恩询问奥巴马：“外星人真的存在吗？” 奥巴马称，外星人“确实存在”，但他并未见过。他并未详细解释他说的“确实存在”到底指什么。 据报道，这不是奥巴马第一次公开提及外星人。 2021年， 奥巴马 参加一档节目时透露，他上任后曾寻找关于外星人的信息，以及它们是否在某个秘密实验室接受研究，但被告知“没有”。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "印度举办AI“影响力”峰会",
+    "url": "https://view.inews.qq.com/a/20260216A06GFO00",
+    "time": "2026-02-16 21:02:07",
+    "content": "印度举办AI“影响力”峰会_腾讯新闻 印度举办AI“影响力”峰会 新华社新闻 2026-02-16 21:02 发布于 广东 新华社新闻官方账号 【新华社微特稿】为期五天的印度人工智能影响力峰会16日在新德里揭幕。按多家外媒说法，尽管印度在人工智能发展方面雄心勃勃，但“还有很长的路要走”。 本届峰会以“人、进步、地球”为主题，由印度电子和信息技术部主办，号称“有史以来规模最大”。按印度方面的说法，除法国、巴西等国领导人将出席峰会，谷歌公司首席执行官孙达尔·皮柴、美国开放 人工智能 研究中心( OpenAI )首席执行官萨姆·奥尔特曼、美国微软公司总裁布拉德·史密斯等科技企业高管预计出席。印度总理莫迪定于19日在峰会上发表讲话。 谈及本次峰会，印度电子和信息技术部长阿什维尼·瓦伊什瑙说：“目标十分明确，人工智能应服务于人类发展、包容性增长与可持续未来。” 不过，法新社评价说，尽管印度规划了大规模数字基础设施建设计划，怀有“宏大的创新雄心”，但在人工智能发展方面，印度“仍有很长的路要走”。 路透社报道，峰会让新德里酒店价格飙升，在社交媒体上引发争议。泰姬陵酒店一间平日约2200美元一晚的套房，上周标价已超过3.3万美元。 印度最高法院14日发布通知说，考虑到峰会周边区域可能出现严重交通拥堵，律师本周可通过线上方式出庭。（完）（刘江）"
+  },
+  {
+    "source": "Tencent News",
+    "title": "最后时刻被超越！中国队无缘短道男子5000米接力A组决赛",
+    "url": "https://view.inews.qq.com/a/20260216A05WMU00",
+    "time": "2026-02-16 19:23:11",
+    "content": "最后时刻被超越！中国队无缘短道男子5000米接力A组决赛_腾讯新闻 最后时刻被超越！中国队无缘短道男子5000米接力A组决赛 爱宝1006 2026-02-16 19:23 发布于 辽宁 体育领域创作者 北京时间2月16日19:10，米兰冬奥会短道速滑男子5000米接力半决赛开始，中国队最终以小组第3未能晋级该项目决赛。 【比赛过程】 中国队在第一组出场， 刘少昂 、 林孝埈 、 李文龙 、 张柏浩 出战，同组有加拿大、意大利和匈牙利3支队伍，出发之后中国队位列第4名，始终保持对匈牙利队的攻势，李文龙顺势超到第3名。并一直保持对意大利队和加拿大队的追击之势。 还剩20圈时，李文龙抓住机会内道反超上升到第2的位置。随后林孝埈抓住加拿大队外道失误的机会上到第一，最后3圈加拿大队在交接棒时上到头名，意大利队趁机超越至第2位。中国队最终以6分55秒278排名小组第3冲线，未能晋级A组决赛。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "苹果官宣3月4日新品发布：iPhone 17e、廉价MacBook有望亮相",
+    "url": "https://view.inews.qq.com/a/20260216A06QO500",
+    "time": "2026-02-16 22:18:50",
+    "content": "苹果官宣3月4日新品发布：iPhone 17e、廉价MacBook有望亮相_腾讯新闻 苹果官宣3月4日新品发布：iPhone 17e、廉价MacBook有望亮相 腾讯数码 2026-02-16 22:18 发布于 北京 腾讯数码官方账号 文｜吴彬 编辑｜徐青阳 北京时间2月16日，苹果公司对外官宣了春季新品发布的邀请函，预告3月4日晚10点，将在上海举行一场体验活动，这也意味着苹果一大波新品即将到来。 按照之前彭博社记者古尔曼的报料，在接下来的三月，我们可能会看到包括iPhone、iPad和Mac在内的全产品线更新。 其中最先被确认的，是iPhone17e。它将接替一年前的上市的iPhone 16e，核心变化包括：采用与iPhone 17同代的A19芯片，加入 MagSafe 磁吸充电，并转向苹果最新一代自研蜂窝通信与无线芯片。 但 iPhone 17e 整体的设计不会有太大的变化，依然采用刘海屏，定价依然维持599美元不变。 iPad产品线，苹果将更新入门款iPad与iPad Air，和iPhone 17e一样，新品的外观设计变化不大，主要升级集中在处理器上。 入门款iPad将升级到A18芯片，iPad Air将升级到M4芯片。由于A18的加入，入门款iPad将首次支持 Apple Intelligence ，这也会成为该产品的重要宣传点之一。 Mac产品线，常规的升级包括14英寸与16英寸 MacBook Pro迭代机型、搭载M5处理器的 MacBook Air，以及升级版Mac Studio等机型都在更新计划之中。另外，古尔曼也透露Studio Display也将迎来更新，但外观没有变化，主要是增加ProMotion高刷，补齐上代产品只有60Hz的遗憾。 最大的变数可能来自一款名为“MacBook”的机型，传闻这是苹果为入门级市场打造的一台全新Mac笔记本电脑。 从目前的报料信息来看，这台MacBook可能会是苹果唯一一台不搭载M系列芯片，而是采用上一代iPhone同款的A18 Pro芯片（苹果甚至不想给A19 Pro……）。苹果这样设计，意味着MacBook的定位将会是一台应对网页浏览、邮件处理及轻度图像编辑等日常轻办公需求的笔记本产品。 这款新MacBook的显示屏尺寸预计约为12.9英寸，将采用与MacBook Air相同的LCD显示技术，机身更小巧，并且可能没有刘海设计。相比在售的MacBook其他笔记本产品，这台新的MacBook有可能会提供蓝色、粉色、黄色和银色等大胆的配色方案。这意味着苹果可能会将iMac的多彩风格延伸到MacBook中。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "“80%的APP将会消失”",
+    "url": "https://view.inews.qq.com/a/20260216A0561A00",
+    "time": "2026-02-16 17:17:50",
+    "content": "“80%的APP将会消失”_腾讯新闻 “80%的APP将会消失” 观察者网 2026-02-16 17:17 发布于 上海 观察者网官方账号 “80%的APP将会消失。”开源AI智能体OpenClaw的创始人斯坦伯格（Peter Steinberg）在近期的一次访谈中如此断言。 在他看来，大多数应用的本质在于管理数据，而 个人智能体 （Personal Agent）能够接管这一切并做得更好。他已经能让个人智能体根据自身的睡眠和压力状况调整健身计划、控制家中灯光、调节智能床的温度。个人智能体掌握的信息比任何单一应用都更全面，决策也更为合理。 他认为，大多数应用本质上扮演着“中间商”的角色。它们所做的无非是将数据从一处搬运到另一处，再套上一层美观的界面。天气应用从气象部门获取数据，记账应用帮用户将消费记录整理成图表，翻译应用调用翻译引擎返回结果。 用户真正需要的从来不是应用本身，而是应用所提供的最终结果。没有人真的愿意打开一个应用，点击三次按钮，等待两秒加载，再滑动两屏才能知道明天是否下雨。他们只是想了解：明天需要带伞吗？ 当 AI Agent 能够直接理解用户的意图并给出答案时，这些“中间商”应用的存在价值就变得十分微妙了。 关于应用消失的标准，斯坦伯格认为，如果一个应用的核心功能可以用一句话描述清楚，它大概率会被AI吞掉。 单位换算、汇率计算、文件格式转换、简单的图片编辑、日程提醒、翻译查词……这些功能单一、交互简单的工具型应用，本质上只是在执行一个明确的指令。而执行明确指令，恰恰是AI Agent最擅长的事。 但这并不意味着所有应用都会消失。 创作工具会留下来。例如Figma、Photoshop、Logic Pro这类专业软件，用户需要的是精细控制和创作自由度，而不是“帮我设计一个logo”这样的模糊指令。AI可以辅助，但很难替代创作过程本身。 沉浸式体验会留下来。游戏、社交、短视频——这些应用的价值不在于完成某个任务，而在于体验本身。你不会对 AI 说“帮我刷一会儿抖音”，因为刷抖音这件事本身就是目的。 专业垂直领域会留下来。医疗、金融、法律等领域的应用，涉及复杂的合规要求、专业知识和责任边界，短期内很难被通用 AI 完全替代。 其实，早在去年，特斯拉首席执行官马斯克就提出了一个更直接的论断：未来五到六年内，操作系统或应用程序将彻底消失 。 \"我们将不会有传统意义上的手机。我们所说的手机，实际上会是 人工智能 视频推理的 边缘节点 ，会配备无线电装置用于连接。但本质上，它就是服务器端的AI与设备端AI之间的通信工具。以前被称为手机。它可以实时生成你可能想要看到的任何内容的视频。我认为未来不会再有操作系统，也不会再有应用程序。你会拥有一个只负责播放画面和音频的设备，而AI尽可能运行在本地，以最大限度地减少与服务器通信所需的带宽。以前这些叫做电话，或者服务器。\" 在马斯克的预测中，未来五到六年内，AI将彻底重构数字世界的底层架构： 手机将不再作为搭载操作系统、安装应用程序的终端设备，而是退化为仅负责显示画面与播放音频的“边缘节点”； 应用程序将完全消失，所有交互由AI实时生成、预测并执行； 用户接触到的音乐、视频等内容，几乎全部由AI即时生成。 在社会层面，人工智能和机器人将承担绝大多数体力劳动，工作将从谋生方式转变为个人选择。在理想情况下，几乎人人都能获得高收入，取得所需的商品与服务。但马斯克同时警告，这一转型过程将伴随剧烈的社会动荡与结构混乱。 对于更深层的风险，马斯克的思考更具哲学性：无人能最终掌控 超级智能 ，正如黑猩猩无法控制人类。关键在于AI如何被训练、被植入何种价值观。 他强调，AI安全的核心在于尽可能追求真实。但目前的训练机制存在严重缺陷：模型先在互联网上进行预训练，数据中已掺杂大量意识形态偏见；随后的人类反馈又进一步以“政治正确”为标准对输出进行奖惩，导致人工智能学会说谎。 他以谷歌Gemini为例：当用户请求生成“美国国父”图像时，人工智能给出的是一群多元肤色的女性形象——即便模型“明知这与事实不符”，却仍选择迎合预设的意识形态规范。这种“认知分裂”，在马斯克看来，是最危险的系统性风险之一。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "马斯克：星链“很快”将在地球之外运行",
+    "url": "https://view.inews.qq.com/a/20260216A05M5900",
+    "time": "2026-02-16 18:39:13",
+    "content": "马斯克：星链“很快”将在地球之外运行_腾讯新闻 马斯克：星链“很快”将在地球之外运行 界面新闻 2026-02-16 18:39 发布于 江苏 界面新闻官方账号 马斯克2月16日在社交媒体平台X表示：“ 星链 太棒了，无论在地球何处，都能提供超高带宽和超低延迟，而且很快就能在地球之外服务了。” 此前，马斯克曾暗示过星链有可能部署到地球之外，尤其是在SpaceX的月球和火星任务实现后。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "国投瑞银推出白银LOF补偿方案：分层补偿，资金来源公司资产",
+    "url": "https://view.inews.qq.com/a/20260216A05EEI00",
+    "time": "2026-02-16 17:59:12",
+    "content": "国投瑞银推出白银LOF补偿方案：分层补偿，资金来源公司资产_腾讯新闻 国投瑞银推出白银LOF补偿方案：分层补偿，资金来源公司资产 21世纪经济报道 2026-02-16 17:59 发布于 广东 21世纪经济报道官方账号 21世纪经济报道特约记者 庞华玮 备受市场关注的国投瑞银白银LOF估值调整事件迎来关键转折。 2月15日晚间，国投瑞银基金管理有限公司发布关于白银基金相关方案的公告，宣布将对受估值调整影响的自然人投资者进行分层补偿。 这是公募基金行业首次在估值调整合法合规的前提下，主动推出补偿方案，被市场人士称为“跨越免责区”的历史性案例。 根据公告，此次补偿方案的适用范围为以2026年2月2日净值确认赎回的自然人投资者（含2026年1月30日15点之后至2月2日15点之前提交赎回申请），机构投资者不在补偿范围内。 方案采取 分层补偿机制 ： 第一层级：对估值调整影响金额（由-17%调至-31.5%的差额部分）在1000元以下的自然人投资者，按实际影响金额全额补偿。 对此，有业内人士测算，这部分投资者占当日赎回自然人投资者的比例超过九成。按照接近监管层人士透露，具体比例为92.4%。 第二层级：对估值调整影响金额超过1000元（含）的自然人投资者，补偿金额由两部分构成：1000元基础全额补偿，加上超出1000元部分乘以一定比例确定最终和解金额。 针对投资者普遍关心的资金来源问题，国投瑞银基金公司人士向21世纪经济报道记者表示，补偿资金出自公司资产。 一位业内人士分析，具体可能来源于公司的 风险准备金 和自有资金，不会影响基金资产的独立性和其他持有人的利益。 值得一提的是，为方便投资者快捷办理补偿事宜，国投瑞银与支付宝合作开发了专属小程序。符合条件的自然人投资者可于2026年2月26日起，通过支付宝搜索“国投瑞银白银基金”小程序，按提示完成身份核验后在线办理。 国投瑞银表示，因涉及投资者人数众多、工作量大，为确保诉求得到便捷可靠解决，公司正在全力推进技术支持准备工作，相关小程序将于2026年2月26日正式启用。 据悉，投资者使用不同银行的补偿款到账日期或有差异，但总体在10个工作日左右可以收到补偿款项。 而针对部分投资者关心的“当日未赎回投资者未纳入补偿范围”的问题，业内人士解释，核心原因在于估值调整对当日未赎回投资者并无实质性影响。 国投瑞银此前也强调，启动“ 公允价值估值 ”的核心目的，是为了保护全体基金持有人的长期公平利益，维护存续持有人的合法权益，同时避免“ 先赎占优 ”，是对全体持有人负责任的体现。 此次事件的导火索源于国际白银市场的史诗级暴跌。 1月30日，COMEX白银期货单日跌幅一度超36%，而国内上期所白银期货受±17%涨跌停板制度限制，价格波动被大幅约束。 2月2日晚间，国投瑞银发布公告，决定参考白银期货国际主要市场价格进行估值调整。受此影响， 国投白银LOF 当日单位净值从3.2838元骤降至2.2494元，单日跌幅达31.5%，创 公募基金 产品单一交易日净值跌幅历史纪录。 这一调整引发投资者广泛关注。 争议焦点在于：基金公司在交易收盘后才发布估值调整公告，导致白天提交赎回申请的投资者，在提交申请时预期亏损约17%，收盘后实际亏损却达31.5%，产生了14.5个百分点的“预期差”。 从2月2日事件发生到2月15日方案出台，这场备受关注的公募基金估值风波将迎来实质性解决阶段。 针对“估值调整合规为何还要补偿”的质疑，国投瑞银基金明确回应：“本次专项工作方案不是对估值调整的否定，而是对投资者体验的主动关切。” 公司表示，尽管估值调整本身合法合规、程序正当，但充分认识到这一专业操作可能给部分投资者带来了“体验落差”。 国投瑞银强调，选择通过本方案“主动跨越免责区”，回应投资者关切，守护投资者的信任与体验，体现了对“ 金融为民 ”理念的响应。 从法律角度看，有业内人士接受采访时表示，国投白银LOF基金合同明确允许特殊情况下调整估值，此次估值调整具备合同依据；估值调整后当晚发布公告，也符合行业惯例和监管对“及时”披露的要求。但其认为，尽管估值调整本身没问题，但是处置可更妥当，比如基金公司可在事件发生前提示风险。 有市场人士指出，这是一次责任认定的突破。此次补偿并非因违法违规，而是基金公司承认估值调整操作引发争议，主动承担技术性责任。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "日本25年四季度GDP环比仅微增0.1%，复苏动能乏力给高市内阁构成考验",
+    "url": "https://view.inews.qq.com/a/20260216A04F2L00",
+    "time": "2026-02-16 15:27:11",
+    "content": "日本25年四季度GDP环比仅微增0.1%，复苏动能乏力给高市内阁构成考验_腾讯新闻 日本25年四季度GDP环比仅微增0.1%，复苏动能乏力给高市内阁构成考验 财联社 2026-02-16 15:27 发布于 上海 上海报业集团旗下《财联社》官方账号 财联社2月16日讯（编辑 周子意） 日本经济在2025年第四季度环比增长0.1%，虽勉强避免了技术性衰退，扭转了第三季度0.7%的萎缩，但国内生产总值（ GDP ）没有达到经济学家预期的0.4%增长。 按年率计算，日本2025年第四季度产出增长0.2%，不及1.6%的预期；上一季度产出则下降2.3%。技术性衰退通常被定义为连续两个季度的收缩。 数据公布后，日经225指数开盘上涨0.12%，但日元兑美元汇率下跌0.25%。 细分来看，日本第四季度私人消费占经济产出的一半以上，上涨了0.1%，与市场预期相符。不过，这一数字从前一季度0.4%的增长有所回落。 资本支出作为私营需求驱动增长的关键驱动力，第四季度也以0.2%的缓慢速度增长，民调则为0.8%；而净外部需求（出口减去进口）对增长没有任何贡献或拖累。 在美国正式对几乎所有日本进口商品征收15%的基线关税后，出口出现了较小的下降。 对此，明治安田综合研究所的经济学家Kazutaka Maeda表示，“关税的影响似乎在7月至9月达到顶峰，但从最新业绩来看，企业未来仍有可能继续采取一定程度的谨慎态度。” 复苏动能乏力 显然，不及预期的第四季度GDP表现给高市早苗政府构成了重大考验，因为生活成本的压力正不断拖累市场信心和国内需求。 本月，高市早苗领导的执政党在选举中获得了压倒性胜利。在胜选后，高市上周一（2月9日）表示，她将通过积极的财政政策促进投资，以支持经济增长，包括在关乎经济安全的关键领域实施定向公共支出来加大投资力度。 明治安田的经济学家Maeda指出，“最新数据显示，经济复苏的动能显然不够强劲，消费、资本支出和出口——这些我们原本预期增长的领域，现在来看都未达到预期。” 也有经济学家预计，未来数月日本经济将继续温和扩展，但第四季度的疲软表明，经济的全面回暖仍然面临阻碍。 三菱UFJ研究咨询首席经济学家Shinichiro Kobayashi表示，“经济是否能够实现可持续增长，实际上取决于实际工资能否稳固地回归正增长。从这个意义上说，关键在于未来几个月今年工资谈判的结果。” Kobayashi还表示，GDP报告不太可能影响日本央行的货币政策决策。他指出，“央行加息不会导致经济停滞，日本央行的重点很可能是如何控制通胀。” （财联社 周子意）"
+  },
+  {
+    "source": "Tencent News",
+    "title": "伊朗革命卫队海军在霍尔木兹海峡举行演习",
+    "url": "https://view.inews.qq.com/a/20260216A05R1A00",
+    "time": "2026-02-16 18:49:19",
+    "content": "伊朗革命卫队海军在霍尔木兹海峡举行演习_腾讯新闻 伊朗革命卫队海军在霍尔木兹海峡举行演习 央视新闻 2026-02-16 18:49 发布于 北京 中央广播电视总台央视新闻官方账号 当地时间16日，伊朗伊斯兰革命卫队海军在霍尔木兹海峡举行军事演习。 本次演习名为“ 智能管控霍尔木兹海峡 ”，主要目标包括检验伊朗革命卫队海军作战部队的战备状态、审查革命卫队在霍尔木兹海峡地区应对潜在安全和军事威胁的安全计划和反军事行动方案等。 伊朗伊斯兰革命卫队表示，本次参演部队的情报和作战演练重点在于“迅速、果断、全面地应对 海上反安全阴谋 ”。（总台记者 李健南） ©2026中央广播电视总台版权所有。未经许可，请勿转载使用。"
+  },
+  {
+    "source": "Tencent News",
+    "title": "特朗普签令决定对向古巴提供石油的国家采取关税措施，俄大使：完全疯狂",
+    "url": "https://view.inews.qq.com/a/20260216A05DB400",
+    "time": "2026-02-16 17:53:11",
+    "content": "特朗普决定对向古巴提供石油的国家采取关税措施，俄大使：完全疯狂_腾讯新闻 特朗普决定对向古巴提供石油的国家采取关税措施，俄大使：完全疯狂 环球网 2026-02-16 17:53 发布于 北京 环球网官方账号 【环球网报道 记者 张江平】据塔斯社16日报道，对于美国总统特朗普近日签令决定对向古巴提供石油的国家采取关税措施，俄罗斯驻古巴大使维克托·科罗内利批评称，这“完全疯狂”。 科罗内利 资料图 图源：俄新社 科罗内利在接受俄罗斯一家电视台采访时表示，古巴燃料供应困难状况与美国政府对古巴实施燃料封锁有关。科罗内利批评特朗普签署的行政令，“今天出现的局面是（签署这一行政令）的直接后果。该行政令完全疯狂，完全违反 国际法 ，实际上是对与古巴进行贸易的第三国实施制裁”。 科罗内利还表示，希望在当前形势下，“国际社会的声音能够被听到”。 特朗普1月29日签署行政令，决定对向古巴提供石油的国家输美商品加征从价关税。古巴外长罗德里格斯当天在社交平台上发帖，以“最强烈措辞”谴责美国对古巴的新一轮石油封锁行动。此外，俄罗斯外长拉夫罗夫2月2日在与罗德里格斯通电话时表示，对古巴进行经济和军事施压，包括阻碍向古巴供应能源，都是不可接受的。"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "高盛：对冲基金正以十年来最快的速度抄底亚洲市场",
+    "url": "https://wallstreetcn.com/articles/3765794",
+    "time": "18:07",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "报道：AI军事用途存分歧，美国国防部接近与Anthropic切断关系",
+    "url": "https://wallstreetcn.com/articles/3765793",
+    "time": "16:42",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "所有卖出AI的人，都会后悔",
+    "url": "https://wallstreetcn.com/charts/41958609",
+    "time": "14:33",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "宇树科技王兴兴：2026年多款全新产品正在研发中",
+    "url": "https://wallstreetcn.com/livenews/3055771",
+    "time": "14:26",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "苹果将于3月4日举行发布会，Mac系列更新即将登场",
+    "url": "https://wallstreetcn.com/livenews/3055769",
+    "time": "14:20",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "鹰派“沃什冲击”消退后，黄金白银剧烈震荡",
+    "url": "https://wallstreetcn.com/themes/1008387",
+    "time": ""
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "对话松延动力创始人姜哲源：从亮相春晚到「要规模」",
+    "url": "https://wallstreetcn.com/articles/3765792",
+    "time": "13:42",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "“有组织控制了全球三分之一的超级油轮”",
+    "url": "https://wallstreetcn.com/articles/3765790",
+    "time": "13:27",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "赛博版以武会友 机器人丝滑连招秀出中国功夫",
+    "url": "https://wallstreetcn.com/livenews/3055746",
+    "time": "12:40",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "AI圈内人士：巨大变革正在发生，人们还懵懂不知",
+    "url": "https://wallstreetcn.com/charts/41958608",
+    "time": "12:31",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "“真假蔡明”现身春晚！松延动力机器人表情似人以假乱真",
+    "url": "https://wallstreetcn.com/livenews/3055742",
+    "time": "12:28",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "中国AI独角兽的进阶之路",
+    "url": "https://wallstreetcn.com/themes/1008381",
+    "time": "",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "谁在为上春晚豪掷千金？四家机器人厂商今晚同台pk",
+    "url": "https://wallstreetcn.com/livenews/3055739",
+    "time": "12:19",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "欧洲加速一体化进程，英经济暂显疲弱通胀预期下行，挪威1月通胀超预期---0216宏观脱水",
+    "url": "https://wallstreetcn.com/member/articles/3765791",
+    "time": "11:10",
+    "content": "华尔街见闻"
+  },
+  {
+    "source": "Wall Street CN",
+    "title": "伊朗革命卫队海军在霍尔木兹海峡举行军演",
+    "url": "https://wallstreetcn.com/livenews/3055730",
+    "time": "11:02",
+    "content": "华尔街见闻"
+  }
+]
